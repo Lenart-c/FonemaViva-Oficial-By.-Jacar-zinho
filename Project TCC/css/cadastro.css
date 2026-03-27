@@ -1,0 +1,249 @@
+/* Usada para animação CSS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* Sou burro pra caralho. Era só ter colocado a font-family no começo. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* Parte do backgroud, vou trocar o fundo pelas cores do TCC e colocar uma foto de fundo */
+body {
+    height: 100vh;
+    background: url("../Img/imagem.jpeg") no-repeat center center;
+    background-size: cover;
+    display: flex;
+}
+
+
+/* Parte do corpo do card */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 160px;
+}
+
+
+/* Card de cadastro */
+.card {                 
+    background: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 0.8s ease;
+}
+/* Título do card */
+.card h2 {
+    text-align: center;
+    margin-bottom: 7px;
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* Espaçamento entre as letras */
+.input-group {
+    margin-bottom: 14px;
+}
+/* Texto dentro do card, "Nome", "Email", "Senha" e etc */
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: black;
+}
+/* Box de texto */
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background: #f1f1f1;
+    transition: 0.3s;
+}
+/* Animação da box */
+.input-group input:focus {
+    background: #e0e0e0;
+    transform: scale(1.02);
+}
+
+
+/* Botão de cadastrar */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #2a5298;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+button:hover {
+    background: #1e3c72;
+    transform: translateY(-2px);
+}
+/* Animação */
+button:active {
+    transform: scale(0.98);
+}
+
+
+/* Box Senha */
+.senha-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.senha-container input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+
+/* Olho senha */
+.toggle-senha {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: black;
+    transition: 0.3s;
+}
+.toggle-senha:hover {
+    color: #292929;
+    transform: scale(1.1);
+}
+
+
+/* Botão de Lembrar-me */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.lembrar {
+    font-size: 14px;
+    color: #555;
+    accent-color: #2a5298;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.lembrar input {
+    cursor: pointer;
+}
+
+
+/* Botão que leva pro login */
+.cadastro-texto {
+  margin-top: 15px;
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.cadastro-link {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.cadastro-link:hover {
+  text-decoration: underline;
+  color: #002d5e;
+}
+
+.header-titulo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    animation: fadeIn 0.8s ease;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    background: rgba(255, 255, 255, 0.733);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.164);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    backdrop-filter: blur(5px); /* Vidro Fosco */
+}
+
+
+.left-side {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+}
+
+.container {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.left-content {
+    max-width: 600px;
+    width: 100%;
+    animation: fadeIn 0.8s ease;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.733);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left-content h1{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.left-content p {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/*
+ Fontes: https://developer.mozilla.org/pt-BR/docs/Web/CSS/Guides/Animations/Using
+           https://animate.style/        
+*/

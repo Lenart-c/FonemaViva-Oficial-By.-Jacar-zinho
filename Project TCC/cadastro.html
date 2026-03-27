@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>FonemaViva - Cadastro</title>
+    <link rel="stylesheet" href="./Css/cadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+
+      <header class="header-titulo">
+        FonemaViva
+    </header>
+
+    <div class="left-side">
+    <div class="left-content">
+        <h1>Aplicativo auxiliar de fala</h1>
+        <p>
+            Transforme sua forma de trabalhar com nossas soluções inovadoras.
+            Conecte-se, colabore e crie experiências extraordinárias.
+        </p>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Criar Conta</h2>
+
+            <form id="formCadastro">
+                
+                <div class="input-group">
+                    <label>Nome</label>
+                    <input type="text" id="nome" required placeholder="Digite seu nome completo.">
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required placeholder="Digite seu email.">
+                </div>
+
+                <div class="input-group">
+                    <label>Telefone</label>
+                    <input type="tel" id="telefone" required placeholder="(00) 00000-0000">
+                </div>
+
+
+                <!-- Senhaziha do capeta -->
+               <div class="input-group senha-group">
+    <label>Senha</label>
+    <div class="senha-container">
+        <input type="password" id="senha" minlength="8" maxlength="8" required placeholder="••••••••">
+        <span class="material-symbols-outlined toggle-senha" onclick="toggleSenha('senha', this)">
+            visibility
+        </span>
+    </div>
+</div>
+
+<div class="input-group senha-group">
+    <label>Confirmar Senha</label>
+    <div class="senha-container">
+        <input type="password" id="confirmarSenha" minlength="8" maxlength="8" required placeholder="••••••••">
+        <span class="material-symbols-outlined toggle-senha" onclick="toggleSenha('confirmarSenha', this)">
+            visibility
+        </span>
+    </div>
+</div>
+
+    <!-- Deu problema 3 vezes, mas agora foi!!! -->
+<div class="options">
+    <label class="lembrar">
+        <input type="checkbox" id="lembrar">
+        Lembre-me
+    </label>
+
+</div>
+<p class="cadastro-texto">
+      Já tenho uma conta?
+      <a href="./login.html" class="cadastro-link">Entrar</a>
+    </p>
+
+                <button type="submit">Cadastrar</button>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="./js/javinha.js"></script>
+</body>
+</html>
