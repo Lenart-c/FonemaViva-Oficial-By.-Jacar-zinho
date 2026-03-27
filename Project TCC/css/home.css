@@ -12,7 +12,7 @@ body {
 }
 
 header {
-  background: #70E0D7;
+  background: #00A89E;
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
@@ -56,7 +56,7 @@ nav a:hover {
   background: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: bold;
-  color: #70E0D7;
+  color: #00A89E;
   border: none;
   border-radius: 25px;
   cursor: pointer;
@@ -97,7 +97,7 @@ nav a:hover {
 footer {
   text-align: center;
   padding: 20px;
-  background: #70E0D7;
+  background: #00A89E;
   color: white;
   font-weight: bold;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
