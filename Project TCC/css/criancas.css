@@ -1,0 +1,174 @@
+@keyframes arcoiris {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 300%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: white;
+}
+
+
+/*Barra de cima*/
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  align-items: center;
+  background: #00A89E;
+  border-bottom: 1px solid #ddd;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+
+.topbar-texto {
+  font-size: 25px;
+  background: linear-gradient(
+    50deg,
+    red,
+    blue,
+    green
+  );
+  background-size: 300%;
+  background-clip: text;  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+/* Parte da posição dos cards de exercícios */
+.container {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 260px;
+}
+
+/* Caixa onde está as categotias */
+.box {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  color: black;
+  background:  #f0f0f0f3;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.box ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.box li {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.box li.active {
+  background: rgba(223, 223, 223, 0.836) ;
+  transition: 0.3s;
+}
+
+.box li.active:hover {
+  transform: scale(1.02);
+}
+
+/* Barra de progresso */
+.barra {
+  background: white; /* Parte da direita do progresso */
+  height: 8px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.barra div {
+  height: 100%;
+  background: #00A89E; /* Parte esquerda do progresso */
+  border-radius: 10px;
+}
+
+/* Texto total 50% */
+.total {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Parte dos cards de exercícios */
+.conteudo {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.cards {
+  display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: #f0f0f0f3;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.acoes {
+  margin-top: 15px;
+}
+
+/* Botão de exercícios */
+.btn {
+  background: #00A89E;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+}
+
+
+.detalhes {
+  margin-left: 10px;
+  color: #555;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #00A89E;
+  color: white;
+  margin-top: auto;
+  font-weight: bold;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
