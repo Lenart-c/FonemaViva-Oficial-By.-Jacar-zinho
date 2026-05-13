@@ -29,14 +29,12 @@ body {
   padding: 15px 40px;
   align-items: center;
   background: #00A89E;
-  border-bottom: 1px solid #ddd;
   color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: bold;
 }
 
 .topbar-texto {
-  font-size: 25px;
   background: linear-gradient(
     50deg,
     red,
@@ -171,4 +169,102 @@ footer {
   margin-top: auto;
   font-weight: bold;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* ========================= */
+/* 🌙 DARK MODE */
+/* ========================= */
+
+body.dark {
+  background: #121212;
+  color: white;
+}
+
+/* Navbar */
+body.dark .topbar {
+  background: #1e1e1e;
+}
+
+/* Cards e boxes */
+body.dark .card,
+body.dark .box {
+  background: #1e1e1e;
+  color: white;
+}
+
+/* Texto interno */
+body.dark .card p {
+  color: #ccc;
+}
+
+/* 🔥 ATIVO NO DARK (AQUI ESTÁ O QUE VOCÊ QUERIA) */
+body.dark .box li.active {
+  background: #121212a1;
+  color: #fff;
+}
+
+/* Hover no dark */
+body.dark .box li:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Barra progresso */
+body.dark .barra {
+  background: #333;
+}
+
+/* ========================= */
+/* 🌗 TOGGLE (estilo iPhone) */
+/* ========================= */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle-track {
+  width: 60px;
+  height: 30px;
+  background: #e5e5e5;
+  border-radius: 50px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.toggle-thumb {
+  width: 26px;
+  height: 26px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Ícones */
+.toggle-thumb img {
+  width: 14px;
+  height: 14px;
+}
+
+/* 🌙 quando está escuro */
+body.dark .toggle-track {
+  background: #333;
+}
+
+body.dark .toggle-thumb {
+  left: 32px;
+  background: black;
+}
+
+body.dark .topbar {
+  background: #00A89E;
+  backdrop-filter: blur(10px);
 }

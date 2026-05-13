@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercícios R e L</title>
+  <link rel="stylesheet" href="./css/sons-rl.css">
+</head>
+
+<body>
+
+<header class="topbar">
+  <h1>FonemaViva</h1>
+  <span class="sub">Treino de Pronúncia - R e L</span>
+</header>
+
+<main class="container">
+
+  <!-- 🔥 BARRA DE PROGRESSO (FORA DO CARD) -->
+  <div class="progresso-container">
+    <div class="progresso-barra">
+      <div id="progresso"></div>
+    </div>
+    <span id="progresso-texto">0%</span>
+  </div>
+
+  <div class="card">
+
+    <p class="instrucao">Repita a palavra:</p>
+    <h2 id="palavra">Rato</h2>
+
+    <button id="gravar" class="btn-mic">🎤 Falar</button>
+
+    <div class="resposta">
+      <p>Você falou:</p>
+      <span id="resultado">...</span>
+    </div>
+
+    <p id="feedback"></p>
+
+  </div>
+
+  <div class="nav-botoes">
+    <button id="anterior" class="btn-next">← Anterior</button>
+    <button id="proximo" class="btn-next">Próxima →</button>
+  </div>
+
+</main>
+
+<script src="./js/sons-rl.js"></script>
+
+</body>
+</html>

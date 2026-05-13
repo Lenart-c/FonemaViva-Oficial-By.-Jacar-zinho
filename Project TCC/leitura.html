@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>FonemaViva - Leitura</title>
+  <link rel="stylesheet" href="./css/leitura.css">
+</head>
+
+<body>
+
+<header class="topbar">
+  <h1>FonemaViva</h1>
+  <span class="sub">Treino de Pronúncia - Leitura</span>
+</header>
+
+<div class="container">
+
+  <!-- 🔥 BARRA DE PROGRESSO -->
+  <div class="progresso-container">
+    <div class="progresso-barra">
+      <div id="progresso"></div>
+    </div>
+    <span id="progresso-texto">0%</span>
+  </div>
+
+  <div class="card">
+
+    <p class="instrucao">Leia o texto abaixo em voz alta:</p>
+
+    <p id="palavra">
+      Texto aparecerá aqui
+    </p>
+
+    <button id="gravar" class="btn-mic">🎤 Falar</button>
+
+    <div class="resposta">
+      <span id="resultado">...</span>
+      <div id="feedback"></div>
+    </div>
+
+  </div>
+
+  <!-- 🔥 FORA DO CARD -->
+  <div class="nav-botoes">
+    <button id="anterior" class="btn-next">⬅ Anterior</button>
+    <button id="proximo" class="btn-next" disabled>Próximo ➡</button>
+  </div>
+
+</div>
+
+<script src="./js/leitura.js"></script>
+
+</body>
+</html>

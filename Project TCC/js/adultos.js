@@ -1,90 +1,4 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {   // Essa bosta vai esperar toda a pagina do site carregar antes pra depois começar a iniciar o código todo
-
-  // Verificar suporte para Speech Recognition
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SpeechRecognition) {
-    alert('Reconhecimento de voz não é suportado neste navegador.');
-  }
-
-  // Função para calcular acurácia simples baseada em caracteres coincidentes
-  function calculateAccuracy(transcript, expected) {
-    const maxLen = Math.max(transcript.length, expected.length);
-    if (maxLen === 0) return 100;
-    let matches = 0;
-    const minLen = Math.min(transcript.length, expected.length);
-    for (let i = 0; i < minLen; i++) {
-      if (transcript[i] === expected[i]) matches++;
-    }
-    return Math.round((matches / maxLen) * 100);
-  }
-
-  // Função para mostrar modal do exercício
-  function showExerciseModal(expected) {
-    const modal = document.createElement('div');
-    modal.id = 'exercise-modal';
-    modal.style.position = 'fixed';
-    modal.style.top = '50%';
-    modal.style.left = '50%';
-    modal.style.transform = 'translate(-50%, -50%)';
-    modal.style.background = 'white';
-    modal.style.padding = '20px';
-    modal.style.border = '1px solid black';
-    modal.style.zIndex = '1000';
-    modal.style.boxShadow = '0 0 10px rgba(0,0,0,0.5)';
-    modal.innerHTML = `
-      <h3>Exercício de Pronúncia</h3>
-      <p>Diga: <strong>${expected}</strong></p>
-      <button id="start-speak">Falar</button>
-      <div id="result" style="display:none; margin-top: 10px;">
-        <p id="feedback"></p>
-        <p>Você disse: <span id="transcript"></span></p>
-        <p>Acurácia: <span id="accuracy"></span>%</p>
-        <button id="retry" style="display:none; margin-top: 10px;">Tentar novamente</button>
-      </div>
-      <button id="close-modal" style="margin-top: 10px;">Fechar</button>
-    `;
-    document.body.appendChild(modal);
-    document.getElementById('start-speak').addEventListener('click', () => {
-      startRecognition(expected, modal);
-    });
-    document.getElementById('close-modal').addEventListener('click', () => {
-      modal.remove();
-    });
-    document.getElementById('retry').addEventListener('click', () => {
-      startRecognition(expected, modal);
-    });
-  }
-
-  // Função para iniciar reconhecimento de voz
-  function startRecognition(expected, modal) {
-    const recognition = new SpeechRecognition();
-    recognition.lang = 'pt-BR'; // Definir idioma para português
-    recognition.continuous = false;
-    recognition.interimResults = false;
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript.toLowerCase();
-      const expectedLower = expected.toLowerCase();
-      const accuracy = calculateAccuracy(transcript, expectedLower);
-      document.getElementById('transcript').textContent = transcript;
-      document.getElementById('accuracy').textContent = accuracy;
-      const feedback = document.getElementById('feedback');
-      const retryBtn = document.getElementById('retry');
-      if (accuracy >= 70) {
-        feedback.textContent = 'Correto!';
-        retryBtn.style.display = 'none';
-      } else {
-        feedback.textContent = 'Palavra incorreta, tente novamente.';
-        retryBtn.style.display = 'block';
-      }
-      document.getElementById('result').style.display = 'block';
-    };
-    recognition.onerror = (event) => {
-      alert('Erro no reconhecimento de voz: ' + event.error);
-    };
-    recognition.start();
-  }
 
 
   const menu = document.querySelectorAll("#menu li");   // Isso aqui vai pegar e selecionar todos os itens do menu
@@ -111,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {   // Essa bosta vai espera
 
       cards.forEach(card => {                           // Isso aqui vai funcionar para cada card de exercício
 
-    
         if (categoria === "todos" || card.dataset.cat === categoria) {          // Se for "todos" OU a categoria do card for igual à selecionada
           card.style.display = "block";                 // Vai te mostrar o card
         } else {
@@ -126,21 +39,77 @@ document.addEventListener("DOMContentLoaded", () => {   // Essa bosta vai espera
 
   document.querySelectorAll(".iniciar").forEach(btn => {    // Este vai selecionar todos os botões de "iniciar exercício"
     btn.addEventListener("click", (e) => {                  // Funciona quando clica no botão
-      const nome = e.target.closest(".card").querySelector("h4").innerText;     // Vai pegar o card onde o botão está             //Pog demais, foi de primeira
-      if (nome === 'Sons do R e L') {
-        const words = ['carro', 'bola', 'ralo', 'laranja', 'prato', 'velho'];
-        const expected = words[Math.floor(Math.random() * words.length)];
-        showExerciseModal(expected);
-      } else if (nome === 'Leitura em voz alta') {
-        const text = 'O sol brilha no céu azul.';
-        showExerciseModal(text);
-      } else if (nome === 'Trava-línguas') {
-        const twister = 'A aranha arranha a rã.';
-        showExerciseModal(twister);
-      } else {
-        alert("Carregando o exercício: " + nome);                          // Mostra um alerta "carregando o exercício" com o nome do exercício
+      
+      const link = btn.dataset.link;
+
+      if (link) {
+        window.location.href = link;                        // Isso funciona pra linkar as páginas
+        return;                                             // Essa porra de linha vai resolver meus problemas, graças a Deus.
+      }    
+      else {
+        alert("Este exercício ainda não está disponível.");
       }
     });
   });
 
 });
+
+
+// Parte do Tema escuro e claro                         // VAI TOMAR NO CÚÚÚÚÚÚÚÚÚÚÚÚÚ  Puta que pariu, que código filho da puta. Raiva do caralho
+                                                        // EEEEEEEXXXXXXXXXXXXXX 676767676767676767 -----------------------
+
+const body = document.body;                             // Pega a PORRA do corpo do css da página pra modificar.
+
+const toggle = document.querySelector(".theme-toggle"); // Vai pegar o botão do tema (toggle).
+
+const icon = document.querySelector(".toggle-thumb img");  // Vai pegar o circulo do botão.
+
+function atualizarIcone() {
+
+  if (body.classList.contains("dark")) {                 // Vai verificar se o sistema está no escuro ou claro         /Clovisssssss
+
+    icon.src = "./img/brilho-do-sol.png";                // Quando entrar no modo escuro ele mostra o ícone de sol que eu escolhi.
+                                                         // Já dizia Rick and Morty, Cabeça abaixada, bunda levantada, Ouié.
+
+  } else {
+
+    icon.src = "./img/lua-minguante.png";                // Quando entrar no modo claro ele mostra o ícone de lua que eu escolhi.
+  }
+}
+
+function aplicarTemaSistema() {                          // Verifica se o sistema do navegador está com o tema claro ou escuro.
+
+  const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;         // Verifica se está no modo escuro
+
+  if (darkMode) {                                        // Verifica se está no modo escuro
+
+    body.classList.add("dark");                          // Fiz com que fosse adicionado a classe "dark" no css pra mexer na parte escura do site
+
+  } else {                                               // Se o sistema não estiver no modo escuro ele remove a classe "dark" que adicionei
+
+    body.classList.remove("dark");
+  }
+
+  atualizarIcone();                                      // Toda vez que eu iniciava a página o ícone do tema não carregava junto. Isso faz com que carregue junto com a página
+}
+
+
+if (toggle) {
+  toggle.addEventListener("click", () => {               // Ele faz o efeito de evento do botão
+
+    body.classList.toggle("dark");                       // Altera entre modo claro e escuro
+
+    atualizarIcone();                                    // Atualiza o ícone após clicar
+  });
+}
+
+
+aplicarTemaSistema();                                    // Vai aplicar isso quando carregar a página
+
+
+
+
+// •Fontes           - https://developer.mozilla.org/pt-BR/docs/Web/API/Document/DOMContentLoaded_event
+                   //- https://developer.mozilla.org/pt-BR/docs/Web/API/Document/querySelector
+                   //- https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLElement/dataset
+                   //- https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList

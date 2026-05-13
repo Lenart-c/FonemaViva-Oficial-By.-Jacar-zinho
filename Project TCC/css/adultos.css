@@ -5,6 +5,7 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+/* Corpo geracional para pessoas geracionais. */
 body {
   display: flex;
   flex-direction: column;
@@ -12,20 +13,17 @@ body {
   background: white;
 }
 
-
 /*Barra de cima*/
 .topbar {
   display: flex;
   justify-content: space-between;
   padding: 15px 40px;
   background: #00A89E;
-  border-bottom: 1px solid #ddd;
   color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: bold;
 }
 
-/* Parte da posição dos cards de exercícios */
+/* Container */
 .container {
   display: flex;
   flex: 1;
@@ -36,31 +34,32 @@ body {
   width: 260px;
 }
 
-/* Caixa onde está as categotias */
+/* Box */
 .box {
-  background: white;
   padding: 20px;
   border-radius: 15px;
   margin-bottom: 20px;
   color: black;
-  background:  #f0f0f0f3;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: #f0f0f0f3;
 }
 
+/* Parte do card categorias */
 .box ul {
   list-style: none;
   margin-top: 10px;
 }
 
+/* Parte em destaque ao clicar em alguma categoria (Foda-se não vou saber explicar direito */
 .box li {
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
+/* A mesma coisa só que isso funciona no modo claro */
 .box li.active {
-  background: rgba(223, 223, 223, 0.836) ;
-  transition: 0.3s;
+  background: rgba(218, 218, 218, 0.836);
 }
 
 .box li.active:hover {
@@ -69,33 +68,35 @@ body {
 
 /* Barra de progresso */
 .barra {
-  background: white; /* Parte da direita do progresso */
+  background: white;
   height: 8px;
   border-radius: 10px;
   margin-bottom: 10px;
 }
 
+/* Cor do progresso */
 .barra div {
   height: 100%;
-  background: #00A89E; /* Parte esquerda do progresso */
+  background: #00A89E;
   border-radius: 10px;
 }
 
-/* Texto total 50% */
+/* Texto do total */
 .total {
   margin-top: 10px;
   font-weight: bold;
 }
 
-/* Parte dos cards de exercícios */
+/* Parte dos exercícios */
 .conteudo {
   flex: 1;
   margin-left: 20px;
 }
 
+/* Card de exercícios */
 .cards {
   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
 }
 
@@ -129,13 +130,7 @@ body {
   transform: scale(1.02);
 }
 
-
-.detalhes {
-  margin-left: 10px;
-  color: #555;
-  cursor: pointer;
-}
-
+/* FUUUUUUUUUUUUUUUUUUUUUUTTTTTTTTEEEEEEEEEEEERRRRRRRRRRRRR */
 footer {
   text-align: center;
   padding: 15px;
@@ -143,5 +138,98 @@ footer {
   color: white;
   margin-top: auto;
   font-weight: bold;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* Modo escuro */
+body.dark {
+  background: #121212;
+  color: white;
+}
+
+/* Top Bar só que escura */
+body.dark .topbar {
+  background: #1e1e1e;
+}
+
+/* Cards no modo escuro */
+body.dark .card,
+body.dark .box {
+  background: #1e1e1e;
+  color: white;
+}
+
+/* Texto interno */
+body.dark .card p {
+  color: #ccc;
+}
+
+
+body.dark .box li.active {
+  background: #121212a1;
+  color: #fff;
+}
+
+/* Hover no modo dark */
+body.dark .box li:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Barra progresso no modo dark */
+body.dark .barra {
+  background: #333;
+}
+
+/* Parte do botão de tema */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Estilização do modo claro */
+.toggle-track {
+  width: 60px;
+  height: 30px;
+  background: #e5e5e5;
+  border-radius: 50px;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* estilização do botão modo claro e escuro */
+.toggle-thumb {
+  width: 26px;
+  height: 26px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  box-shadow: 0 2px 6px rgba(255, 92, 92, 0.2);
+}
+
+/* Parte dos ícones */
+.toggle-thumb img {
+  width: 14px;
+  height: 14px;
+}
+
+/* Quando está no modo escuro */
+body.dark .toggle-track {
+  background: #333;
+}
+
+body.dark .toggle-thumb {
+  left: 32px;
+  background: black;
+}
+
+body.dark .topbar {
+  background: #00A89E;
+  backdrop-filter: blur(10px);
 }

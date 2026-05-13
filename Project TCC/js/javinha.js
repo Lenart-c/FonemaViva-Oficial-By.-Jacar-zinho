@@ -30,7 +30,7 @@ telefoneInput.addEventListener("input", function (e) {
 //Ex (Me faz sofrer iguazinho minha ex namorada)
 //Baino (Vou dormir e deixar pra fazer isso depois)
 //Coringão /da massa (Se for só coringão vou me tacar da janela. Se for da massa ta tranquilo "POR ENQUANTO")
-//67 (O pedro ou o enrico vai morrer)
+//67 (O pedro ou o enrico vai ter que dar a bunda)
 //--- (Pânico em massa)
 // XXX (Ou eu faço uma bomba Núclear, ou viro um técnico da Tim)
 // ... (...)
@@ -64,8 +64,8 @@ form.addEventListener("submit", function(e) {
     }
 
     
-    if (senha !== confirmarSenha) {                      //Depois que o usúario digitar a senha, isso vai fazer com que a confirmação e a senha tenham que ser iguais.
-        alert("A senha não está correta!");              //Se elas não forem iguais, vai mostrar um alerta de erro     //EX - Nota oficial essa porra de alerta não muda por nada.    //Nota pessoal, Ajuda nóis ai kaynan
+    if (senha !== confirmarSenha) {                    // Depois que o usúario digitar a senha, isso vai fazer com que a confirmação e a senha tenham que ser iguais.
+        alert("A senha não está correta!");            // Se elas não forem iguais, vai mostrar um alerta de erro     //EX - Nota oficial essa porra de alerta não muda por nada.    //Nota pessoal, Ajuda nóis ai kaynan
         return;
     }
 
@@ -73,11 +73,11 @@ form.addEventListener("submit", function(e) {
     if (lembrarCheckbox.checked) {                       //Quando ativo, ele vai salvar a conta
         localStorage.setItem("email", emailInput.value); //Ele guarda o cadastro de cada usúario no navegador.
     } else {
-        localStorage.removeItem("email");                //Se o usúario não marcar pra lembrar, ele simplesmente não vai salvar
+        localStorage.removeItem("email");              //Se o usúario não marcar pra lembrar, ele simplesmente não vai salvar
     }
 
     
-   alert("Cadastro realizado com sucesso!");            //Pog de mais
+   alert("Cadastro realizado com sucesso!");           //Pog de mais
 
 
 window.location.href = "http://127.0.0.1:5500/index.html"; //Após as verificações que o lenart vai fazer no SupaBase a proxima pagina carregada vai ser a do home
@@ -100,15 +100,3 @@ function toggleSenha(id, elemento) {                   // 6767676767676767676767
 // •Fontes                   - https://pt.stackoverflow.com/questions/189187/express%C3%A3o-regular-em-javascript-para-telefone-com-ddi
 //                           - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_expressions
 //                           - https://www.w3schools.com/jsref/jsref_regexp_digit_non.asp
-
-
-
-
-
-
-
-
-
-//Isso aqui é pra esconder e proteger a senha
-//No caso desse, ele vai mostrar a senha
-//vai trocar o icone do olho para o olho fechado

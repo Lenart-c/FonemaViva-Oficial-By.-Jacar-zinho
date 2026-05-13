@@ -50,3 +50,7 @@ function toggleSenha(id, el) {
 }
 
                                             
+
+// •Fontes                   - https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage
+                           //- https://www.w3schools.com/js/js_validation.asp
+                           //- https://javascript.info/localstorage
