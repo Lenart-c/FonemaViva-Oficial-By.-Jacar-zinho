@@ -1,0 +1,170 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui;
+}
+
+body {
+  background: linear-gradient(135deg, #00A89E, #007c74);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  color: white;
+  font-weight: bold;
+}
+
+.sub {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* 🔥 ESSENCIAL */
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  width: 420px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  animation: fadeIn 0.5s ease;
+}
+
+.instrucao {
+  font-size: 14px;
+  color: #777;
+}
+
+#frase {
+  font-size: 22px;
+  margin: 20px 0;
+  color: #00A89E;
+  font-weight: bold;
+}
+
+.btn-mic {
+  background: #00A89E;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-mic:hover {
+  transform: scale(1.05);
+  background: #007c74;
+}
+
+.resposta {
+  margin-top: 20px;
+}
+
+#resultado {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#feedback {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* 🔥 FORA DO CARD */
+.nav-botoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+  width: 250px;
+}
+
+.btn-next {
+  flex: 10px;
+  background: white;
+  color: #00A89E;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s; 
+  font-weight: bold;
+}
+
+.btn-next:hover {
+  transform: scale(1.05);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+
+/* 🔥 PROGRESSO */
+.progresso-container {
+  width: 420px;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.progresso-container {
+  width: 420px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.progresso-barra {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 18px; /* 🔥 MAIS GROSSA */
+  background: rgba(255,255,255,0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
+}
+
+#progresso {
+  height: 100%;
+  width: 0%;
+  background: white;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+/* TEXTO % */
+#progresso-texto {
+  display: block;
+  margin-top: 8px;
+  color: white;
+  font-weight: bold;
+}
