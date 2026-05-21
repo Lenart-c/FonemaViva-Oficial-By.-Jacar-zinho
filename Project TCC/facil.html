@@ -8,9 +8,8 @@
   <meta name="viewport"
   content="width=device-width, initial-scale=1.0">
 
-  <title>FonemaViva • Exercícios</title>
+  <title>FonemaViva • Trava-Línguas</title>
 
-  <!-- FONT -->
   <link rel="preconnect"
   href="https://fonts.googleapis.com">
 
@@ -21,29 +20,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
   rel="stylesheet">
 
-  <!-- CSS -->
   <link rel="stylesheet"
-  href="./css/sons-rl.css">
+  href="./css/facil.css">
 
 </head>
 
 <body>
 
-  <!-- HEADER -->
   <header class="topbar">
 
     <h1>FonemaViva</h1>
 
     <span>
-      Exercícios • R e L
+      Exercício • Trava-Línguas
     </span>
 
   </header>
 
-  <!-- MAIN -->
   <main class="container">
 
     <!-- PROGRESSO -->
+
     <section class="progresso-container">
 
       <div class="progresso-top">
@@ -65,62 +62,55 @@
     </section>
 
     <!-- CARD -->
+
     <section class="card">
 
-      <p class="mini-texto">
-        Palavra atual
+      <p class="mini">
+        Leia em voz alta
       </p>
 
-      <h2 id="palavra">
-        Rato
+      <h2 id="trava">
+        O rato roeu a roupa do rei.
       </h2>
 
       <p class="instrucao">
-        Clique no botão abaixo e fale a palavra.
+        Clique no botão e fale o trava-língua inteiro.
       </p>
 
-      <!-- BOTÃO -->
       <button id="gravar"
-      class="btn-mic">
+      class="btn">
 
-        🎤 Falar Palavra
+        🎤 Falar
 
       </button>
 
-      <!-- RESULTADO -->
-      <div class="resultado-box">
+      <div class="resultado">
 
         <p>
           Você falou:
         </p>
 
-        <span id="resultado">
+        <span id="texto">
           ...
         </span>
 
       </div>
 
-      <!-- FEEDBACK -->
       <p id="feedback"></p>
 
-    </section>
-
-    <!-- NAVEGAÇÃO -->
-    <div class="nav-botoes">
-
       <button id="proximo"
-      class="btn-nav">
+      class="btn-next"
+      disabled>
 
-        Próxima →
+        Próximo →
 
       </button>
 
-    </div>
+    </section>
 
   </main>
 
-  <!-- JS -->
-  <script src="./js/sons-rl.js"></script>
+  <script src="./js/facil.js"></script>
 
 </body>
 </html>

@@ -1,74 +1,246 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <title>FonemaViva - Login</title>
-    <link rel="stylesheet" href="./css/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0" />
+
+  <title>FonemaViva - Login</title>
+
+  <link rel="stylesheet"
+  href="./css/login.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+  rel="stylesheet" />
+
 </head>
+
 <body>
 
-<header class="header-titulo">
-    FonemaViva
-</header>
+  <!-- FUNDO -->
+  <div class="bg-overlay"></div>
 
-<div class="layout">
+  <!-- HEADER -->
+  <header class="header-titulo">
 
-    <!-- LADO ESQUERDO -->
-    <div class="left-side">
-        <div class="left-content">
-            <h1>Bem-vindo de volta</h1>
-            <p>
-                Acesse sua conta e continue evoluindo sua comunicação
-                com nossas ferramentas inteligentes.
-            </p>
-        </div>
+    <div class="logo">
+      FonemaViva
     </div>
 
-    <!-- LADO DIREITO -->
-    <div class="right-side">
-        <div class="card">
+  </header>
 
-            <h2>Entrar</h2>
+  <!-- CONTAINER -->
+  <main class="container">
 
-            <form id="formLogin">
+    <!-- ESQUERDA -->
+    <section class="left-side">
 
-                <div class="input-group">
-                    <label>Email</label>
-                    <input type="email" id="email" placeholder="Digite seu email" required>
-                </div>
+      <div class="left-content">
 
-                <div class="input-group">
-                    <label>Senha</label>
-                    <div class="senha-container">
-                        <input type="password" id="senha" minlength="8" maxlength="8" placeholder="••••••••" required>
-                        <span class="material-symbols-outlined toggle-senha"
-                              onclick="toggleSenha('senha', this)">
-                            visibility
-                        </span>
-                    </div>
-                </div>
+        <span class="badge">
+          Plataforma Inteligente
+        </span>
 
-                <div class="options">
-                    <label class="lembrar">
-                        <input type="checkbox" id="lembrar">
-                        Lembrar-me
-                    </label>
-                </div>
+        <h1>
+          Aprenda comunicação de forma moderna e acessível.
+        </h1>
 
-                <button type="submit">Logar</button>
+        <p>
+          Continue sua jornada utilizando exercícios inteligentes,
+          reconhecimento de voz e atividades interativas
+          desenvolvidas para todas as idades.
+        </p>
 
-                <p class="cadastro-texto">
-                    Não tem conta?
-                    <a href="./cadastro.html">Criar agora</a>
-                </p>
+        <div class="benefits">
 
-            </form>
+          <div class="benefit-card">
+
+            <span class="material-symbols-outlined">
+              graphic_eq
+            </span>
+
+            <div>
+
+              <h3>
+                Reconhecimento de voz
+              </h3>
+
+              <p>
+                Exercícios modernos em tempo real.
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="benefit-card">
+
+            <span class="material-symbols-outlined">
+              school
+            </span>
+
+            <div>
+
+              <h3>
+                Aprendizado acessível
+              </h3>
+
+              <p>
+                Interface simples para qualquer idade.
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="benefit-card">
+
+            <span class="material-symbols-outlined">
+              psychology
+            </span>
+
+            <div>
+
+              <h3>
+                Evolução contínua
+              </h3>
+
+              <p>
+                Melhore sua fala e comunicação diariamente.
+              </p>
+
+            </div>
+
+          </div>
+
         </div>
-    </div>
 
-</div>
+      </div>
 
-<script src="./js/login.js"></script>
+    </section>
+
+    <!-- DIREITA -->
+    <section class="right-side">
+
+      <div class="card">
+
+        <div class="card-top">
+
+          <h2>
+            Entrar
+          </h2>
+
+          <p>
+            Faça login para continuar
+          </p>
+
+        </div>
+
+        <form id="formLogin">
+
+          <!-- EMAIL -->
+          <div class="input-group">
+
+            <label for="email">
+              Email
+            </label>
+
+            <div class="input-box">
+
+              <span class="material-symbols-outlined">
+                mail
+              </span>
+
+              <input type="email"
+              id="email"
+              placeholder="Digite seu email"
+              required />
+
+            </div>
+
+          </div>
+
+          <!-- SENHA -->
+          <div class="input-group">
+
+            <label for="senha">
+              Senha
+            </label>
+
+            <div class="input-box senha-container">
+
+              <span class="material-symbols-outlined">
+                lock
+              </span>
+
+              <input type="password"
+              id="senha"
+              minlength="8"
+              maxlength="8"
+              placeholder="••••••••"
+              required />
+
+              <span class="material-symbols-outlined toggle-senha"
+              onclick="toggleSenha('senha', this)">
+
+                visibility
+
+              </span>
+
+            </div>
+
+          </div>
+
+          <!-- OPÇÕES -->
+          <div class="options">
+
+            <label class="lembrar">
+
+              <input type="checkbox"
+              id="lembrar" />
+
+              Lembrar-me
+
+            </label>
+
+            <a href="#">
+              Esqueceu a senha?
+            </a>
+
+          </div>
+
+          <!-- BOTÃO -->
+          <button type="submit"
+          class="btn-login">
+
+            Entrar na plataforma
+
+          </button>
+
+          <!-- CADASTRO -->
+          <p class="cadastro-texto">
+
+            Não possui conta?
+
+            <a href="./cadastro.html">
+              Criar agora
+            </a>
+
+          </p>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="./js/login.js"></script>
+
 </body>
+
 </html>

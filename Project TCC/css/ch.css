@@ -1,0 +1,162 @@
+/* RESETA TUDO EM GERAL */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+
+body{
+  min-height: 100vh;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+  background: linear-gradient(
+  135deg,
+  #0f172a,
+  #1e293b,
+  #0f766e
+  );
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOPO */
+
+.topbar{
+  display: flex;
+  justify-content: space-between;
+  padding: 28px 50px;
+}
+
+/* CONTAINER PRINCIPAL */
+
+.container{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* PROGRESSO*/
+
+.progresso-container{
+  width: 420px;
+  margin-bottom: 25px;
+}
+
+/* TOPO PROGRESSO */
+
+.progresso-top{
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* BARRA PROGRESSO */
+
+.progresso-barra{
+  width: 100%;
+  height: 14px;
+  background: #ffffff26;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* PROGRESSO INTERNO */
+
+#progresso{
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(
+  90deg,
+  #22d3ee,
+  #14b8a6
+  );
+
+  transition: width .4s ease;
+}
+
+/* CARD */
+
+.card{
+  width: 420px;
+  background: #ffffff14;
+  border-radius: 28px;
+  padding: 40px;
+  text-align: center;
+}
+
+/* PALAVRAS */
+
+#palavra{
+  font-size: 64px;
+  font-weight: 800;
+}
+
+/* BOTÃO DO MICROFONE */
+
+.btn-mic{
+  width: 100%;
+  margin-top: 20px;
+  padding: 18px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(
+  135deg,
+  #14b8a6,
+  #06b6d4
+  );
+
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* CAIXA DE RESULTADOS */
+
+.resultado-box{
+  margin-top: 20px;
+}
+
+/* FEEDBACK */
+
+#feedback{
+  margin-top: 20px;
+  min-height: 20px;
+}
+
+/* BOTÕES DE NAVEGAÇÃO */
+
+.nav-botoes{
+  width:420px;
+  margin-top:20px;
+}
+
+.btn-nav{
+  width:100%;
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:white;
+
+  font-weight:700;
+
+  cursor:pointer;
+}
+
+/* BOTÃO DESABILITADO */
+
+button:disabled{
+  opacity:.4;
+}

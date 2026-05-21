@@ -1,56 +1,88 @@
-const form = document.getElementById("formLogin");
-const emailInput = document.getElementById("email");
-const lembrarCheckbox = document.getElementById("lembrar");
+const form =
+document.getElementById("formLogin");
 
-// Mesma coisa que o cadastro, mas tá mais simplificado
+const emailInput =
+document.getElementById("email");
 
+const lembrarCheckbox =
+document.getElementById("lembrar");
 
-//Aqui ficou fácil demais. 
+// ==========================
+// CARREGAR EMAIL
+// ==========================
 
 window.onload = () => {
-    const email = localStorage.getItem("email");
+
+    const email =
+    localStorage.getItem("email");
 
     if (email) {
+
         emailInput.value = email;
+
     }
-};                                              //Pooggg
+
+    lembrarCheckbox.checked = false;
+
+};
+
+// ==========================
+// LOGIN
+// ==========================
 
 form.addEventListener("submit", (e) => {
+
     e.preventDefault();
 
-    const senha = document.getElementById("senha").value;
+    const senha =
+    document.getElementById("senha").value;
 
     if (!emailInput.value || !senha) {
-        alert("Preencha tudo!");
+
+        alert("Preencha todos os campos.");
+
         return;
-    }                                          //Pooggg
 
-
-    if (lembrarCheckbox.checked) {
-        localStorage.setItem("email", emailInput.value);
     }
 
-    alert("Login realizado!");
+    if (lembrarCheckbox.checked) {
 
-    window.location.href = "http://127.0.0.1:5500/index.html";  
-                                            //Pooggg        
+        localStorage.setItem(
+        "email",
+        emailInput.value
+        );
+
+    } else {
+
+        localStorage.removeItem("email");
+
+    }
+
+    alert("Login realizado com sucesso!");
+
+    window.location.href =
+    "./index.html";
+
 });
 
-
+// ==========================
+// MOSTRAR SENHA
+// ==========================
 
 function toggleSenha(id, el) {
-    const input = document.getElementById(id);
-    const isPassword = input.type === "password";
 
-    input.type = isPassword ? "text" : "password";
-    el.textContent = isPassword ? "visibility_off" : "visibility";
+    const input =
+    document.getElementById(id);
 
-                                            //Pooggg
+    const isPassword =
+    input.type === "password";
+
+    input.type =
+    isPassword ? "text" : "password";
+
+    el.textContent =
+    isPassword
+    ? "visibility_off"
+    : "visibility";
 
 }
-
-                                            
-
-// •Fontes                   - https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage
-                           //- https://www.w3schools.com/js/js_validation.asp
-                           //- https://javascript.info/localstorage

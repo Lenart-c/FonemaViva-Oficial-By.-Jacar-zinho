@@ -1,31 +1,43 @@
+/* =========================================
+   PALAVRAS
+========================================= */
+
 const palavras = [
-  "Rato",
-  "Lata",
-  "Rola",
-  "Lua",
-  "Carro",
-  "Bola",
-  "Riso",
-  "Lobo"
+  "Banana",
+  "Pipoca",
+  "Macaco",
+  "Sorvete",
+  "Dinossauro",
+  "Abacaxi",
+  "Chocolate",
+  "Pirulito",
+  "Gelatina",
+  "Bolinha",
+  "Robô",
+  "Fantasma"
 ];
+
+/* =========================================
+   CONTROLE
+========================================= */
 
 let index = 0;
 let acertou = false;
 let acertos = 0;
 
-/* EVITA REPETIÇÕES */
 let ouvindo = false;
 
-/* CONTROLE DE CONCLUSÃO */
 let concluidos =
 new Array(palavras.length).fill(false);
 
 /* =========================================
-   SALVAMENTO AUTOMÁTICO
+   SALVAMENTO
 ========================================= */
 
 const progressoSalvo =
-localStorage.getItem("fonema-progresso");
+localStorage.getItem(
+  "palavras-divertidas"
+);
 
 if(progressoSalvo){
 
@@ -43,7 +55,10 @@ if(progressoSalvo){
   new Array(palavras.length).fill(false);
 }
 
-/* ELEMENTOS */
+/* =========================================
+   ELEMENTOS
+========================================= */
+
 const palavraEl =
 document.getElementById("palavra");
 
@@ -66,7 +81,7 @@ const btnGravar =
 document.getElementById("gravar");
 
 /* =========================================
-   RECONHECIMENTO DE VOZ
+   RECONHECIMENTO
 ========================================= */
 
 const SpeechRecognition =
@@ -76,18 +91,14 @@ window.webkitSpeechRecognition;
 const recognition =
 new SpeechRecognition();
 
-/* CONFIGURAÇÕES */
 recognition.lang = "pt-BR";
 
-recognition.continuous = true;
+recognition.continuous = false;
 
 recognition.interimResults = false;
 
 recognition.maxAlternatives = 5;
 
-recognition.singleUtterance = true;
-
-/* TEMPO LIMITE */
 let timeoutAudio;
 
 /* =========================================
@@ -97,44 +108,36 @@ let timeoutAudio;
 function mostrarFeedback(texto, cor){
 
   feedbackEl.innerText = texto;
+
   feedbackEl.style.color = cor;
 }
 
-/* PRIMEIRA LETRA MAIÚSCULA */
 function capitalizar(texto){
 
   return texto.charAt(0).toUpperCase() +
   texto.slice(1);
 }
 
-/* REMOVE ACENTOS */
 function normalizar(texto){
 
   return texto
   .toLowerCase()
   .normalize("NFD")
   .replace(/[\u0300-\u036f]/g, "")
+  .replace(/[^a-z\s]/g, "")
+  .replace(/\s+/g, " ")
   .trim();
 }
 
-/* ATUALIZA PROGRESSO */
-function atualizarProgresso(){
+/* =========================================
+   SALVAR PROGRESSO
+========================================= */
 
-  const porcentagem =
-  (acertos / palavras.length) * 100;
-
-  progressoEl.style.width =
-  porcentagem + "%";
-
-  progressoTexto.innerText =
-  Math.round(porcentagem) + "%";
-}
-
-/* SALVAR PROGRESSO */
 function salvarProgresso(){
 
   localStorage.setItem(
-    "fonema-progresso",
+
+    "palavras-divertidas",
 
     JSON.stringify({
 
@@ -147,12 +150,26 @@ function salvarProgresso(){
   );
 }
 
-/* BOTÃO */
+/* =========================================
+   PROGRESSO
+========================================= */
+
+function atualizarProgresso(){
+
+  const porcentagem =
+  (acertos / palavras.length) * 100;
+
+  progressoEl.style.width =
+  porcentagem + "%";
+
+  progressoTexto.innerText =
+  Math.round(porcentagem) + "%";
+}
+
 function atualizarBotao(){
 
   btnProximo.disabled = !acertou;
 
-  /* ÚLTIMA PALAVRA */
   if(index === palavras.length - 1){
 
     if(acertou){
@@ -168,7 +185,6 @@ function atualizarBotao(){
   }
 }
 
-/* MUDA PALAVRA */
 function atualizarPalavra(){
 
   palavraEl.innerText =
@@ -186,25 +202,11 @@ function atualizarPalavra(){
 }
 
 /* =========================================
-   COMPARAÇÃO EXATA
-========================================= */
-
-function similaridade(a, b){
-
-  a = normalizar(a);
-  b = normalizar(b);
-
-  /* SOMENTE IGUAL */
-  return a === b;
-}
-
-/* =========================================
    MICROFONE
 ========================================= */
 
 btnGravar.addEventListener("click", () => {
 
-  /* EVITA REPETIR */
   if(ouvindo) return;
 
   ouvindo = true;
@@ -213,13 +215,12 @@ btnGravar.addEventListener("click", () => {
   "🎙️ Ouvindo...";
 
   mostrarFeedback(
-    "Escutando sua voz...",
+    "Fale a palavra inteira!",
     "#67e8f9"
   );
 
   recognition.start();
 
-  /* NÃO ENTENDEU */
   timeoutAudio = setTimeout(() => {
 
     recognition.stop();
@@ -230,11 +231,11 @@ btnGravar.addEventListener("click", () => {
     "🎤 Falar Palavra";
 
     mostrarFeedback(
-      "❌ Não entendi, pode repetir?",
+      "❌ Não consegui ouvir",
       "#ff0000"
     );
 
-  }, 5000);
+  }, 6000);
 });
 
 /* =========================================
@@ -243,28 +244,19 @@ btnGravar.addEventListener("click", () => {
 
 recognition.onresult = (event) => {
 
-  /* EVITA REPETIÇÃO */
   if(!ouvindo) return;
-
-  ouvindo = false;
 
   clearTimeout(timeoutAudio);
 
+  ouvindo = false;
+
   recognition.stop();
 
-  /* TEXTO COMPLETO */
-  let textoCompleto =
+  let texto =
   event.results[0][0].transcript;
 
-  /* REMOVE REPETIÇÕES */
-  let palavrasFaladas =
-  textoCompleto
-  .trim()
-  .split(" ");
-
-  /* PEGA SÓ A PRIMEIRA */
-  let texto =
-  palavrasFaladas[0];
+  texto =
+  texto.trim();
 
   resultadoEl.innerText =
   capitalizar(texto);
@@ -272,28 +264,54 @@ recognition.onresult = (event) => {
   const correta =
   palavras[index];
 
-  const textoComparar =
+  const usuario =
   normalizar(texto);
 
-  const corretaComparar =
+  const resposta =
   normalizar(correta);
 
   acertou = false;
 
-  /* ACERTO */
-  if (
-    similaridade(
-      textoComparar,
-      corretaComparar
-    )
-  ) {
+  /* VERIFICA REPETIÇÃO */
+  const palavrasFaladas =
+  usuario.split(" ");
+
+  let repetiu = false;
+
+  for(
+    let i = 1;
+    i < palavrasFaladas.length;
+    i++
+  ){
+
+    if(
+      palavrasFaladas[i] ===
+      palavrasFaladas[i - 1]
+    ){
+
+      repetiu = true;
+    }
+  }
+
+  /* PALAVRA EXATA */
+  if(
+    usuario === resposta &&
+    !repetiu
+  ){
+
+    acertou = true;
+  }
+
+  /* FEEDBACK */
+
+  if(acertou){
 
     mostrarFeedback(
       "✅ Correto!",
       "#4ade80"
     );
 
-    if (!concluidos[index]){
+    if(!concluidos[index]){
 
       concluidos[index] = true;
 
@@ -304,47 +322,16 @@ recognition.onresult = (event) => {
       salvarProgresso();
     }
 
-    acertou = true;
-  }
+  } else {
 
-  else {
-
-    /* TROCOU R POR L */
-    if (
-
-      corretaComparar.includes("r") &&
-
-      textoComparar.includes(
-        corretaComparar.replace("r", "l")
-      )
-
-    ) {
+    if(repetiu){
 
       mostrarFeedback(
-        "⚠️ Você trocou R por L",
+        "⚠️ Fale apenas uma vez",
         "#facc15"
       );
-    }
 
-    /* TROCOU L POR R */
-    else if (
-
-      corretaComparar.includes("l") &&
-
-      textoComparar.includes(
-        corretaComparar.replace("l", "r")
-      )
-
-    ) {
-
-      mostrarFeedback(
-        "⚠️ Você trocou L por R",
-        "#facc15"
-      );
-    }
-
-    /* ERRO */
-    else {
+    } else {
 
       mostrarFeedback(
         "❌ Tente novamente",
@@ -360,23 +347,21 @@ recognition.onresult = (event) => {
 };
 
 /* =========================================
-   QUANDO TERMINA
+   FINALIZAÇÃO
 ========================================= */
 
 recognition.onend = () => {
 
   clearTimeout(timeoutAudio);
 
-  /* SÓ RESETA O BOTÃO */
   btnGravar.innerText =
   "🎤 Falar Palavra";
 
-  /* NÃO APAGA MENSAGEM */
   ouvindo = false;
 };
 
 /* =========================================
-   ERRO
+   ERROS
 ========================================= */
 
 recognition.onerror = (event) => {
@@ -385,16 +370,13 @@ recognition.onerror = (event) => {
 
   clearTimeout(timeoutAudio);
 
-  console.log(event.error);
-
   btnGravar.innerText =
   "🎤 Falar Palavra";
 
-  /* NÃO FALOU */
   if(event.error === "no-speech"){
 
     mostrarFeedback(
-      "❌ Não entendi, pode repetir?",
+      "❌ Não foi possível ouvir",
       "#ff0000"
     );
 
@@ -402,13 +384,13 @@ recognition.onerror = (event) => {
   }
 
   mostrarFeedback(
-    "❌ Não foi possível ouvir",
-    "#fb7185"
+    "❌ Erro no microfone",
+    "#ff0000"
   );
 };
 
 /* =========================================
-   PRÓXIMO / REINICIAR
+   PRÓXIMO
 ========================================= */
 
 btnProximo.addEventListener("click", () => {
@@ -416,10 +398,11 @@ btnProximo.addEventListener("click", () => {
   if(!acertou) return;
 
   /* REINICIAR */
+
   if(index === palavras.length - 1){
 
     localStorage.removeItem(
-      "fonema-progresso"
+      "palavras-divertidas"
     );
 
     index = 0;
@@ -437,6 +420,7 @@ btnProximo.addEventListener("click", () => {
   }
 
   /* PRÓXIMA */
+
   index++;
 
   salvarProgresso();

@@ -1,17 +1,17 @@
-function selecionar(tipo) {                             //Cria uma função chamada selecionar que recebe um valor (tipo)
+function selecionar(tipo) {
 
-  if (tipo === "crianca") {                             //Verifica se o valor recebido é "crianca"
-    window.location.href = "criancas.html";             //Cria uma função chamada selecionar que recebe um valor (tipo)
-  } 
+    if (tipo === "crianca") {
 
-  if (tipo === "adulto") {                              //Verifica se o valor recebido é "crianca"
-    window.location.href = "exercicios.html";           //Muda a página atual para exercicios.html
-  }
+        window.location.href =
+        "./criancas.html";
+
+    }
+
+    if (tipo === "adulto") {
+
+        window.location.href =
+        "./adultos.html";
+
+    }
 
 }
-
-
-
-
-// •Fontes           - https://developer.mozilla.org/pt-BR/docs/Web/API/Location/href
-                   //- https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/if...else
