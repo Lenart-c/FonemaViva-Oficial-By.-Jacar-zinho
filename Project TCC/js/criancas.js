@@ -399,7 +399,7 @@ cards.forEach(card=>{
   const button =
   card.querySelector(".iniciar");
 
-  button.addEventListener("click", ()=>{
+  button.addEventListener("click", (event)=>{
 
     const id =
     card.dataset.id;
@@ -415,6 +415,8 @@ cards.forEach(card=>{
     }
 
     // REDIRECIONAR
+
+    event.preventDefault();
 
     window.location.href =
     button.dataset.link;

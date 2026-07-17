@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Caretas no Espelho</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/movimentos-lingua.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Exercício fonológico</p>
+      <h1>Caretas no espelho</h1>
+      <p class="subtitle">Treine coordenação oral com movimentos faciais, língua e sons claros.</p>
+    </div>
+    <a class="voltar" href="./criancas.html">← Voltar</a>
+  </header>
+
+  <main class="container">
+    <section class="progress-card">
+      <div class="progress-top">
+        <span>Seu progresso</span>
+        <span id="progresso-texto">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progresso"></div>
+      </div>
+    </section>
+
+    <section class="exercise-card">
+      <div class="face-area">
+        <div id="face" class="face">
+          <div class="eye left"></div>
+          <div class="eye right"></div>
+          <div class="mouth"></div>
+        </div>
+      </div>
+
+      <div class="exercise-text">
+        <p class="mini">Exercício atual</p>
+        <h2 id="titulo">Sorriso largo</h2>
+        <p id="instrucao">Faça uma careta alegre e repita o som com a boca aberta.</p>
+
+        <div class="actions">
+          <button id="btn-ver" class="btn primary">Ver desafio</button>
+          <button id="btn-gravar" class="btn secondary">🎤 Repetir som</button>
+        </div>
+
+        <div class="feedback-box">
+          <p>Você falou:</p>
+          <span id="resultado">...</span>
+        </div>
+
+        <p id="feedback" class="feedback"></p>
+
+        <div class="nav-actions">
+          <button id="btn-proximo" class="btn ghost" disabled>Próximo →</button>
+          <button id="btn-reiniciar" class="btn ghost">Reiniciar</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/movimentos-lingua.js"></script>
+</body>
+</html>
