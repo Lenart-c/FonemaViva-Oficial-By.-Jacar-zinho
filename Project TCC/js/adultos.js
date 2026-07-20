@@ -233,6 +233,29 @@ new Set(
   ) || []
 );
 
+function animateProgressBar(id, value){
+
+  const bar =
+  document.getElementById(id);
+
+  if(!bar){
+    return;
+  }
+
+  bar.style.transition =
+  "width 0.45s ease";
+
+  bar.style.width = "0%";
+
+  requestAnimationFrame(()=>{
+
+    bar.style.width =
+    value + "%";
+
+  });
+
+}
+
 // ATUALIZA
 function updateUI(){
 
@@ -351,25 +374,25 @@ function updateUI(){
 
   // BARRAS DE PROGRESSO
 
-  document.getElementById(
-    "b-respiracao"
-  ).style.width =
-  progress.respiracao + "%";
+  animateProgressBar(
+    "b-respiracao",
+    progress.respiracao
+  );
 
-  document.getElementById(
-    "b-pronuncia"
-  ).style.width =
-  progress.pronuncia + "%";
+  animateProgressBar(
+    "b-pronuncia",
+    progress.pronuncia
+  );
 
-  document.getElementById(
-    "b-audicao"
-  ).style.width =
-  progress.audicao + "%";
+  animateProgressBar(
+    "b-audicao",
+    progress.audicao
+  );
 
-  document.getElementById(
-    "b-coordenacao"
-  ).style.width =
-  progress.coordenacao + "%";
+  animateProgressBar(
+    "b-coordenacao",
+    progress.coordenacao
+  );
 
   // TOTAL DO PROGRESSO GERAL 
 
