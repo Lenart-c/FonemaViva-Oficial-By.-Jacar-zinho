@@ -1,115 +1,593 @@
-document.addEventListener("DOMContentLoaded", () => {   // Essa bosta vai esperar toda a pagina do site carregar antes pra depois começar a iniciar o código todo
+const supabaseUrl =
+"https://mnfryxvtogpiwacpyhgo.supabase.co";
 
+const supabaseKey =
+"sb_publishable_YYMfDfWKaer8F1IEOFVOMQ_acS2xa2G";
 
-  const menu = document.querySelectorAll("#menu li");   // Isso aqui vai pegar e selecionar todos os itens do menu
-  const cards = document.querySelectorAll(".card");     // Vai selecionar todos os cards dos exercícios que eu criei
+const supabaseClient =
+window.supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);
 
+const usuarioId =
+localStorage.getItem("usuarioId") ||
+sessionStorage.getItem("usuarioId");
 
-  //Lembre-te pessoal, nunca mais usar javascript, e se sequer passar pela minha cabeça é CORIIIIIIIIINNNNNNNNNNNGÃÃÃÃÃO
-  //Obs: Devo me tratar? ou não é curável?
+if (!usuarioId) {
 
-  menu.forEach(item => {                                // Vai funcionar para cada item de cada categoria        
-    item.addEventListener("click", () => {              // Vai funcionar quando clicar em um item do menu         //CLovis do caraiiiiiiiiii
+  window.location.replace(
+    "./index.html"
+  );
 
-      menu.forEach(i => i.classList.remove("active"));  // Este aqui vai remover de todos a classe "active" dos itens em destaque 
-      item.classList.add("active");                     // Já nesse ele adiciona a classe "active" no item que for clicado clicado deixando ele destacado
+}
 
+window.addEventListener(
+  "pageshow",
+  () => {
 
+    const usuarioId =
+localStorage.getItem("usuarioId") ||
+sessionStorage.getItem("usuarioId");
 
-        //Meu Deus do Céu, o que é que eu fiz...    //... 
-        //Essas Horas que me pergunto, será que eu lanço um curso, JavaScript só para os adultos.
-        //---
+    if (!usuarioId) {
 
+      window.location.replace(
+        "./index.html"
+      );
 
-      const categoria = item.dataset.cat;               // Ele pega a categoria do item clicado sendo eles "respiracao", "todos", "Pronúncia", essas porras ai  //6767
+    }
 
-      cards.forEach(card => {                           // Isso aqui vai funcionar para cada card de exercício
+  }
+);
 
-        if (categoria === "todos" || card.dataset.cat === categoria) {          // Se for "todos" OU a categoria do card for igual à selecionada
-          card.style.display = "block";                 // Vai te mostrar o card
+const exercicios = [
+
+{
+id:"ch",
+categoria:"pronuncia",
+estrelas:1
+},
+
+{
+id:"respiracao",
+categoria:"respiracao",
+estrelas:1
+},
+
+{
+id:"palavras",
+categoria:"pronuncia",
+estrelas:1
+},
+
+{
+id:"escuta",
+categoria:"audicao",
+estrelas:1
+},
+
+{
+id:"movimentos",
+categoria:"coordenacao",
+estrelas:1
+},
+
+{
+id:"bolha",
+categoria:"respiracao",
+estrelas:1
+},
+
+{
+id:"som",
+categoria:"audicao",
+estrelas:1
+},
+
+{
+id:"lingua",
+categoria:"coordenacao",
+estrelas:1
+},
+
+{
+id:"facil",
+categoria:"pronuncia",
+estrelas:2
+}
+
+];
+
+// ==========================
+// ATUALIZA PERFIL PELO SUPABASE
+// ==========================
+
+async function atualizarPerfilUsuario() {
+
+  try {
+
+    const usuarioId =
+localStorage.getItem("usuarioId") ||
+sessionStorage.getItem("usuarioId");
+
+    if (!usuarioId) return;
+
+    const { data, error } =
+    await supabaseClient
+    .from("usuarios")
+    .select("*")
+    .eq("id", usuarioId)
+    .single();
+
+    if (error) {
+
+      console.error(error);
+      return;
+
+    }
+
+    const nomeElemento =
+    document.getElementById(
+      "user-name"
+    );
+
+    const fotoElemento =
+    document.getElementById(
+      "user-photo"
+    );
+
+    if (nomeElemento) {
+
+      nomeElemento.textContent =
+      data.apelido ||
+      data.nome ||
+      "Usuário";
+
+    }
+
+    if (
+      fotoElemento &&
+      data.foto_perfil
+    ) {
+
+      fotoElemento.src =
+      data.foto_perfil;
+
+    }
+
+  }
+
+  catch (erro) {
+
+    console.error(
+      "Erro ao carregar perfil:",
+      erro
+    );
+
+  }
+
+}
+
+atualizarPerfilUsuario();
+
+// TEMA (AUTO + MANUAL)
+const themeBtns =
+document.querySelectorAll(".theme-btn");
+
+let manualTheme = false;
+
+function setTheme(theme){
+
+  if(theme === "dark"){
+
+    document.body.classList.add(
+      "dark-mode"
+    );
+
+  } else {
+
+    document.body.classList.remove(
+      "dark-mode"
+    );
+
+  }
+
+  themeBtns.forEach(btn=>{
+
+    btn.classList.remove(
+      "active-theme"
+    );
+
+    if(
+      btn.dataset.theme === theme
+    ){
+
+      btn.classList.add(
+        "active-theme"
+      );
+
+    }
+
+  });
+
+}
+
+// DETECTA O TEMA DO NAVEGADOR SE É CLARO OU ESCURO
+function systemTheme(){
+
+  return window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches
+    ? "dark"
+    : "light";
+
+}
+
+// ELE APLICA AUTOMATICAMENTE
+function applyAutoTheme(){
+
+  if(!manualTheme){
+
+    setTheme(systemTheme());
+
+  }
+
+}
+
+// INICIA TEMA
+applyAutoTheme();
+
+// TEMA SISTEMA PADRÃO
+window.matchMedia(
+  "(prefers-color-scheme: dark)"
+).addEventListener(
+  "change",
+  ()=>{
+
+    applyAutoTheme();
+
+  }
+);
+
+// TROCA MANUAL DE TEMA
+themeBtns.forEach(btn=>{
+
+  btn.addEventListener(
+    "click",
+    ()=>{
+
+      manualTheme = true;
+
+      setTheme(
+        btn.dataset.theme
+      );
+
+    }
+  );
+
+});
+
+// MENU LATERAL
+const menuToggle =
+document.querySelector(
+  ".menu-toggle"
+);
+
+const sideMenu =
+document.querySelector(
+  ".side-menu"
+);
+
+const closeMenu =
+document.querySelector(
+  ".close-menu"
+);
+
+const overlay =
+document.querySelector(
+  ".menu-overlay"
+);
+
+// BOTÃO DE ABRIR MENU
+if(menuToggle && sideMenu && overlay){
+
+  menuToggle.addEventListener(
+    "click",
+    ()=>{
+
+      sideMenu.classList.add(
+        "active"
+      );
+
+      overlay.classList.add(
+        "active"
+      );
+
+    }
+  );
+
+}
+
+// BOTÃO DE FECHAR MENU
+if(closeMenu){
+
+  closeMenu.addEventListener(
+    "click",
+    closeSideMenu
+  );
+
+}
+
+if(overlay){
+
+  overlay.addEventListener(
+    "click",
+    closeSideMenu
+  );
+
+}
+
+function closeSideMenu(){
+
+  if(sideMenu){
+
+    sideMenu.classList.remove(
+      "active"
+    );
+
+  }
+
+  if(overlay){
+
+    overlay.classList.remove(
+      "active"
+    );
+
+  }
+
+}
+
+// FILTRA AS CATEGORIAS
+const menuItems =
+document.querySelectorAll(
+  "#menu li"
+);
+
+const cards =
+document.querySelectorAll(
+  ".card"
+);
+
+menuItems.forEach(item=>{
+
+  item.addEventListener(
+    "click",
+    ()=>{
+
+      menuItems.forEach(i=>{
+
+        i.classList.remove(
+          "active"
+        );
+
+      });
+
+      item.classList.add(
+        "active"
+      );
+
+      const categoria =
+      item.dataset.cat;
+
+      cards.forEach(card=>{
+
+        if(
+          categoria === "todos" ||
+          card.dataset.cat === categoria
+        ){
+
+          card.style.display =
+          "block";
+
         } else {
-          card.style.display = "none";                  // Vadia. Ele esconde o card      //Só os covardes se escondem do Baino
+
+          card.style.display =
+          "none";
+
         }
 
       });
 
-    });
-  });
-
-
-  document.querySelectorAll(".iniciar").forEach(btn => {    // Este vai selecionar todos os botões de "iniciar exercício"
-    btn.addEventListener("click", (e) => {                  // Funciona quando clica no botão
-      
-      const link = btn.dataset.link;
-
-      if (link) {
-        window.location.href = link;                        // Isso funciona pra linkar as páginas
-        return;                                             // Essa porra de linha vai resolver meus problemas, graças a Deus.
-      }    
-      else {
-        alert("Este exercício ainda não está disponível.");
-      }
-    });
-  });
+    }
+  );
 
 });
 
+// CONTADOR DE PROGRESSO
+let progress = {
 
-// Parte do Tema escuro e claro                         // VAI TOMAR NO CÚÚÚÚÚÚÚÚÚÚÚÚÚ  Puta que pariu, que código filho da puta. Raiva do caralho
-                                                        // EEEEEEEXXXXXXXXXXXXXX 676767676767676767 -----------------------
+  respiracao: 0,
 
-const body = document.body;                             // Pega a PORRA do corpo do css da página pra modificar.
+  pronuncia: 0,
 
-const toggle = document.querySelector(".theme-toggle"); // Vai pegar o botão do tema (toggle).
+  audicao: 0,
 
-const icon = document.querySelector(".toggle-thumb img");  // Vai pegar o circulo do botão.
+  coordenacao: 0
 
-function atualizarIcone() {
+};
 
-  if (body.classList.contains("dark")) {                 // Vai verificar se o sistema está no escuro ou claro         /Clovisssssss
+// ATUALIZA
+function updateUI(){
 
-    icon.src = "./img/brilho-do-sol.png";                // Quando entrar no modo escuro ele mostra o ícone de sol que eu escolhi.
-                                                         // Já dizia Rick and Morty, Cabeça abaixada, bunda levantada, Ouié.
+progress = {
 
-  } else {
+respiracao:0,
+pronuncia:0,
+audicao:0,
+coordenacao:0
 
-    icon.src = "./img/lua-minguante.png";                // Quando entrar no modo claro ele mostra o ícone de lua que eu escolhi.
+};
+
+// Soma as estrelas
+exercicios.forEach(exercicio=>{
+
+if(localStorage.getItem(exercicio.id + "-recompensa")){
+
+progress[exercicio.categoria]+=exercicio.estrelas;
+
+}
+
+});
+
+// Barras
+
+document.getElementById("b-respiracao").style.width =
+(progress.respiracao/2)*100+"%";
+
+document.getElementById("b-pronuncia").style.width =
+(progress.pronuncia/4)*100+"%";
+
+document.getElementById("b-audicao").style.width =
+(progress.audicao/2)*100+"%";
+
+document.getElementById("b-coordenacao").style.width =
+(progress.coordenacao/2)*100+"%";
+
+// Textos
+
+document.getElementById("p-respiracao").innerText =
+"⭐ "+progress.respiracao;
+
+document.getElementById("p-pronuncia").innerText =
+"⭐ "+progress.pronuncia;
+
+document.getElementById("p-audicao").innerText =
+"⭐ "+progress.audicao;
+
+document.getElementById("p-coordenacao").innerText =
+"⭐ "+progress.coordenacao;
+
+// Total
+
+const totalEstrelas=
+
+progress.respiracao+
+progress.pronuncia+
+progress.audicao+
+progress.coordenacao;
+
+document.getElementById("p-total").innerText=
+"⭐ "+totalEstrelas;
+
+}
+
+// INICIA OS EXERCÍCIOS
+
+
+cards.forEach(card=>{
+
+  const button =
+  card.querySelector(
+    ".iniciar"
+  );
+
+  if(button){
+
+    button.addEventListener(
+      "click",
+      ()=>{
+
+        // REDIRECIONA
+        window.location.href =
+        button.dataset.link;
+
+      }
+    );
+
   }
-}
 
-function aplicarTemaSistema() {                          // Verifica se o sistema do navegador está com o tema claro ou escuro.
+});
 
-  const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;         // Verifica se está no modo escuro
+// INICIA
+updateUI();
 
-  if (darkMode) {                                        // Verifica se está no modo escuro
+window.addEventListener("pageshow", () => {
 
-    body.classList.add("dark");                          // Fiz com que fosse adicionado a classe "dark" no css pra mexer na parte escura do site
+    updateUI();
 
-  } else {                                               // Se o sistema não estiver no modo escuro ele remove a classe "dark" que adicionei
+});
 
-    body.classList.remove("dark");
+// ==========================
+// LOGOUT
+// ==========================
+
+const logoutBtn =
+document.getElementById(
+  "logoutBtn"
+);
+
+const logoutModal =
+document.getElementById(
+  "logoutModal"
+);
+
+const cancelLogout =
+document.getElementById(
+  "cancelLogout"
+);
+
+const confirmLogout =
+document.getElementById(
+  "confirmLogout"
+);
+
+const logoutLoading =
+document.getElementById(
+  "logoutLoading"
+);
+
+// ABRIR MODAL
+
+logoutBtn.addEventListener(
+  "click",
+  ()=>{
+
+    logoutModal.classList.add(
+      "active"
+    );
+
   }
+);
 
-  atualizarIcone();                                      // Toda vez que eu iniciava a página o ícone do tema não carregava junto. Isso faz com que carregue junto com a página
-}
+// CANCELAR
 
+cancelLogout.addEventListener(
+  "click",
+  ()=>{
 
-if (toggle) {
-  toggle.addEventListener("click", () => {               // Ele faz o efeito de evento do botão
+    logoutModal.classList.remove(
+      "active"
+    );
 
-    body.classList.toggle("dark");                       // Altera entre modo claro e escuro
+  }
+);
 
-    atualizarIcone();                                    // Atualiza o ícone após clicar
-  });
-}
+// CONFIRMAR
 
+confirmLogout.addEventListener("click", () => {
 
-aplicarTemaSistema();                                    // Vai aplicar isso quando carregar a página
+  logoutModal.classList.remove("active");
+  logoutLoading.classList.add("active");
 
+  // Limpa sessão
+  localStorage.clear();
+  sessionStorage.clear();
 
+  setTimeout(() => {
 
+  // Substitui a página atual pelo login
+  window.location.replace("./index.html");
 
-// •Fontes           - https://developer.mozilla.org/pt-BR/docs/Web/API/Document/DOMContentLoaded_event
-                   //- https://developer.mozilla.org/pt-BR/docs/Web/API/Document/querySelector
-                   //- https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLElement/dataset
-                   //- https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
+}, 1500);
+});

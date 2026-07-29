@@ -25,7 +25,6 @@ const resultadoEl = document.getElementById("resultado");        // Onde aparece
 const feedbackEl = document.getElementById("feedback");          // Mensagem de acerto/erro.
 
 const btnProximo = document.getElementById("proximo");           // Botão próximo.
-const btnAnterior = document.getElementById("anterior");         // Botão anterior.
 
 
 // Barra de progresso.
@@ -66,16 +65,71 @@ function similaridade(a, b) {                                    // É como um a
 
 
                             //UNIÃO FLASCO, MANO SEM CAÔ, BATENDO PUNHETA COM O PAL NO VENTILADOR.
-function atualizarProgresso() {
+function atualizarProgresso(){
 
-  const porcentagem = (acertos / frases.length) * 100;           // Calcula porcentagem baseada nos acertos.
+  const porcentagem =
+  (acertos / frases.length) * 100;
 
-  progressoEl.style.width = porcentagem + "%";                   // Vai atualiza a largura da barra visual.
+  progressoEl.style.width =
+  porcentagem + "%";
 
+  progressoTexto.innerText =
+  Math.round(porcentagem) + "%";
 
-  progressoTexto.innerText = Math.round(porcentagem) + "%";      // Vai atualiza o texto da porcentagem.
+  // SALVA PROGRESSO GLOBAL
+  localStorage.setItem(
+    "travalingua-progress",
+    Math.round(porcentagem)
+  );
+
 }
 
+/* =========================================
+   SALVAMENTO AUTOMÁTICO
+========================================= */
+
+const progressoSalvo =
+localStorage.getItem("travalingua-save");
+
+if(progressoSalvo){
+
+  const dados =
+  JSON.parse(progressoSalvo);
+
+  index = 
+  dados.index ?? 0;
+
+  acertos = 
+  dados.acertos ?? 0;
+
+  concluidos =
+  dados.concluidos ??
+  new Array(frases.length).fill(false);
+
+  acertou =
+  dados.acertou ?? false;
+}
+
+function salvarProgresso(){
+
+  localStorage.setItem(
+
+    "travalingua-save",
+
+    JSON.stringify({
+
+      index: index,
+
+      acertos: acertos,
+
+      concluidos: concluidos,
+
+      acertou: acertou
+
+    })
+
+  );
+}
 
 
 document.getElementById("gravar").addEventListener("click", () => {
@@ -109,17 +163,22 @@ recognition.onresult = (event) => {
 
  
   if (score >= 0.9) {
-    feedbackEl.innerText = "✅ Correto!";                      // Se acertar, vai aparecer a palavra "correto" em verde.
-    feedbackEl.style.color = "green"; 
 
-  
-    if (!concluidos[index]) {
-      concluidos[index] = true;                                // Vai marcar como concluído.
-      acertos++;                                               // Ele soma no progresso.
-      atualizarProgresso();                                    // Atualiza a barra.
-    }
+  feedbackEl.innerText = "✅ Correto!";
+  feedbackEl.style.color = "green";
 
-    acertou = true;                                            // libera o botão próximo.
+  acertou = true;
+
+  if (!concluidos[index]) {
+
+    concluidos[index] = true;
+
+    acertos++;
+
+    atualizarProgresso();
+  }
+
+  salvarProgresso();
 
   // 🟡 QUASE CERTO
   } else if (score >= 0.6) {
@@ -139,47 +198,78 @@ recognition.onresult = (event) => {
 
 btnProximo.addEventListener("click", () => {
 
-  if (!acertou) return;                                      // Se não tiver acertado, ele não deixa passar.
+  if(!acertou) return;
 
-  if (index < frases.length - 1) {
-    index++;                                                 // Vai pro próximo exercício.
-    atualizar();                                             // Atualiza a tela.
+  /* REINICIAR */
+  if(index === frases.length - 1){
+
+    localStorage.setItem(
+      "travalingua-progress",
+      0
+    );
+
+    localStorage.removeItem(
+      "travalingua-save"
+    );
+
+    index = 0;
+
+    acertos = 0;
+
+    acertou = false;
+
+    concluidos =
+    new Array(frases.length).fill(false);
+
+    atualizarProgresso();
+
+    atualizar();
+
+    atualizarBotoes();
+
+    return;
   }
+
+  /* PRÓXIMA */
+  index++;
+
+  acertou = false;
+
+  salvarProgresso();
+
+  atualizar();
 });
-
-
-
-btnAnterior.addEventListener("click", () => {
-
-  if (index > 0) {
-    index--;                                                 // Se o usuário quiser ele pode voltar ao exercício anterior.
-    atualizar();                                             // Atualiza a tela.
-  }
-});
-
 
 
 function atualizar() {
 
-  fraseEl.innerText = frases[index];                         // Mostra a frase atual.
+  fraseEl.innerText = frases[index];
 
-  resultadoEl.innerText = "...";                             // Limpa a resposta anterior.
+  resultadoEl.innerText = "...";
 
-  feedbackEl.innerText = "";                                 // limpa o feedback anterior.
+  feedbackEl.innerText = "";
 
-  acertou = false;                                           // Reseta.
-
-  atualizarBotoes();                                         // Atualiza botões.
+  atualizarBotoes();
 }
 
 
-function atualizarBotoes() {
+function atualizarBotoes(){
 
-  btnAnterior.disabled = index === 0;                        // Ele desativa o botão "anterior" se estiver no começo.
-  // trava se não acertou OU se chegou no último
-  btnProximo.disabled = !acertou || index === frases.length - 1;  // Vai trava se não acertou ou se o usuário chegar no final.
+  btnProximo.disabled = !acertou;
+
+  if(index === frases.length - 1){
+
+    btnProximo.innerHTML =
+    acertou
+    ? "↻ Reiniciar"
+    : "Próxima →";
+
+  } else {
+
+    btnProximo.innerHTML =
+    "Próxima →";
+  }
 }
-
 
 atualizar();                                                 // mostra primeira frase.
 atualizarProgresso();                                        // inicia barra em 0%.

@@ -1,54 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
   <meta charset="UTF-8">
-  <title>Leitura com IA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> FonemaViva • Trava Língua </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="./Img/goatfc.png">
   <link rel="stylesheet" href="./css/travalingua.css">
+
 </head>
 
 <body>
 
-<header class="topbar">
-  <h1>FonemaViva</h1>
-  <span class="sub">Treino de Pronúncia - Trava Língua</span>
-</header>
+  <!-- HEADER -->
+  <header class="topbar">
 
-<div class="container">
+    <h1>FonemaViva</h1>
 
-  <!-- 🔥 BARRA DE PROGRESSO -->
-  <div class="progresso-container">
-    <div class="progresso-barra">
-      <div id="progresso"></div>
+    <span class="sub">
+      Exercícios • Trava Língua
+    </span>
+
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+
+    <!-- PROGRESSO -->
+    <section class="progresso-container">
+
+      <div class="progresso-top">
+
+        <p>Seu progresso</p>
+
+        <span id="progresso-texto">
+          0%
+        </span>
+
+      </div>
+
+      <div class="progresso-barra">
+
+        <div id="progresso"></div>
+
+      </div>
+
+    </section>
+
+    <!-- CARD -->
+    <section class="card">
+
+      <p class="instrucao">
+        Leia a frase em voz alta:
+      </p>
+
+      <h2 id="frase">
+        ...
+      </h2>
+
+      <!-- BOTÃO MICROFONE -->
+      <button id="gravar"
+      class="btn-mic">
+
+        🎤 Falar Frase
+
+      </button>
+
+      <!-- RESULTADO -->
+      <div class="resposta">
+
+        <span>
+          Você falou:
+        </span>
+
+        <strong id="resultado">
+          ...
+        </strong>
+
+      </div>
+
+      <!-- FEEDBACK -->
+      <p id="feedback"></p>
+
+    </section>
+
+    <!-- NAVEGAÇÃO -->
+    <div class="nav-botoes">
+
+      <button id="proximo"
+      class="btn-next">
+
+        Próxima →
+
+      </button>
+
     </div>
-    <span id="progresso-texto">0%</span>
-  </div>
 
-<div class="container">
+  </main>
 
-  <div class="card">
-    <p class="instrucao">Leia a frase em voz alta:</p>
-
-    <h2 id="frase"></h2>
-
-    <button id="gravar" class="btn-mic">🎤 Falar</button>
-
-    <div class="resposta">
-      <span>Você disse:</span>
-      <strong id="resultado">...</strong>
-    </div>
-
-    <div id="feedback"></div>
-  </div>
-
-  <!-- 🔥 FORA DO CARD -->
-  <div class="nav-botoes">
-    <button id="anterior" class="btn-next">⬅ Anterior</button>
-    <button id="proximo" class="btn-next">Próximo ➡</button>
-  </div>
-
-</div>
-
-<script src="./js/travalingua.js"></script>
+  <!-- JS -->
+  <script src="./js/travalingua.js"></script>
 
 </body>
+
 </html>

@@ -1,170 +1,318 @@
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* =========================================
+   RESET
+========================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+
+  font-family:"Inter", sans-serif;
+
+  background:
+  linear-gradient(
+  135deg,
+  #0f172a,
+  #1e293b,
+  #0f766e);
+
+  color:white;
+
+  display:flex;
+  flex-direction:column;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.topbar{
+  width:100%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:28px 50px;
+}
+
+.topbar h1{
+  font-size:30px;
+  font-weight:800;
+}
+
+.sub{
+  font-size:14px;
+  opacity:.8;
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+.container{
+  flex:1;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+}
+
+/* =========================================
+   PROGRESSO
+========================================= */
+
+.progresso-container{
+  width:420px;
+
+  margin-bottom:25px;
+}
+
+.progresso-top{
+  display:flex;
+  justify-content:space-between;
+
+  margin-bottom:10px;
+
+  font-size:14px;
+  font-weight:600;
+}
+
+.progresso-barra{
+  width:100%;
+  height:14px;
+
+  border-radius:999px;
+
+  overflow:hidden;
+
+  background:rgba(255,255,255,.15);
+}
+
+#progresso{
+  width:0%;
+  height:100%;
+
+  border-radius:999px;
+
+  background:
+  linear-gradient(
+  90deg,
+  #22d3ee,
+  #14b8a6);
+
+  transition:.4s ease;
+}
+
+#progresso-texto{
+  display:block;
+
+  text-align:right;
+
+  margin-top:10px;
+
+  font-size:14px;
+  font-weight:600;
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.card{
+  width:420px;
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.1);
+
+  backdrop-filter:blur(10px);
+
+  border-radius:28px;
+
+  padding:40px;
+
+  text-align:center;
+
+  box-shadow:
+  0 20px 40px rgba(0,0,0,.25);
+}
+
+.instrucao{
+  font-size:15px;
+
+  opacity:.8;
+
+  line-height:1.6;
+
+  margin-bottom:15px;
+}
+
+#frase{
+  font-size:32px;
+  font-weight:800;
+
+  line-height:1.3;
+
+  margin-bottom:25px;
+
+  letter-spacing:-1px;
+}
+
+/* =========================================
+   BOTÃO MICROFONE
+========================================= */
+
+.btn-mic{
+  width:100%;
+
+  border:none;
+
+  cursor:pointer;
+
+  padding:18px;
+
+  border-radius:18px;
+
+  background:
+  linear-gradient(
+  135deg,
+  #14b8a6,
+  #06b6d4);
+
+  color:white;
+
+  font-size:16px;
+  font-weight:700;
+
+  transition:.3s ease;
+}
+
+.btn-mic:hover{
+  transform:translateY(-3px);
+}
+
+/* =========================================
+   RESULTADO
+========================================= */
+
+.resposta{
+  margin-top:25px;
+
+  padding:20px;
+
+  border-radius:18px;
+
+  background:rgba(255,255,255,.06);
+}
+
+.resposta span{
+  display:block;
+
+  opacity:.7;
+
+  margin-bottom:10px;
+
+  font-size:14px;
+}
+
+#resultado{
+  display:block;
+
+  font-size:28px;
+  font-weight:700;
+}
+
+/* =========================================
+   FEEDBACK
+========================================= */
+
+#feedback{
+  min-height:28px;
+
+  margin-top:22px;
+
+  font-size:17px;
+  font-weight:700;
+}
+
+/* =========================================
+   NAVEGAÇÃO
+========================================= */
+
+.nav-botoes{
+  width:420px;
+
+  display:flex;
+
+  gap:10px;
+
+  margin-top:25px;
+}
+
+.btn-next{
+  flex:1;
+
+  border:none;
+
+  padding:16px 22px;
+
+  border-radius:16px;
+
+  font-size:15px;
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:.3s ease;
+
+  background:white;
+
+  color:#0f172a;
+}
+
+.btn-next:hover{
+  transform:translateY(-3px);
+}
+
+button:disabled{
+  opacity:.4;
+  cursor:not-allowed;
+  transform:none !important;
+}
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media(max-width:600px){
+
+  .topbar{
+    padding:24px 20px;
+
+    flex-direction:column;
+
+    gap:10px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .card,
+  .progresso-container,
+  .nav-botoes{
+    width:100%;
   }
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui;
-}
+  #frase{
+    font-size:26px;
+  }
 
-body {
-  background: linear-gradient(135deg, #00A89E, #007c74);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  color: white;
-  font-weight: bold;
-}
-
-.sub {
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-.container {
-  flex: 1;
-  display: flex;
-  flex-direction: column; /* 🔥 ESSENCIAL */
-  justify-content: center;
-  align-items: center;
-}
-
-.card {
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  width: 420px;
-  text-align: center;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  animation: fadeIn 0.5s ease;
-}
-
-.instrucao {
-  font-size: 14px;
-  color: #777;
-}
-
-#frase {
-  font-size: 22px;
-  margin: 20px 0;
-  color: #00A89E;
-  font-weight: bold;
-}
-
-.btn-mic {
-  background: #00A89E;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn-mic:hover {
-  transform: scale(1.05);
-  background: #007c74;
-}
-
-.resposta {
-  margin-top: 20px;
-}
-
-#resultado {
-  display: block;
-  margin-top: 5px;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-#feedback {
-  margin-top: 15px;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-/* 🔥 FORA DO CARD */
-.nav-botoes {
-  display: flex;
-  gap: 10px;
-  margin-top: 25px;
-  width: 250px;
-}
-
-.btn-next {
-  flex: 10px;
-  background: white;
-  color: #00A89E;
-  border: none;
-  padding: 10px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s; 
-  font-weight: bold;
-}
-
-.btn-next:hover {
-  transform: scale(1.05);
-}
-
-button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-
-/* 🔥 PROGRESSO */
-.progresso-container {
-  width: 420px;
-  margin-bottom: 20px;
-  text-align: center;
-  margin-bottom: 0px;
-}
-
-.progresso-container {
-  width: 420px;
-  margin-top: 30px;
-  text-align: center;
-}
-
-.progresso-barra {
-  width: 100%;
-  margin-bottom: 10px;
-  height: 18px; /* 🔥 MAIS GROSSA */
-  background: rgba(255,255,255,0.3);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
-}
-
-#progresso {
-  height: 100%;
-  width: 0%;
-  background: white;
-  border-radius: 20px;
-  transition: width 0.4s ease;
-}
-
-/* TEXTO % */
-#progresso-texto {
-  display: block;
-  margin-top: 8px;
-  color: white;
-  font-weight: bold;
+  .card{
+    padding:30px;
+  }
 }

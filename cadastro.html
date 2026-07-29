@@ -1,89 +1,347 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <title>FonemaViva - Cadastro</title>
-    <link rel="stylesheet" href="./css/cadastro.css">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title> FonemaViva - Cadastro </title>
+<link rel="shortcut icon" href="./Img/goatfc.png">
+<link rel="stylesheet" href="./css/cadastro.css" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
+
 <body>
 
-      <header class="header-titulo">
-        FonemaViva
-    </header>
+  <div class="bg-overlay"></div>
 
-    <div class="left-side">
-    <div class="left-content">
-        <h1>Aplicativo auxiliar de fala</h1>
+  <header class="header-titulo">
+
+    <div class="logo">
+      FonemaViva
+    </div>
+
+  </header>
+
+  <main class="container">
+
+    <section class="left-side">
+
+      <div class="left-content">
+
+        <span class="badge">
+          Plataforma Inteligente
+        </span>
+
+        <h1>
+          Crie sua conta e evolua sua comunicação.
+        </h1>
+
         <p>
-            Transforme sua forma de trabalhar com nossas soluções inovadoras.
-            Conecte-se, colabore e crie experiências extraordinárias.
+          Tenha acesso a exercícios inteligentes,
+          reconhecimento de voz e ferramentas modernas que auxiliam
+          no desenvolvimento da sua comunicação.
         </p>
+
+        <div class="benefits">
+
+          <div class="benefit-card">
+
+            <span class="material-symbols-outlined">
+              record_voice_over
+            </span>
+
+            <div>
+
+              <h3>
+                Exercícios Inteligentes
+              </h3>
+
+              <p>
+                Atividades interativas que ajudam no fundamento do diálogo.
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="benefit-card">
+
+            <span class="material-symbols-outlined">
+              psychology
+            </span>
+
+            <div>
+
+              <h3>
+                Aprendizado Dinâmico
+              </h3>
+
+              <p>
+                Interface intuitiva e acessível para todas as idades.
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="benefit-card">
+
+            <span class="material-symbols-outlined">
+              workspace_premium
+            </span>
+
+            <div>
+
+              <h3>
+                Evolução Contínua
+              </h3>
+
+              <p>
+                Desenvolva sua Expressão Vocal diariamente.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="right-side">
+
+      <div class="card">
+
+        <div class="card-top">
+
+          <h2>
+            Criar Conta
+          </h2>
+
+          <p>
+            Preencha os dados para continuar
+          </p>
+
+        </div>
+
+        <form id="formCadastro">
+
+          <div class="foto-upload">
+
+            <label for="fotoPerfil">
+
+              <div class="preview-foto"
+              id="previewFoto">
+
+                FV
+
+              </div>
+
+            </label>
+
+            <input type="file"
+            id="fotoPerfil"
+            accept="image/*"
+            hidden />
+
+            <p>
+              Foto de Perfil
+            </p>
+
+          </div>
+
+          <div class="input-group">
+
+            <label for="nome">
+              Nome
+            </label>
+
+            <div class="input-box">
+
+              <span class="material-symbols-outlined">
+                person
+              </span>
+
+              <input type="text"
+              id="nome"
+              placeholder="Digite seu nome completo."
+              required />
+
+            </div>
+
+          </div>
+
+          <div class="input-group">
+
+            <label for="email">
+              Email
+            </label>
+
+            <div class="input-box">
+
+              <span class="material-symbols-outlined">
+                mail
+              </span>
+
+              <input type="email"
+              id="email"
+              placeholder="Digite seu email."
+              required />
+
+            </div>
+
+          </div>
+
+          <div class="input-group">
+
+            <label for="telefone">
+              Telefone
+            </label>
+
+            <div class="input-box">
+
+              <span class="material-symbols-outlined">
+                call
+              </span>
+
+              <input type="tel"
+              id="telefone"
+              placeholder="(00) 00000-0000"
+              required />
+
+            </div>
+
+          </div>
+
+          <div class="input-group">
+
+            <label for="senha">
+              Senha
+            </label>
+
+            <div class="input-box senha-container">
+
+              <span class="material-symbols-outlined">
+                lock
+              </span>
+
+              <input type="password"
+              id="senha"
+              maxlength="8"
+              minlength="8"
+              placeholder="••••••••"
+              required />
+
+              <span class="material-symbols-outlined toggle-senha"
+              onclick="toggleSenha('senha', this)">
+
+                visibility
+
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="input-group">
+
+            <label for="confirmarSenha">
+              Confirmar Senha
+            </label>
+
+            <div class="input-box senha-container">
+
+              <span class="material-symbols-outlined">
+                shield_lock
+              </span>
+
+              <input type="password"
+              id="confirmarSenha"
+              maxlength="8"
+              minlength="8"
+              placeholder="••••••••"
+              required />
+
+              <span class="material-symbols-outlined toggle-senha"
+              onclick="toggleSenha('confirmarSenha', this)">
+
+                visibility
+
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="options">
+
+            <label class="lembrar">
+
+              <input type="checkbox"
+              id="lembrar" />
+
+              Lembrar-me
+
+            </label>
+
+          </div>
+
+          <button type="submit"
+          class="btn-login">
+
+            Criar Conta
+
+          </button>
+
+          <p class="cadastro-texto">
+
+            Já possui conta?
+
+            <a href="./login.html">
+              Entrar agora
+            </a>
+
+          </p>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- LOADING SCREEN -->
+
+<div id="loadingScreen" class="loading-screen">
+
+  <div class="loading-box">
+
+    <div id="loader" class="loader"></div>
+
+    <div id="successIcon" class="success-icon">
+      ✓
     </div>
-</div>
 
-    <div class="container">
-        <div class="card">
-            <h2>Criar Conta</h2>
-
-            <form id="formCadastro">
-                
-                <div class="input-group">
-                    <label>Nome</label>
-                    <input type="text" id="nome" required placeholder="Digite seu nome completo.">
-                </div>
-
-                <div class="input-group">
-                    <label>Email</label>
-                    <input type="email" id="email" required placeholder="Digite seu email.">
-                </div>
-
-                <div class="input-group">
-                    <label>Telefone</label>
-                    <input type="tel" id="telefone" required placeholder="(00) 00000-0000">
-                </div>
-
-
-                <!-- Senhaziha do capeta -->
-               <div class="input-group senha-group">
-    <label>Senha</label>
-    <div class="senha-container">
-        <input type="password" id="senha" minlength="8" maxlength="8" required placeholder="••••••••">
-        <span class="material-symbols-outlined toggle-senha" onclick="toggleSenha('senha', this)">
-            visibility
-        </span>
+    <div id="errorIcon" class="error-icon">
+      ✕
     </div>
-</div>
 
-<div class="input-group senha-group">
-    <label>Confirmar Senha</label>
-    <div class="senha-container">
-        <input type="password" id="confirmarSenha" minlength="8" maxlength="8" required placeholder="••••••••">
-        <span class="material-symbols-outlined toggle-senha" onclick="toggleSenha('confirmarSenha', this)">
-            visibility
-        </span>
-    </div>
-</div>
-
-    <!-- Deu problema 3 vezes, mas agora foi!!! -->
-<div class="options">
-    <label class="lembrar">
-        <input type="checkbox" id="lembrar">
-        Lembre-me
-    </label>
-
-</div>
-<p class="cadastro-texto">
-      Já tenho uma conta?
-      <a href="./login.html" class="cadastro-link">Entrar</a>
+    <p id="statusText">
+      Entrando...
     </p>
 
-                <button type="submit">Cadastrar</button>
+  </div>
 
-            </form>
-        </div>
-    </div>
+</div>
 
-    <script src="./js/javinha.js"></script>
+  <script src="./js/cadastro.js"></script>
+
 </body>
+
 </html>

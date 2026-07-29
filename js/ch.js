@@ -1,13 +1,15 @@
-  const palavras = [
-    "Rato",
-    "Lata",
-    "Rola",
-    "Lua",
-    "Carro",
-    "Bola",
-    "Riso",
-    "Lobo"
-  ];
+const palavras = [
+  "Chuva",
+  "Chapéu",
+  "Chocolate",
+  "Chinelo",
+  "Chave",
+  "Churrasco",
+  "Chiclete",
+  "Choro",
+  "Chama",
+  "Chocalho"
+];
 
   let index = 0;
   let acertou = false;
@@ -136,20 +138,39 @@
       (acertos / palavras.length) * 100
     );
 
-    // BARRA LOCAL
+    // Barra do exercício
     progressoEl.style.width =
     porcentagem + "%";
 
     progressoTexto.innerText =
     porcentagem + "%";
 
-    // SALVA PROGRESSO GLOBAL
+    // Salva porcentagem do exercício
     localStorage.setItem(
       "sons-rl-progress",
       porcentagem
     );
 
-  }
+    // Terminou o exercício
+    if (porcentagem === 100) {
+
+        localStorage.setItem(
+            "ch-concluido",
+            "true"
+        );
+
+        if (!localStorage.getItem("ch-recompensa")) {
+
+            localStorage.setItem(
+                "ch-recompensa",
+                "true"
+            );
+
+        }
+
+    }
+
+}
 
   /* SALVAR PROGRESSO */
   function salvarProgresso(){
@@ -483,15 +504,25 @@ recognition.onerror = (event) => {
   if(index === palavras.length - 1){
 
     // REMOVE PROGRESSO LOCAL
-    localStorage.removeItem(
-      "fonema-progresso"
-    );
+localStorage.removeItem(
+  "fonema-progresso"
+);
 
-    // ZERA PROGRESSO GLOBAL
-    localStorage.setItem(
-      "sons-rl-progress",
-      0
-    );
+// Remove conclusão
+localStorage.removeItem(
+  "ch-concluido"
+);
+
+// Remove recompensa
+localStorage.removeItem(
+  "ch-recompensa"
+);
+
+// Zera progresso da barra
+localStorage.setItem(
+  "sons-rl-progress",
+  0
+);
 
     // RESET
     index = 0;

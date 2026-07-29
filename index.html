@@ -1,60 +1,471 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FonemaViva - home</title>
-  <link rel="stylesheet" href="./css/style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> FonemaViva - Home </title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="shortcut icon" href="./Img/goatfc.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
 
-<header>
-  <h1>FonemaViva</h1>
-</header>
+  <!-- HEADER -->
+  <header class="topbar">
 
-<section class="hero">
-  <h2>Exercícios Vocais</h2>
-  <p>Pratique com nossos exercícios orais para melhorar seu vocabulário.</p>
-  <button onclick="window.location.href='http://127.0.0.1:5500/escolha.html'">Exercícios</button>
-</section>
-
-<section id="sobre" class="section">
-  <h3>O que é Fonologia?</h3>
-  <p>A fonologia é a parte da linguística que estuda como os sons da fala funcionam dentro de uma língua. Não se trata apenas de ouvir ou produzir sons, mas de entender como pequenas diferenças sonoras podem mudar completamente o significado das palavras. Por exemplo, ao trocar o som inicial de “pato” por “gato”, já temos outra palavra com outro sentido, e é exatamente esse tipo de funcionamento que a fonologia busca explicar.</p>
-</section>
-
-<section id="projeto" class="section">
-  <h3>Sobre o Projeto</h3>
-  <p>Nosso objetivo é tornar o aprendizado da fonologia mais fácil, visual e acessível.</p>
-
-  <div class="cards">
-    <div class="card">
-      <h4>Ideia do projeto</h4>
-      <p>Nossa ideia surgiu diante da crescente necessidade de ampliar o acesso a recursos que auxiliem no desenvolvimento da comunicação verbal, especialmente considerando os altos índices de alterações de linguagem em crianças e as dificuldades enfrentadas por indivíduos sem acesso ao acompanhamento fonoaudiológico.</p>
+    <div class="logo">
+      <h1> <i class="fa-solid fa-wave-square"></i> FonemaViva </h1>
     </div>
-    <div class="card">
-      <h4>Objetivo</h4>
-      <p>Temos em mente desenvolver um aplicativo educacional baseado nos princípios da fonologia, voltado para auxiliar pessoas com dificuldades na fala a adquirirem habilidades básicas de comunicação verbal de forma acessível, interativa e gratuita, promovendo a melhoria da articulação, pronúncia e compreensão dos sons da língua.</p>
+
+    <nav>
+
+      <a href="./login.html">
+        Login
+      </a>
+
+      <a class="btn-nav"
+      href="./cadastro.html">
+
+        Cadastrar-se
+
+      </a>
+
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="slides">
+
+      <!-- SLIDE 1 -->
+      <div class="slide active">
+
+        <div class="hero-text">
+
+          <span class="badge">
+            Plataforma Interativa de Fonologia
+          </span>
+
+          <h2>
+            Aprenda pronúncia de forma divertida
+          </h2>
+
+          <p>
+            Exercícios modernos para melhorar sua
+            comunicação verbal.
+          </p>
+
+          <div class="hero-buttons">
+
+            <button class="btn-primary"
+            onclick="window.location.href='./semescolha.html'">
+
+              Começar Exercícios
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="slide">
+
+        <div class="hero-text">
+
+          <span class="badge">
+            Reconhecimento de Voz
+          </span>
+
+          <h2>
+            Treine sua fala em tempo real
+          </h2>
+
+          <p>
+            Utilize exercícios com reconhecimento
+            automático de voz.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="slide">
+
+        <div class="hero-text">
+
+          <span class="badge">
+            Aprendizado Acessível
+          </span>
+
+          <h2>
+            Fácil para crianças e adultos
+          </h2>
+
+          <p>
+            Interface simples, moderna e acessível
+            para todas as idades.
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
-    <div class="card">
-      <h4>Aprendizado Interartivo</h4>
-      <p>Os exercícios interativos foram desenvolvidos para tornar o aprendizado mais dinâmico e eficiente, permitindo que o usuário pratique os conceitos de fonologia na prática e fixe melhor o conteúdo. </p>
+
+    <!-- SETAS -->
+    <button class="prev">
+      &#10094;
+    </button>
+
+    <button class="next">
+      &#10095;
+    </button>
+
+    <!-- BOLINHAS -->
+    <div class="dots">
+
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+
     </div>
-  </div>
-</section>
 
-<section class="section">
-  <h3>Importância</h3>
-  <p>A importância da fonologia está no fato de que ela permite compreender como os sons da fala se organizam para formar palavras e transmitir significado. Ao entender esse funcionamento, torna-se mais fácil desenvolver uma comunicação clara e eficiente, evitando confusões causadas por trocas ou omissões de sons.
+  </section>
 
-Além disso, a fonologia é essencial no processo de aprendizagem da leitura e da escrita, pois ajuda a relacionar os sons às letras, facilitando a alfabetização. Ela também contribui para a melhoria da pronúncia, tanto na língua materna quanto no aprendizado de outros idiomas, permitindo que a fala seja mais compreensível.</p>
-</section>
+  <!-- SOBRE -->
+  <section id="sobre"
+  class="sobre-section">
 
-<footer>
-  <p>© 2026 FonemaViva</p>
-</footer>
+    <div class="section-top">
 
-<script src="./js/script.js"></script>
+      <span class="tag">
+        Sobre Fonologia
+      </span>
+
+      <h2>
+        Aprender sons da fala nunca foi tão acessível.
+      </h2>
+
+      <p>
+        A fonologia estuda como os sons funcionam dentro da linguagem humana.
+        Nosso projeto transforma esse aprendizado em algo visual, intuitivo
+        e acessível para todas as idades.
+      </p>
+
+    </div>
+
+    <div class="sobre-grid">
+
+      <!-- CARD 1 -->
+      <div class="sobre-card">
+
+        <div class="card-image">
+
+          <img src="https://ethoson.com.br/uploads/images/AVALIA%C3%87%C3%83O%20COGNITIVA%20NO%20TEA(256%20x%20256%20px).png"
+          alt="Criança estudando linguagem">
+
+        </div>
+
+        <div class="card-content">
+
+          <h3>
+            Desenvolvimento Cognitivo
+          </h3>
+
+          <p>
+            Exercícios fonológicos ajudam na leitura, escrita,
+            comunicação e compreensão verbal.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="sobre-card">
+
+        <div class="card-image">
+
+          <img src="https://cursa-cat-img.s3.amazonaws.com/courses/pt/aulas-de-canto-bafd_s.webp"
+          alt="Pessoa utilizando reconhecimento de voz">
+
+        </div>
+
+        <div class="card-content">
+
+          <h3>
+            Prática com Voz
+          </h3>
+
+          <p>
+            O reconhecimento de voz permite que o usuário
+            pratique pronúncia em tempo real.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="sobre-card">
+
+        <div class="card-image">
+
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxIjIEY4jaZan9prUHlPVCM2SFxmerMykfFw&s"
+          alt="Grupo utilizando tecnologia educacional">
+
+        </div>
+
+        <div class="card-content">
+
+          <h3>
+            Acessível para Todos
+          </h3>
+
+          <p>
+            Interface simples, moderna e intuitiva para crianças,
+            adultos e idosos.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJETO -->
+  <section id="projeto"
+  class="projeto-section">
+
+    <div class="section-top">
+
+      <span class="tag">
+        Nosso Projeto
+      </span>
+
+      <h2>
+        Tecnologia + Educação + Inclusão
+      </h2>
+
+      <p>
+        Criamos uma plataforma moderna para auxiliar no
+        desenvolvimento da fala e da comunicação verbal.
+      </p>
+
+    </div>
+
+    <div class="cards-modernos">
+
+      <div class="card-moderno">
+
+        <div class="numero">
+          01
+        </div>
+
+        <h3>
+          Ideia do Projeto
+        </h3>
+
+        <p>
+          O FonemaViva nasceu para democratizar o acesso
+          a exercícios fonológicos de maneira gratuita e interativa.
+        </p>
+
+      </div>
+
+      <div class="card-moderno">
+
+        <div class="numero">
+          02
+        </div>
+
+        <h3>
+          Objetivo
+        </h3>
+
+        <p>
+          Melhorar articulação, pronúncia e percepção sonora
+          através de exercícios inteligentes.
+        </p>
+
+      </div>
+
+      <div class="card-moderno">
+
+        <div class="numero">
+          03
+        </div>
+
+        <h3>
+          Aprendizado Interativo
+        </h3>
+
+        <p>
+          Feedback instantâneo, reconhecimento de voz e
+          exercícios dinâmicos tornam a experiência mais eficiente.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- IMPORTÂNCIA -->
+  <section class="importancia-section">
+
+    <div class="importancia-box">
+
+      <div class="importancia-texto">
+
+        <span class="tag">
+          Importância
+        </span>
+
+        <h2>
+          A fonologia transforma a comunicação.
+        </h2>
+
+        <p>
+          A compreensão dos sons da fala é essencial para leitura,
+          escrita, alfabetização e desenvolvimento da linguagem.
+        </p>
+
+        <p>
+          Trabalhar fonologia melhora a clareza da comunicação,
+          ajuda no aprendizado escolar e fortalece a confiança
+          durante a fala.
+        </p>
+
+      </div>
+
+      <div class="importancia-info">
+
+        <div class="info-card">
+
+          <h3>
+            +100%
+          </h3>
+
+          <p>
+            Mais acessibilidade
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <h3>
+            Voz
+          </h3>
+
+          <p>
+            Exercícios interativos
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <h3>
+            IA
+          </h3>
+
+          <p>
+            Reconhecimento inteligente
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-container">
+
+      <div class="footer-logo">
+
+        <h2>
+          FonemaViva
+        </h2>
+
+        <p>
+          Educação fonológica moderna, acessível e interativa.
+        </p>
+
+      </div>
+
+      <div class="footer-links">
+
+        <h4>
+          Navegação
+        </h4>
+
+        <a href="#">
+          Início
+        </a>
+
+        <a href="#">
+          Exercícios
+        </a>
+
+        <a href="#">
+          Cadastro
+        </a>
+
+      </div>
+
+      <div class="footer-links">
+
+        <h4>
+          Contato
+        </h4>
+
+        <a href="#">
+          Suporte
+        </a>
+
+        <a href="#">
+          Email
+        </a>
+
+        <a href="#">
+          Comunidade
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <p>
+        © 2026 FonemaViva — Todos os direitos reservados.
+      </p>
+
+    </div>
+
+  </footer>
+
+  <script src="./js/index.js"></script>
+
 </body>
+
 </html>
