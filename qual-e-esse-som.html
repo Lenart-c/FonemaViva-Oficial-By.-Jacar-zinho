@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Qual é esse som</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="./Img/goatfc.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="./css/qual-e-esse-som.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">
+      <h1><i class="fa-solid fa-wave-square"></i> FonemaViva</h1>
+    </div>
+
+    <button class="back-btn" onclick="history.back()">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">Exercício fonológico</p>
+      <h2>Qual é esse som?</h2>
+      <p class="intro">
+        Ouça os sons parecidos e escolha qual palavra corresponde ao som que você ouviu.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="painel-visual">
+        <div class="icone-son" id="iconeSom">🔊</div>
+        <button id="btn-ouvir" class="btn btn-primary">Ouvir som</button>
+      </div>
+
+      <div class="painel-instrucao">
+        <div class="fase-box">
+          <p class="label">Desafio</p>
+          <h3 id="fase">Aperte ouvir</h3>
+          <p id="instrucao">Escute com atenção e escolha a palavra correta.</p>
+        </div>
+
+        <div class="progress-box">
+          <div class="barra">
+            <div id="progresso" class="barra-fill"></div>
+          </div>
+          <span id="tempo">0/4</span>
+        </div>
+
+        <div class="opcoes" id="opcoes"></div>
+
+        <div class="acoes">
+          <button id="btn-reiniciar" class="btn btn-secondary">Reiniciar</button>
+        </div>
+
+        <p id="feedback" class="feedback">Vamos começar!</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/qual-e-esse-som.js"></script>
+</body>
+</html>

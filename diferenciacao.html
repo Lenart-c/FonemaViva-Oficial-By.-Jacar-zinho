@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Diferenciação de sons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="./Img/goatfc.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="./css/diferenciacao.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="logo">
+      <h1><i class="fa-solid fa-wave-square"></i> FonemaViva</h1>
+    </div>
+
+    <button class="back-btn" onclick="history.back()">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">Exercício fonológico</p>
+      <h2>Diferenciação de sons</h2>
+      <p class="intro">
+        Ouça atentamente a palavra falada e repita exatamente o que você ouviu.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="painel-principal">
+        <p class="mini">Palavra atual</p>
+        <h3 id="palavra">...</h3>
+        <p class="instrucao" id="instrucao">
+          Clique em ouvir e depois repita a palavra em voz alta.
+        </p>
+
+        <div class="botoes">
+          <button id="ouvir" class="btn btn-primary"><i class="fa-solid fa-volume-high"></i> Ouvir palavra</button>
+          <button id="repetir" class="btn btn-secondary"><i class="fa-solid fa-microphone"></i> Repetir</button>
+        </div>
+
+        <div class="resultado-box">
+          <p class="mini">Sua resposta</p>
+          <span id="resultado">...</span>
+        </div>
+
+        <p id="feedback" class="feedback"></p>
+      </div>
+
+      <div class="painel-lateral">
+        <div class="progresso-box">
+          <p class="mini">Progresso</p>
+          <div class="barra">
+            <div id="progresso" class="barra-fill"></div>
+          </div>
+          <span id="progresso-texto">0%</span>
+        </div>
+
+        <div class="dicas">
+          <h4>Dicas</h4>
+          <ul>
+            <li>Ouça com atenção a primeira sílaba.</li>
+            <li>Compare sons parecidos.</li>
+            <li>Repita com calma e clareza.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/diferenciacao.js"></script>
+</body>
+
+</html>
