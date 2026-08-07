@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Respiração</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="./Img/goatfc.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="./css/respiracao.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="logo">
+      <h1><i class="fa-solid fa-wave-square"></i> FonemaViva</h1>
+    </div>
+
+    <button class="back-btn" onclick="history.back()">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">Exercício fonológico</p>
+      <h2>Controle da respiração</h2>
+      <p class="intro">
+        Aprenda a controlar o fluxo de ar e a fazer uma emissão mais estável para a fala.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="visual-area">
+        <div id="orb" class="orb"></div>
+        <div id="halo" class="halo"></div>
+      </div>
+
+      <div class="painel">
+        <div class="fase-box">
+          <p class="label">Fase atual</p>
+          <h3 id="fase">Aperte começar</h3>
+          <p id="instrucao">Inspire pelo nariz e solte o ar devagar.</p>
+        </div>
+
+        <div class="progress-box">
+          <div class="progress-bar">
+            <div id="progress" class="progress-fill"></div>
+          </div>
+          <span id="tempo">0s</span>
+        </div>
+
+        <div class="acoes">
+          <button id="btn-iniciar" class="btn btn-primary">Começar exercício</button>
+          <button id="btn-reset" class="btn btn-secondary">Reiniciar</button>
+        </div>
+
+        <ul class="tips">
+          <li>Respire pelo nariz e mantenha o corpo relaxado.</li>
+          <li>Solte o ar aos poucos, como um sopro contínuo.</li>
+          <li>Durante a expiração, repita sons suaves como “pá”, “ta” e “ka”.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/respiracao.js"></script>
+</body>
+
+</html>

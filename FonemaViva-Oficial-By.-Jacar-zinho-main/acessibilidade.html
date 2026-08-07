@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva - Acessibilidade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="shortcut icon" href="./Img/goatfc.png">
+  <link rel="stylesheet" href="./css/acessibilidade.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="logo">
+      <i class="fa-solid fa-wave-square"></i>
+      <h1>FonemaViva</h1>
+    </div>
+
+    <button type="button" class="btn-voltar" onclick="history.back()">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Voltar</span>
+    </button>
+  </header>
+
+  <main class="acessibilidade-page">
+    <section class="hero-card">
+      <div class="hero-icon">
+        <i class="fa-solid fa-universal-access"></i>
+      </div>
+      <div>
+        <h2>Acessibilidade</h2>
+        <p>Personalize a plataforma para uma experiência mais confortável, clara e inclusiva.</p>
+      </div>
+    </section>
+
+    <section class="settings-card">
+      <div class="card-title">
+        <i class="fa-solid fa-eye"></i>
+        <h3>Preferências visuais</h3>
+      </div>
+
+      <div class="option-list">
+        <label class="option-item">
+          <div>
+            <strong>Alto contraste</strong>
+            <p>Melhora a legibilidade para pessoas com sensibilidade visual.</p>
+          </div>
+          <span class="switch">
+            <input type="checkbox" data-setting="altoContraste">
+            <span class="slider"></span>
+          </span>
+        </label>
+
+        <label class="option-item">
+          <div>
+            <strong>Fonte maior</strong>
+            <p>Aumenta o tamanho do texto para leitura mais confortável.</p>
+          </div>
+          <span class="switch">
+            <input type="checkbox" data-setting="fonteMaior">
+            <span class="slider"></span>
+          </span>
+        </label>
+
+        <label class="option-item">
+          <div>
+            <strong>Reduzir movimento</strong>
+            <p>Minimiza animações e transições para maior estabilidade visual.</p>
+          </div>
+          <span class="switch">
+            <input type="checkbox" data-setting="movimentoReducido">
+            <span class="slider"></span>
+          </span>
+        </label>
+      </div>
+    </section>
+
+    <section class="settings-card">
+      <div class="card-title">
+        <i class="fa-solid fa-volume-high"></i>
+        <h3>Leitura e áudio</h3>
+      </div>
+
+      <div class="option-list">
+        <label class="option-item">
+          <div>
+            <strong>Leitura em voz alta</strong>
+            <p>Ativa uma leitura assistida para os textos principais.</p>
+          </div>
+          <span class="switch">
+            <input type="checkbox" data-setting="leituraVozAlta">
+            <span class="slider"></span>
+          </span>
+        </label>
+
+        <label class="option-item">
+          <div>
+            <strong>Feedback sonoro</strong>
+            <p>Adiciona sinais sonoros para ações e respostas.</p>
+          </div>
+          <span class="switch">
+            <input type="checkbox" data-setting="feedbackSonoro">
+            <span class="slider"></span>
+          </span>
+        </label>
+      </div>
+    </section>
+
+    <section class="settings-card">
+      <div class="card-title">
+        <i class="fa-solid fa-hand-pointer"></i>
+        <h3>Facilidade de uso</h3>
+      </div>
+
+      <div class="option-list">
+        <label class="option-item">
+          <div>
+            <strong>Cursor destacado</strong>
+            <p>Destaca o cursor para facilitar a navegação.</p>
+          </div>
+          <span class="switch">
+            <input type="checkbox" data-setting="cursorDestacado">
+            <span class="slider"></span>
+          </span>
+        </label>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/acessibilidade.js"></script>
+</body>
+</html>

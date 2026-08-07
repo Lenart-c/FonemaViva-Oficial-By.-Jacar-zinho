@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva - Configurações</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="shortcut icon" href="./Img/goatfc.png">
+  <link rel="stylesheet" href="./css/configuracoes.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="logo">
+      <i class="fa-solid fa-wave-square"></i>
+      <h1>FonemaViva</h1>
+    </div>
+
+    <button type="button" class="btn-voltar" onclick="history.back()">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Voltar</span>
+    </button>
+  </header>
+
+  <main class="configuracoes-page">
+    <section class="hero-card">
+      <div class="hero-icon">
+        <i class="fa-solid fa-gear"></i>
+      </div>
+      <div>
+        <h2>Configurações</h2>
+        <p>Defina sua experiência ideal na plataforma para estudar com mais conforto.</p>
+      </div>
+    </section>
+
+    <section class="settings-card">
+      <div class="card-title">
+        <i class="fa-solid fa-palette"></i>
+        <h3>Aparência</h3>
+      </div>
+
+      <div class="theme-options">
+        <button class="theme-option active" data-theme="light">Claro</button>
+        <button class="theme-option" data-theme="dark">Escuro</button>
+        <button class="theme-option" data-theme="auto">Automático</button>
+      </div>
+    </section>
+
+    <section class="settings-card">
+      <div class="card-title">
+        <i class="fa-solid fa-bell"></i>
+        <h3>Notificações</h3>
+      </div>
+
+      <div class="option-list">
+        <label class="option-item">
+          <div>
+            <strong>Lembretes de estudo</strong>
+            <p>Receba alertas para manter sua rotina organizada.</p>
+          </div>
+          <span class="switch">
+            <input type="checkbox" data-setting="lembretes">
+            <span class="slider"></span>
+          </span>
+        </label>
+
+        <label class="option-item">
+          <div>
+            <strong>Atualizações do conteúdo</strong>
+            <p>Fique por dentro de novos exercícios e materiais.</p>
+          </div>
+          <span class="switch">
+            <input type="checkbox" data-setting="atualizacoes">
+            <span class="slider"></span>
+          </span>
+        </label>
+      </div>
+    </section>
+
+    <section class="settings-card">
+      <div class="card-title">
+        <i class="fa-solid fa-language"></i>
+        <h3>Idioma e conta</h3>
+      </div>
+
+      <div class="form-group">
+        <label for="idioma">Idioma preferido</label>
+        <select id="idioma">
+          <option>Português</option>
+          <option>English</option>
+          <option>Español</option>
+        </select>
+      </div>
+
+      <div class="action-row">
+        <button type="button" class="action-btn">Salvar alterações</button>
+        <button type="button" class="action-btn secondary">Restaurar padrão</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/configuracoes.js"></script>
+</body>
+</html>

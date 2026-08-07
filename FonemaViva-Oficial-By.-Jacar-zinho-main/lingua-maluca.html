@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Língua maluca</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="./Img/goatfc.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="./css/lingua-maluca.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">
+      <h1><i class="fa-solid fa-wave-square"></i> FonemaViva</h1>
+    </div>
+
+    <button class="back-btn" onclick="history.back()">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">Exercício fonológico</p>
+      <h2>Língua maluca</h2>
+      <p class="intro">
+        Faça os movimentos da língua em sequência e trabalhe articulação e fluidez com calma.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="painel-visual">
+        <div class="boca-animada">
+          <div class="lips"></div>
+          <div id="lingua" class="lingua"></div>
+        </div>
+      </div>
+
+      <div class="painel-instrucao">
+        <div class="fase-box">
+          <p class="label">Etapa</p>
+          <h3 id="fase">Aperte começar</h3>
+          <p id="instrucao">Leve a língua para a esquerda, depois para a direita.</p>
+        </div>
+
+        <div class="progress-box">
+          <div class="barra">
+            <div id="progresso" class="barra-fill"></div>
+          </div>
+          <span id="tempo">0/4</span>
+        </div>
+
+        <div class="acoes">
+          <button id="btn-iniciar" class="btn btn-primary">Começar exercício</button>
+          <button id="btn-reiniciar" class="btn btn-secondary">Reiniciar</button>
+        </div>
+
+        <ul class="dicas">
+          <li>Faça os movimentos devagar.</li>
+          <li>Mantenha a boca relaxada.</li>
+          <li>Repita em sequência com calma.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/lingua-maluca.js"></script>
+</body>
+</html>

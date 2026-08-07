@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+FonemaViva - Meu Perfil
+</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="shortcut icon" href="./Img/goatfc.png">
+<link rel="stylesheet" href="./css/perfil.css">
+
+<!-- PRÉ-CARREGA FOTO -->
+
+<script>
+
+const fotoSalva =
+localStorage.getItem(
+"usuarioFoto"
+);
+
+if(fotoSalva){
+
+const preload =
+new Image();
+
+preload.src =
+fotoSalva;
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id="loadingInicial" class="loading-screen active">
+
+  <div class="loading-box">
+
+    <div class="loader"></div>
+
+    <p id="textoLoadingInicial">
+      Carregando informações...
+    </p>
+
+  </div>
+
+</div>
+
+<!-- TOPO -->
+
+<header class="topo">
+
+<div class="logo">
+
+<i class="fa-solid fa-wave-square"></i>
+
+<h1>
+FonemaViva
+</h1>
+
+</div>
+
+<button
+type="button"
+class="btn-voltar"
+id="btnVoltar">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+<span>
+Voltar
+</span>
+
+</button>
+
+</header>
+
+<!-- CONTEÚDO -->
+
+<main class="perfil-page">
+
+<!-- PERFIL -->
+
+<section class="perfil-card">
+
+<div
+id="perfilBanner"
+class="perfil-banner banner-verde">
+</div>
+
+<button
+type="button"
+id="btnEscolherBanner"
+class="btn-banner">
+
+<i class="fa-solid fa-image"></i>
+
+Alterar banner
+
+</button>
+
+<div class="foto-area">
+
+<div class="foto-wrapper">
+
+    <div class="foto-perfil-container">
+
+        <img id="previewFoto" src="" alt="Foto de Perfil">
+
+        <div id="fotoPlaceholder" class="foto-placeholder">
+            FV
+        </div>
+
+    </div>
+
+    <label for="fotoPerfil" class="editar-foto">
+        <i class="fa-solid fa-camera"></i>
+    </label>
+
+    <input
+        type="file"
+        id="fotoPerfil"
+        accept="image/png,image/jpeg,image/webp">
+
+</div>
+
+</div>
+
+<div class="perfil-info">
+
+<h2 id="tituloNome">
+Usuário
+</h2>
+
+<p>
+Conta FonemaViva
+</p>
+
+</div>
+
+</section>
+
+<!-- FORM -->
+
+<form id="formPerfil">
+
+<!-- DADOS -->
+
+<div class="form-card">
+
+<div class="card-title">
+
+<i class="fa-solid fa-user"></i>
+
+<h3>
+Dados Pessoais
+</h3>
+
+</div>
+
+<div class="form-grid">
+
+<div class="input-group">
+
+<label>
+Nome Completo
+</label>
+
+<div class="input-box readonly">
+
+<i class="fa-solid fa-user"></i>
+
+<input
+type="text"
+id="nome"
+readonly>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>
+Apelido
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-signature"></i>
+
+<input
+type="text"
+id="apelido"
+placeholder="Digite seu apelido">
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>
+Email
+</label>
+
+<div class="input-box readonly">
+
+<i class="fa-solid fa-envelope"></i>
+
+<input
+type="email"
+id="email"
+readonly>
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>
+Telefone
+</label>
+
+<div class="input-box readonly">
+
+<i class="fa-solid fa-phone"></i>
+
+<input
+type="text"
+id="telefone"
+readonly>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ESTATÍSTICAS -->
+
+<div class="stats-grid">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-book-open"></i>
+
+<h4>
+Aprendizado
+</h4>
+
+<p>
+Fonologia
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-brain"></i>
+
+<h4>
+Exercícios
+</h4>
+
+<p>
+Em andamento
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-trophy"></i>
+
+<h4>
+Conquistas
+</h4>
+
+<p>
+FonemaViva
+</p>
+
+</div>
+
+</div>
+
+<button
+type="submit"
+class="btn-salvar"
+id="btnSalvar">
+
+<i class="fa-solid fa-floppy-disk"></i>
+
+<span>
+Salvar Alterações
+</span>
+
+</button>
+
+</form>
+
+</main>
+
+<div id="loadingScreen" class="loading-screen">
+
+  <div class="loading-box">
+
+    <div id="loader" class="loader"></div>
+
+    <div id="successIcon" class="success-icon">
+      ✓
+    </div>
+
+    <div id="errorIcon" class="error-icon">
+      ✕
+    </div>
+
+    <div id="warningIcon" class="warning-icon">
+    !
+    </div>
+
+    <p id="statusText">
+      Salvando perfil...
+    </p>
+
+  </div>
+
+</div>
+
+<div
+id="modalBanner"
+class="modal-banner">
+
+  <div class="modal-banner-content">
+
+    <div class="banner-header">
+
+      <div>
+
+        <h3>
+          Personalizar Perfil
+        </h3>
+
+        <p>
+          Escolha um banner para seu perfil
+        </p>
+
+      </div>
+
+      <button
+      id="fecharModalBanner"
+      class="btn-fechar-modal">
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
+    </div>
+
+    <div class="lista-banners">
+
+  <div class="banner-card" data-banner="banner-verde">
+    <div class="banner-opcao banner-verde"></div>
+    <span>Padrão</span>
+  </div>
+
+  <div class="banner-card" data-banner="banner-azul">
+    <div class="banner-opcao banner-azul"></div>
+    <span>Azul</span>
+  </div>
+
+  <div class="banner-card" data-banner="banner-vermelho">
+    <div class="banner-opcao banner-vermelho"></div>
+    <span>Vermelho</span>
+  </div>
+
+  <div class="banner-card" data-banner="banner-rosa">
+    <div class="banner-opcao banner-rosa"></div>
+    <span>Rosa</span>
+  </div>
+
+  <div class="banner-card" data-banner="banner-laranja">
+    <div class="banner-opcao banner-laranja"></div>
+    <span>Laranja</span>
+  </div>
+  
+  <div class="banner-card" data-banner="banner-roxo">
+    <div class="banner-opcao banner-roxo"></div>
+    <span>Roxo</span>
+  </div>
+  <div class="banner-card" data-banner="banner-preto">
+    <div class="banner-opcao banner-preto"></div>
+    <span>Preto</span>
+  </div>
+    <div class="banner-card" data-banner="banner-amarelo">
+      <div class="banner-opcao banner-amarelo"></div>
+      <span>Amarelo</span>
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+</div>
+
+<script src="./js/perfil.js"></script>
+
+</body>
+</html>

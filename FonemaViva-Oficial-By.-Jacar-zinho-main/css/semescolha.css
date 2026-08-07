@@ -1,0 +1,313 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:system-ui;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+body{
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    url("../Img/imagem.jpeg")
+    no-repeat center center;
+
+    background-size:cover;
+
+    padding:40px 20px;
+}
+
+.bg-overlay{
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(2,6,23,0.88),
+    rgba(15,118,110,0.72)
+    );
+
+    z-index:0;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero-card{
+    width:100%;
+    max-width:1180px;
+
+    padding:70px;
+
+    border-radius:42px;
+
+    background:
+    rgba(255,255,255,0.10);
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 25px 80px rgba(0,0,0,0.30);
+
+    animation:fadeUp 1s ease;
+}
+
+.top-badge{
+    display:inline-flex;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:
+    rgba(255,255,255,0.12);
+
+    border:
+    1px solid rgba(255,255,255,0.18);
+
+    color:white;
+
+    font-size:14px;
+    font-weight:700;
+
+    margin-bottom:28px;
+}
+
+.hero-card h1{
+    color:white;
+
+    font-size:
+    clamp(2.5rem, 5vw, 4.5rem);
+
+    line-height:1.1;
+
+    margin-bottom:22px;
+
+    font-weight:800;
+}
+
+.subtitle{
+    max-width:760px;
+
+    color:#E2E8F0;
+
+    font-size:1.15rem;
+
+    line-height:1.8;
+
+    margin-bottom:55px;
+}
+
+.opcoes{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.opcao{
+    position:relative;
+
+    overflow:hidden;
+
+    text-decoration:none;
+
+    padding:38px;
+
+    border-radius:32px;
+
+    color:white;
+
+    transition:0.45s ease;
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    min-height:320px;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.opcao::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+    180deg,
+    rgba(255,255,255,0.10),
+    rgba(255,255,255,0.02)
+    );
+
+    opacity:0;
+
+    transition:0.4s ease;
+}
+
+.opcao:hover::before{
+    opacity:1;
+}
+
+.opcao:hover{
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 30px 60px rgba(0,0,0,0.28);
+}
+
+.crianca{
+    background:
+    linear-gradient(
+    135deg,
+    #3B82F6,
+    #7C3AED
+    );
+}
+
+.adulto{
+    background:
+    linear-gradient(
+    135deg,
+    #0F766E,
+    #00A89E
+    );
+}
+
+.icone-box{
+    width:82px;
+    height:82px;
+
+    border-radius:24px;
+
+    background:
+    rgba(255,255,255,0.14);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:28px;
+
+    backdrop-filter:blur(8px);
+}
+
+.icone-box span{
+    font-size:42px;
+}
+
+.opcao h2{
+    font-size:2rem;
+
+    margin-bottom:18px;
+
+    font-weight:800;
+}
+
+.opcao p{
+    color:#F8FAFC;
+
+    line-height:1.8;
+
+    font-size:1rem;
+
+    flex:1;
+}
+
+.btn-card{
+    margin-top:35px;
+
+    width:160px;
+    height:56px;
+
+    border-radius:18px;
+
+    background:
+    rgba(255,255,255,0.14);
+
+    border:
+    1px solid rgba(255,255,255,0.16);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:700;
+
+    backdrop-filter:blur(10px);
+
+    transition:0.35s ease;
+}
+
+.opcao:hover .btn-card{
+    background:white;
+    color:#0F172A;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@media (max-width:950px){
+
+    .hero-card{
+        padding:45px 30px;
+    }
+
+    .opcoes{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media (max-width:600px){
+
+    .hero-card{
+        border-radius:28px;
+    }
+
+    .opcao{
+        padding:30px;
+        min-height:auto;
+    }
+
+    .hero-card h1{
+        font-size:2.4rem;
+    }
+
+}
