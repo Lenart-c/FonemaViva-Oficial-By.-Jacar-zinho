@@ -1,3 +1,13 @@
+const SUPABASE_URL =
+"https://mnfryxvtogpiwacpyhgo.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_YYMfDfWKaer8F1IEOFVOMQ_acS2xa2G";
+
+// ==========================
+// FORM
+// ==========================
+
 const form =
 document.getElementById("formCadastro");
 
@@ -13,8 +23,62 @@ document.getElementById("confirmarSenha");
 const lembrarInput =
 document.getElementById("lembrar");
 
+const fotoInput =
+document.getElementById("fotoPerfil");
+
+const previewFoto =
+document.getElementById("previewFoto");
+
+let fotoBase64 = "";
+
+const loadingScreen =
+document.getElementById("loadingScreen");
+
+const loader =
+document.getElementById("loader");
+
+const successIcon =
+document.getElementById("successIcon");
+
+const errorIcon =
+document.getElementById("errorIcon");
+
+const statusText =
+document.getElementById("statusText");
+
+const loadingBox =
+document.querySelector(".loading-box");
+
 // ==========================
-// VALIDAR SENHAS EM TEMPO REAL
+// FOTO PERFIL
+// ==========================
+
+fotoInput.addEventListener("change", () => {
+
+    const arquivo =
+    fotoInput.files[0];
+
+    if (!arquivo) return;
+
+    const reader =
+    new FileReader();
+
+    reader.onload = (e) => {
+
+        fotoBase64 =
+        e.target.result;
+
+        previewFoto.innerHTML =
+        `<img src="${fotoBase64}">`;
+
+    };
+
+    reader.readAsDataURL(arquivo);
+
+});
+
+// ==========================
+// VALIDAR SENHAS
 // ==========================
 
 function validarSenhas() {
@@ -28,7 +92,9 @@ function validarSenhas() {
         "As senhas não coincidem."
         );
 
-    } else {
+    }
+
+    else {
 
         confirmarSenhaInput.setCustomValidity("");
 
@@ -60,12 +126,15 @@ confirmarSenhaInput.minLength = 8;
 // MÁSCARA TELEFONE
 // ==========================
 
-telefoneInput.addEventListener("input", (e) => {
+telefoneInput.addEventListener(
+"input",
+(e) => {
 
     let value =
     e.target.value.replace(/\D/g, "");
 
-    value = value.slice(0, 11);
+    value =
+    value.slice(0, 11);
 
     if (value.length > 10) {
 
@@ -107,7 +176,8 @@ telefoneInput.addEventListener("input", (e) => {
 
     }
 
-    e.target.value = value;
+    e.target.value =
+    value;
 
 });
 
@@ -115,7 +185,9 @@ telefoneInput.addEventListener("input", (e) => {
 // BLOQUEAR LETRAS
 // ==========================
 
-telefoneInput.addEventListener("keypress", (e) => {
+telefoneInput.addEventListener(
+"keypress",
+(e) => {
 
     const char =
     String.fromCharCode(e.which);
@@ -152,13 +224,81 @@ function toggleSenha(id, el) {
 
 }
 
+function abrirLoading(){
+
+  loadingScreen.classList.add("active");
+
+  centralizarLoading();
+
+  loader.style.display =
+  "block";
+
+  successIcon.style.display =
+  "none";
+
+  errorIcon.style.display =
+  "none";
+
+  statusText.textContent =
+  "Criando conta...";
+
+}
+
+function mostrarSucesso(){
+
+  loader.style.display =
+  "none";
+
+  successIcon.style.display =
+  "flex";
+
+  errorIcon.style.display =
+  "none";
+
+  statusText.textContent =
+  "Conta criada com sucesso!";
+
+}
+
+function centralizarLoading(){
+
+    const y =
+    window.scrollY +
+    (window.innerHeight / 2);
+
+    loadingBox.style.top =
+    `${y}px`;
+
+}
+
+
+function mostrarErro(mensagem){
+
+  loader.style.display =
+  "none";
+
+  successIcon.style.display =
+  "none";
+
+  errorIcon.style.display =
+  "flex";
+
+  statusText.textContent =
+  mensagem;
+
+}
+
 // ==========================
 // CADASTRO
 // ==========================
 
-form.addEventListener("submit", (e) => {
+form.addEventListener(
+"submit",
+async (e) => {
 
     e.preventDefault();
+
+    abrirLoading();
 
     const nome =
     document
@@ -191,9 +331,17 @@ form.addEventListener("submit", (e) => {
         !confirmarSenha
     ) {
 
-        alert(
-        "Preencha todos os campos."
-        );
+        mostrarErro(
+"Preencha todos os campos."
+);
+
+setTimeout(()=>{
+
+  loadingScreen.classList.remove(
+    "active"
+  );
+
+},2000);
 
         return;
 
@@ -209,9 +357,17 @@ form.addEventListener("submit", (e) => {
         numerosTelefone.length > 11
     ) {
 
-        alert(
-        "Digite um telefone válido."
-        );
+        mostrarErro(
+"Número de telefone inválido."
+);
+
+setTimeout(()=>{
+
+  loadingScreen.classList.remove(
+    "active"
+  );
+
+},2000);    
 
         return;
 
@@ -221,15 +377,23 @@ form.addEventListener("submit", (e) => {
 
     if (senha.length !== 8) {
 
-        alert(
-        "A senha deve conter exatamente 8 caracteres."
-        );
+        mostrarErro(
+"A senha deve ter 8 caracteres."
+);
+
+setTimeout(()=>{
+
+  loadingScreen.classList.remove(
+    "active"
+  );
+
+},2000);
 
         return;
 
     }
 
-    // VALIDAR CONFIRMAÇÃO
+    // VALIDAR SENHAS
 
     if (senha !== confirmarSenha) {
 
@@ -241,7 +405,9 @@ form.addEventListener("submit", (e) => {
 
         return;
 
-    } else {
+    }
+
+    else {
 
         confirmarSenhaInput.setCustomValidity("");
 
@@ -256,7 +422,9 @@ form.addEventListener("submit", (e) => {
         email
         );
 
-    } else {
+    }
+
+    else {
 
         localStorage.removeItem(
         "email"
@@ -264,15 +432,178 @@ form.addEventListener("submit", (e) => {
 
     }
 
-    // SUCESSO
+    // ==========================
+    // ENVIAR PARA SUPABASE
+    // ==========================
 
-    alert(
-    "Cadastro realizado com sucesso!"
+    try {
+
+    // VERIFICA EMAIL
+
+    const verificar =
+await fetch(
+`${SUPABASE_URL}/rest/v1/usuarios?email=eq.${encodeURIComponent(email)}`,
+{
+    method: "GET",
+
+    headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": `Bearer ${SUPABASE_KEY}`
+    }
+});
+
+console.log(
+"Status Verificação:",
+verificar.status
+);
+
+const usuarios =
+await verificar.json();
+
+console.log(
+"VERIFICAR:"
+);
+
+console.log(
+usuarios
+);
+
+if (usuarios.length > 0) {
+
+    mostrarErro(
+"Email já cadastrado."
+);
+
+setTimeout(()=>{
+
+  loadingScreen.classList.remove(
+    "active"
+  );
+
+},2000);
+
+return;
+
+    return;
+
+}
+
+    // CADASTRAR USUÁRIO
+
+    const resposta =
+    await fetch(
+    `${SUPABASE_URL}/rest/v1/usuarios`,
+    {
+
+        method: "POST",
+
+        headers: {
+
+            "Content-Type":
+            "application/json",
+
+            "apikey":
+            SUPABASE_KEY,
+
+            "Authorization":
+            `Bearer ${SUPABASE_KEY}`,
+
+            "Prefer":
+            "return=representation"
+
+        },
+
+        body: JSON.stringify({
+
+            nome,
+            email,
+            telefone,
+            senha,
+            foto_perfil: fotoBase64
+
+        })
+
+    });
+
+    const usuarioCriado =
+    await resposta.json();
+
+    const usuario =
+    usuarioCriado[0];
+
+    localStorage.setItem(
+        "usuarioId",
+    usuario.id
+);
+
+    console.log(
+    "Status:",
+    resposta.status
     );
 
-    // REDIRECIONAR
+    if (!resposta.ok) {
 
-    window.location.href =
-    "./index.html";
+        const erro =
+        await resposta.text();
+
+        console.error(
+        "ERRO SUPABASE:"
+        );
+
+        console.error(
+        erro
+        );
+
+        mostrarErro(
+"Erro ao cadastrar."
+);
+
+setTimeout(()=>{
+
+  loadingScreen.classList.remove(
+    "active"
+  );
+
+},2000);
+
+        return;
+
+    }
+
+    // SUCESSO
+
+    mostrarSucesso();
+
+setTimeout(()=>{
+
+  window.location.href =
+  "./home.html";
+
+},1500);
+
+}
+
+catch (erro) {
+
+    console.error(
+    "ERRO GERAL:"
+    );
+
+    console.error(
+    erro
+    );
+
+    mostrarErro(
+"Erro ao realizar cadastro."
+);
+
+setTimeout(()=>{
+
+  loadingScreen.classList.remove(
+    "active"
+  );
+
+},2000);
+}
 
 });

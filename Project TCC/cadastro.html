@@ -3,18 +3,13 @@
 
 <head>
 
-  <meta charset="UTF-8" />
-
-  <meta name="viewport"
-  content="width=device-width, initial-scale=1.0" />
-
-  <title>FonemaViva - Cadastro</title>
-
-  <link rel="stylesheet"
-  href="./css/cadastro.css" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-  rel="stylesheet" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title> FonemaViva - Cadastro </title>
+<link rel="shortcut icon" href="./Img/goatfc.png">
+<link rel="stylesheet" href="./css/cadastro.css" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
@@ -45,9 +40,9 @@
         </h1>
 
         <p>
-          Tenha acesso aos exercícios inteligentes,
-          reconhecimento de voz e ferramentas modernas
-          desenvolvidas para melhorar sua comunicação.
+          Tenha acesso a exercícios inteligentes,
+          reconhecimento de voz e ferramentas modernas que auxiliam
+          no desenvolvimento da sua comunicação.
         </p>
 
         <div class="benefits">
@@ -65,7 +60,7 @@
               </h3>
 
               <p>
-                Atividades modernas para melhorar sua fala.
+                Atividades interativas que ajudam no fundamento do diálogo.
               </p>
 
             </div>
@@ -85,7 +80,7 @@
               </h3>
 
               <p>
-                Interface intuitiva e acessível.
+                Interface intuitiva e acessível para todas as idades.
               </p>
 
             </div>
@@ -105,7 +100,7 @@
               </h3>
 
               <p>
-                Desenvolva sua comunicação diariamente.
+                Desenvolva sua Expressão Vocal diariamente.
               </p>
 
             </div>
@@ -136,6 +131,30 @@
 
         <form id="formCadastro">
 
+          <div class="foto-upload">
+
+            <label for="fotoPerfil">
+
+              <div class="preview-foto"
+              id="previewFoto">
+
+                FV
+
+              </div>
+
+            </label>
+
+            <input type="file"
+            id="fotoPerfil"
+            accept="image/*"
+            hidden />
+
+            <p>
+              Foto de Perfil
+            </p>
+
+          </div>
+
           <div class="input-group">
 
             <label for="nome">
@@ -150,7 +169,7 @@
 
               <input type="text"
               id="nome"
-              placeholder="Digite seu nome"
+              placeholder="Digite seu nome completo."
               required />
 
             </div>
@@ -171,7 +190,7 @@
 
               <input type="email"
               id="email"
-              placeholder="Digite seu email"
+              placeholder="Digite seu email."
               required />
 
             </div>
@@ -296,6 +315,30 @@
     </section>
 
   </main>
+
+  <!-- LOADING SCREEN -->
+
+<div id="loadingScreen" class="loading-screen">
+
+  <div class="loading-box">
+
+    <div id="loader" class="loader"></div>
+
+    <div id="successIcon" class="success-icon">
+      ✓
+    </div>
+
+    <div id="errorIcon" class="error-icon">
+      ✕
+    </div>
+
+    <p id="statusText">
+      Entrando...
+    </p>
+
+  </div>
+
+</div>
 
   <script src="./js/cadastro.js"></script>
 

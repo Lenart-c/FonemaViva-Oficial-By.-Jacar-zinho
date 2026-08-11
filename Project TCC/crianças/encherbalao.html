@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Enchar o balão</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/encherbalao.css">
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+</head>
+
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Exercício fonológico</p>
+      <h1>Enchar o balão</h1>
+      <p class="subtitle">Aprenda a controlar o fluxo de ar com sons suaves e claros.</p>
+    </div>
+    <a class="voltar" href="../crianças/criancas.html">← Voltar</a>
+  </header>
+
+  <main class="container">
+    <section class="progress-card">
+      <div class="progress-top">
+        <span>Seu progresso</span>
+        <span id="progresso-texto">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progresso"></div>
+      </div>
+    </section>
+
+    <section class="exercise-card">
+      <div class="balloon-wrap">
+        <div id="balao" class="balloon"></div>
+      </div>
+
+      <div class="exercise-text">
+        <p class="mini">Fase atual</p>
+        <h2 id="fase">Respire fundo</h2>
+        <p id="instrucao">Inspire pelo nariz por 4 segundos e solte o ar devagar.</p>
+
+        <div class="actions">
+          <button id="btn-iniciar" class="btn primary">Começar exercício</button>
+          <button id="btn-gravar" class="btn secondary">🎤 Gravar som</button>
+        </div>
+
+        <div class="feedback-box">
+          <p>Você falou:</p>
+          <span id="resultado">...</span>
+        </div>
+
+        <p id="feedback" class="feedback"></p>
+
+        <div class="nav-actions">
+          <button id="btn-proximo" class="btn ghost" disabled>Próximo →</button>
+          <button id="btn-reiniciar" class="btn ghost">Reiniciar</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps">
+      <article class="step active">
+        <h3>1. Respiração lenta</h3>
+        <p>Inspire pelo nariz e solte o ar de forma contínua.</p>
+      </article>
+      <article class="step">
+        <h3>2. Som suave</h3>
+        <p>Repita “pá” enquanto o ar sai do corpo.</p>
+      </article>
+      <article class="step">
+        <h3>3. Fluxo estável</h3>
+        <p>Mantenha o som firme e sem forçar a voz.</p>
+      </article>
+      <article class="step">
+        <h3>4. Controle final</h3>
+        <p>Feche o exercício com uma saída de ar calma.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="../js/encherbalao.js"></script>
+</body>
+
+</html>

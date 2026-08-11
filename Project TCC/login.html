@@ -3,31 +3,25 @@
 
 <head>
 
-  <meta charset="UTF-8" />
-
-  <meta name="viewport"
-  content="width=device-width, initial-scale=1.0" />
-
-  <title>FonemaViva - Login</title>
-
-  <link rel="stylesheet"
-  href="./css/login.css" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-  rel="stylesheet" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title> FonemaViva - Login </title>
+<link rel="shortcut icon" href="./Img/goatfc.png">
+<link rel="stylesheet" href="./css/login.css" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
 <body>
 
-  <!-- FUNDO -->
   <div class="bg-overlay"></div>
 
   <!-- HEADER -->
   <header class="header-titulo">
 
     <div class="logo">
-      FonemaViva
+      <h1> <i class="fa-solid fa-wave-square"></i> FonemaViva </h1>
     </div>
 
   </header>
@@ -238,6 +232,30 @@
     </section>
 
   </main>
+
+  <!-- LOADING SCREEN -->
+
+<div id="loadingScreen" class="loading-screen">
+
+  <div class="loading-box">
+
+    <div id="loader" class="loader"></div>
+
+    <div id="successIcon" class="success-icon">
+      ✓
+    </div>
+
+    <div id="errorIcon" class="error-icon">
+      ✕
+    </div>
+
+    <p id="statusText">
+      Entrando...
+    </p>
+
+  </div>
+
+</div>
 
   <script src="./js/login.js"></script>
 

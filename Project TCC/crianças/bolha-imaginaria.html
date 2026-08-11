@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Bolha Imaginária</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/bolha-imaginaria.css">
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+</head>
+
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Exercício fonológico</p>
+      <h1>Bolha imaginária</h1>
+      <p class="subtitle">Controle a saída de ar e mantenha o fluxo constante enquanto emite sons suaves.</p>
+    </div>
+    <a class="voltar" href="./criancas.html">← Voltar</a>
+  </header>
+
+  <main class="container">
+    <section class="progress-card">
+      <div class="progress-top">
+        <span>Seu progresso</span>
+        <span id="progresso-texto">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progresso"></div>
+      </div>
+    </section>
+
+    <section class="exercise-card">
+      <div class="bubble-area">
+        <div id="bolha" class="bubble"></div>
+      </div>
+
+      <div class="exercise-text">
+        <p class="mini">Exercício atual</p>
+        <h2 id="titulo">Respire e solte</h2>
+        <p id="instrucao">Inspire pelo nariz, solte o ar devagar e repita um som leve.</p>
+
+        <div class="actions">
+          <button id="btn-iniciar" class="btn primary">Começar</button>
+          <button id="btn-gravar" class="btn secondary">🎤 Fazer som</button>
+        </div>
+
+        <div class="feedback-box">
+          <p>Você falou:</p>
+          <span id="resultado">...</span>
+        </div>
+
+        <p id="feedback" class="feedback"></p>
+
+        <div class="nav-actions">
+          <button id="btn-proximo" class="btn ghost" disabled>Próximo →</button>
+          <button id="btn-reiniciar" class="btn ghost">Reiniciar</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/bolha-imaginaria.js"></script>
+</body>
+</html>

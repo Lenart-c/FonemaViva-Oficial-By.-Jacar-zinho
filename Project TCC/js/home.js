@@ -1,3 +1,4 @@
+
 // ==========================
 // SCROLL SUAVE
 // ==========================
@@ -9,6 +10,130 @@ function scrollToSection(id) {
   });
 
 }
+
+const SUPABASE_URL =
+"https://mnfryxvtogpiwacpyhgo.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_YYMfDfWKaer8F1IEOFVOMQ_acS2xa2G";
+
+function verificarSessao() {
+
+  const usuarioId =
+  localStorage.getItem("usuarioId") ||
+  sessionStorage.getItem("usuarioId");
+
+  if (!usuarioId) {
+
+   window.location.replace("./index.html");
+
+  }
+
+}
+
+verificarSessao();
+
+window.addEventListener(
+  "pageshow",
+  verificarSessao
+);
+
+// ==========================
+// BLOQUEAR BOTÃO VOLTAR
+// ==========================
+
+history.pushState(null, "", location.href);
+
+window.addEventListener("popstate", () => {
+
+  history.pushState(null, "", location.href);
+
+  saiuPeloHistorico = true;
+
+  logoutModal.classList.add("active");
+
+});
+
+
+// ==========================
+// CARREGAR USUÁRIO
+// ==========================
+
+async function atualizarPerfilUsuario() {
+
+  try {
+
+    const usuarioId =
+localStorage.getItem("usuarioId") ||
+sessionStorage.getItem("usuarioId");
+
+if (!usuarioId) {
+
+  window.location.replace(
+    "./login.html"
+  );
+
+}
+
+    const resposta =
+    await fetch(
+      `${SUPABASE_URL}/rest/v1/usuarios?id=eq.${usuarioId}`,
+      {
+        headers: {
+          "apikey": SUPABASE_KEY,
+          "Authorization":
+          `Bearer ${SUPABASE_KEY}`
+        }
+      }
+    );
+
+    const dados =
+    await resposta.json();
+
+    if (!dados.length) return;
+
+    const usuario = dados[0];
+
+    const nomeElemento =
+    document.getElementById("user-name");
+
+    const fotoElemento =
+    document.getElementById("user-photo");
+
+    if (nomeElemento) {
+
+      nomeElemento.textContent =
+      usuario.apelido ||
+      usuario.nome ||
+      "Usuário";
+
+    }
+
+    if (
+      fotoElemento &&
+      usuario.foto_perfil
+    ) {
+
+      fotoElemento.src =
+      usuario.foto_perfil;
+
+    }
+
+  }
+
+  catch (erro) {
+
+    console.error(
+      "Erro ao carregar usuário:",
+      erro
+    );
+
+  }
+
+}
+
+atualizarPerfilUsuario();
+
 
 // ==========================
 // MENU LATERAL
@@ -89,67 +214,113 @@ document.addEventListener("keydown", (event) => {
 });
 
 // ==========================
-// MODO ESCURO FIXO
+// TEMA AUTOMÁTICO
 // ==========================
 
-// SITE SEMPRE INICIA
-// EM MODO ESCURO
+const mediaTheme =
+window.matchMedia("(prefers-color-scheme: dark)");
 
-document.body.classList.add("dark-mode");
-
-// ==========================
 // BOTÕES DE TEMA
-// ==========================
 
 const themeButtons =
 document.querySelectorAll(".theme-btn");
 
-// DEIXA BOTÃO ESCURO ATIVO
-themeButtons.forEach(btn => {
+// CONTROLE MANUAL
 
-  btn.classList.remove("active-theme");
+let temaManual = false;
 
-  if (btn.dataset.theme === "dark") {
+// ==========================
+// APLICAR TEMA
+// ==========================
 
-    btn.classList.add("active-theme");
+function aplicarTema(theme) {
+
+  if (theme === "dark") {
+
+    document.body.classList.add("dark-mode");
+
+  } else {
+
+    document.body.classList.remove("dark-mode");
+
+  }
+
+  // BOTÃO ATIVO
+
+  themeButtons.forEach(btn => {
+
+    btn.classList.remove("active-theme");
+
+    if (btn.dataset.theme === theme) {
+
+      btn.classList.add("active-theme");
+
+    }
+
+  });
+
+}
+
+// ==========================
+// DETECTAR TEMA AUTOMÁTICO
+// ==========================
+
+function detectarTemaSistema() {
+
+  if (mediaTheme.matches) {
+
+    aplicarTema("dark");
+
+  } else {
+
+    aplicarTema("light");
+
+  }
+
+}
+
+// EXECUTA AO ENTRAR
+
+detectarTemaSistema();
+
+// ==========================
+// ALTERAÇÃO AUTOMÁTICA
+// ==========================
+
+mediaTheme.addEventListener("change", (event) => {
+
+  // SOMENTE SE NÃO ESCOLHER
+  // MANUALMENTE
+
+  if (!temaManual) {
+
+    if (event.matches) {
+
+      aplicarTema("dark");
+
+    } else {
+
+      aplicarTema("light");
+
+    }
 
   }
 
 });
 
 // ==========================
-// TROCA MANUAL DE TEMA
+// ESCOLHA MANUAL
 // ==========================
 
 themeButtons.forEach(button => {
-
   button.addEventListener("click", () => {
+
+    temaManual = true;
 
     const theme =
     button.dataset.theme;
 
-    // MODO ESCURO
-    if (theme === "dark") {
-
-      document.body.classList.add("dark-mode");
-
-    }
-
-    // MODO CLARO
-    else {
-
-      document.body.classList.remove("dark-mode");
-
-    }
-
-    // BOTÃO ATIVO
-    themeButtons.forEach(btn => {
-
-      btn.classList.remove("active-theme");
-
-    });
-
-    button.classList.add("active-theme");
+    aplicarTema(theme);
 
   });
 
@@ -181,6 +352,8 @@ let autoPlay;
 
 function mostrarSlide(index) {
 
+  slideAtual = index;
+
   slides.forEach(slide => {
 
     slide.classList.remove("active");
@@ -193,17 +366,9 @@ function mostrarSlide(index) {
 
   });
 
-  if (slides[index]) {
+  slides[index].classList.add("active");
 
-    slides[index].classList.add("active");
-
-  }
-
-  if (dots[index]) {
-
-    dots[index].classList.add("active");
-
-  }
+  dots[index].classList.add("active");
 
 }
 
@@ -249,11 +414,13 @@ function slideAnterior() {
 
 function iniciarAutoPlay() {
 
+  clearInterval(autoPlay);
+
   autoPlay = setInterval(() => {
 
     proximoSlide();
 
-  }, 5000);
+  }, 3000);
 
 }
 
@@ -263,7 +430,8 @@ function pararAutoPlay() {
 
 }
 
-// INICIAR
+// INICIAR AUTO PLAY
+
 if (slides.length > 0) {
 
   iniciarAutoPlay();
@@ -343,7 +511,7 @@ if (hero) {
 
   });
 
-}
+} 
 
 // ==========================
 // ANIMAÇÃO AO ROLAR
@@ -380,3 +548,56 @@ window.addEventListener(
 );
 
 animarAoScroll();
+
+
+// ==========================
+// LOGOUT
+// ==========================
+
+const logoutBtn =
+document.getElementById("logoutBtn");
+
+const logoutModal =
+document.querySelector(".logout-modal");
+
+const cancelLogout =
+document.getElementById("cancelLogout");
+
+const confirmLogout =
+document.getElementById("confirmLogout");
+
+const logoutLoading =
+document.querySelector(".logout-loading");
+
+let saiuPeloHistorico = false;
+
+logoutBtn?.addEventListener("click", () => {
+
+  logoutModal.classList.add("active");
+
+});
+
+cancelLogout?.addEventListener("click", () => {
+
+  logoutModal.classList.remove("active");
+
+  saiuPeloHistorico = false;
+
+});
+
+confirmLogout?.addEventListener("click", () => {
+
+  logoutModal.classList.remove("active");
+
+  logoutLoading.classList.add("active");
+
+  localStorage.clear();
+  sessionStorage.clear();
+
+  setTimeout(() => {
+
+    location.replace("./index.html");
+
+  }, saiuPeloHistorico ? 1500 : 1500);
+
+});

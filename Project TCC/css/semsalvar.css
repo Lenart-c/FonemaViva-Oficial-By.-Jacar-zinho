@@ -1,7 +1,7 @@
 *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html {
@@ -22,22 +22,8 @@ body{
   color: #111827;
   min-height: 100vh;
   overflow-x: hidden;
-  transition: background.3s, color .3s;
-}
-
-.menu-overlay{
-  position: fixed;
-  inset: 0;
-  background: #00000073;
-  opacity: 0;
-  visibility: hidden;
-  transition: .3s;
-  z-index: 2000;
-}
-
-.menu-overlay.active{
-  opacity: 1;
-  visibility: visible;
+  transition: background.3s,
+  color .3s;
 }
 
 /* HEADER */
@@ -93,59 +79,6 @@ body{
   transform: scale(1.05);
 }
 
-/* BOTÕES DO HEADER */
-
-.header-buttons{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.header-actions{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
-.back-btn{
-  width:90px;
-  height:55px;
-
-  border:none;
-  border-radius:18px;
-
-  background:linear-gradient(
-    135deg,
-    #00A89E,
-    #0F766E
-  );
-
-  color:white;
-
-  font-size:20px;
-
-  cursor:pointer;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  transition:
-  transform .25s,
-  box-shadow .25s;
-}
-
-.back-btn:hover{
-
-  transform:
-  translateY(-3px)
-  scale(1.05);  
-
-}
-
-.back-btn:active{
-  transform:scale(.94);
-}
-
 .menu-toggle span{
   width: 24px;
   height: 2px;
@@ -162,12 +95,20 @@ body{
   right: -420px;
   width: 390px;
   height: calc(100vh - 40px);
+
   border-radius: 32px 0 0 32px;
   background: rgba(255,255,255,0.88);
+
   backdrop-filter: blur(18px);
+
   z-index: 3000;
-  transition: right 0.45s ease, background 0.3s;
+
+  transition:
+  right 0.45s ease,
+  background 0.3s;
+
   box-shadow: -20px 0 60px rgba(0,0,0,0.12);
+
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -233,9 +174,6 @@ border-radius: 50%;
 .profile-info h3{
   font-size: 18px;
   color: black;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .profile-info p{
@@ -243,32 +181,21 @@ border-radius: 50%;
   color: #6B7280;
 }
 
-.profile-info{
-  min-width: 0;
-}
-
 .close-menu{
-  width: 46px;
-  min-width: 46px;
-  max-width: 46px;
+width: 60px;
+height: 44px;
+border: none;
+border-radius: 14px;
+color: black;
+background: rgba(0,0,0,0.05);
 
-  height: 46px;
-  min-height: 46px;
+cursor: pointer;
 
-  flex-shrink: 0;
+font-size: 18px;
 
-  border: none;
-  border-radius: 14px;
-
-  background: rgba(0,0,0,0.05);
-
-  cursor: pointer;
-
-  font-size: 18px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .close-menu i{
@@ -550,63 +477,64 @@ border-radius: 50%;
 }
 
 .card:hover{
-  transform: translateY(-8px);
+  transform:translateY(-8px);
   box-shadow: 0 20px 45px rgba(0,0,0,.08);
 }
 
 .tag{
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(0,168,158,.12);
-  color: #00A89E;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 18px;
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(0,168,158,.12);
+  color:#00A89E;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:18px;
 }
 
 .card h4{
-  font-size: 22px;
-  margin-bottom: 12px;
+  font-size:22px;
+  margin-bottom:12px;
 }
 
 .card p{
-  color: #6B7280;
-  line-height: 1.7;
+  color:#6B7280;
+  line-height:1.7;
 }
 
 .acoes{
-  margin-top: 25px;
+  margin-top:25px;
 }
 
 /* BOTÃO */
 
 .btn{
-  width: 100%;
-  border: none;
-  border-radius: 18px;
-  padding: 15px;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 15px;
-  color: white;
+  width:100%;
+  border:none;
+  border-radius:18px;
+  padding:15px;
+  cursor:pointer;
+  font-weight:700;
+  font-size:15px;
+  color:white;
   background: linear-gradient(
     135deg,
     #00A89E,
     #0F766E
   );
 
-  transition: .3s;
+  transition:.3s;
 }
 
 .btn:hover{
-  transform: translateY(-3px);
+  transform:translateY(-3px);
 }
 
 /* FOOTER */
 
 footer {
-  background: linear-gradient(
+  background:
+  linear-gradient(
     135deg,
     #111827,
     #1E293B
@@ -620,7 +548,8 @@ footer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
-  padding: 0 8% 60px;
+  padding:
+  0 8% 60px;
 }
 
 .footer-logo h2 {
@@ -665,8 +594,8 @@ footer {
 /* DARK MODE */
 
 body.dark-mode{
-  background: rgba(22, 32, 51, 0.94);
-  color: white;
+  background:rgba(22, 32, 51, 0.94);
+  color:white;
 }
 
 /* HEADER */
@@ -676,79 +605,20 @@ body.dark-mode .topbar{
   box-shadow: 0 5px 20px rgba(0,0,0,.35);
 }
 
-/* BOTÃO MENU ESCURO */
-
-body.dark-mode .menu-toggle{
-  background: #111827;
-  border: 1px solid #ffffff0d;
-  box-shadow: 0 10px 30px #00000073;
-}
-
-body.dark-mode .menu-toggle span{
-  background: white;
-}
-
 /* BOXES E CARDS */
 
 body.dark-mode .box,
 body.dark-mode .card{
-  background: linear-gradient(
+  background:
+  linear-gradient(
     135deg,
     #111827,
     #1E293B
   );
 }
 
-/* Botão de Voltar */
-body.dark-mode .back-btn{
-  background: #111827;
-  border: 1px solid #ffffff0d;
-  box-shadow: 0 10px 30px #00000073;
-}
-
-body.dark-mode .back-btn i{
-  color: white;
-}
-
-/* MENU */
-
-body.dark-mode .side-menu{
-  background: rgba(23, 33, 53, 0.94);
-}
-
-body.dark-mode .menu-links a{
-  background: linear-gradient(
-  135deg,
-  rgba(255,255,255,.08),
-  rgba(255, 0, 0, 0.04)
-);
-
-  border-color: rgba(255,255,255,.05);
-}
-
-body.dark-mode .menu-links a:hover {
-  background: rgba(255,255,255,0.07);
-}
-
 body.dark-mode .logo-area h1{
   color: white;
-}
-
-body.dark-mode .close-menu{
-  background: #1E293B;
-  color: white;
-}
-
-/* ÍCONES MENU ESCURO */
-
-body.dark-mode .menu-icon{
-  background: linear-gradient(
-  135deg,
-  rgba(255,255,255,.08),
-  rgba(255,255,255,.04)
-);
-
-color:#5EEAD4;
 }
 
 /* TEXTOS */
@@ -806,19 +676,6 @@ body.dark-mode .profile-info h3{
   .container{
     flex-direction:column;
   }
-
-  .sidebar{
-    width:100%;
-  }
-
-  .side-menu{
-    width:100%;
-    height:100vh;
-    top:0;
-    right:-100%;
-    border-radius:0;
-  }
-
 }
 
 @media(max-width:700px){
@@ -834,5 +691,4 @@ body.dark-mode .profile-info h3{
   .conteudo-topo h2{
     font-size:32px;
   }
-
 }

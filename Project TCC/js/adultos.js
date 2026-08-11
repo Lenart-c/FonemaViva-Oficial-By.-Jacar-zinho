@@ -1,6 +1,113 @@
-// false = não salva nada TIPO COMO SE TIVESSE UM USUÁRIO LOGADO (SIMULA)
-// true = salva progresso
-const isLoggedIn = true;
+const supabaseUrl =
+"https://mnfryxvtogpiwacpyhgo.supabase.co";
+
+const supabaseKey =
+"sb_publishable_YYMfDfWKaer8F1IEOFVOMQ_acS2xa2G";
+
+const supabaseClient =
+window.supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);
+
+// ==========================
+// PROTEÇÃO DE SESSÃO
+// ==========================
+
+function verificarSessao() {
+
+  const usuarioId =
+  localStorage.getItem("usuarioId") ||
+  sessionStorage.getItem("usuarioId");
+
+  if (!usuarioId) {
+
+    window.location.replace(
+      "./index.html"
+    );
+
+  }
+
+}
+
+verificarSessao();
+
+window.addEventListener(
+  "pageshow",
+  verificarSessao
+);
+
+// ==========================
+// ATUALIZA PERFIL PELO SUPABASE
+// ==========================
+
+async function atualizarPerfilUsuario() {
+
+  try {
+
+    const usuarioId = 
+    localStorage.getItem("usuarioId") ||
+    sessionStorage.getItem("usuarioId");
+
+    if (!usuarioId) return;
+    
+    const { data, error } =
+    await supabaseClient
+    .from("usuarios")
+    .select("*")
+    .eq("id", usuarioId)
+    .single();
+
+    if (error) {
+
+      console.error(error);
+      return;
+
+    }
+
+    const nomeElemento =
+    document.getElementById(
+      "user-name"
+    );
+
+    const fotoElemento =
+    document.getElementById(
+      "user-photo"
+    );
+
+    if (nomeElemento) {
+
+      nomeElemento.textContent =
+      data.apelido ||
+      data.nome ||
+      "Usuário";
+
+    }
+
+    if (
+      fotoElemento &&
+      data.foto_perfil
+    ) {
+
+      fotoElemento.src =
+      data.foto_perfil;
+
+    }
+
+  }
+
+  catch (erro) {
+
+    console.error(
+      "Erro ao carregar perfil:",
+      erro
+    );
+
+  }
+
+}
+
+atualizarPerfilUsuario();
 
 // TEMA (AUTO + MANUAL)
 const themeBtns =
@@ -121,41 +228,61 @@ document.querySelector(
 );
 
 // BOTÃO DE ABRIR MENU
-menuToggle.addEventListener(
-  "click",
-  ()=>{
+if(menuToggle && sideMenu && overlay){
 
-    sideMenu.classList.add(
-      "active"
-    );
+  menuToggle.addEventListener(
+    "click",
+    ()=>{
 
-    overlay.classList.add(
+      sideMenu.classList.add(
+        "active"
+      );
+
+      overlay.classList.add(
+        "active"
+      );
+
+    }
+  );
+
+}
+
+// BOTÃO DE FECHAR MENU
+if(closeMenu){
+
+  closeMenu.addEventListener(
+    "click",
+    closeSideMenu
+  );
+
+}
+
+if(overlay){
+
+  overlay.addEventListener(
+    "click",
+    closeSideMenu
+  );
+
+}
+
+function closeSideMenu(){
+
+  if(sideMenu){
+
+    sideMenu.classList.remove(
       "active"
     );
 
   }
-);
 
-// BOTÃO DE FECHAR MENU
-closeMenu.addEventListener(
-  "click",
-  closeSideMenu
-);
+  if(overlay){
 
-overlay.addEventListener(
-  "click",
-  closeSideMenu
-);
+    overlay.classList.remove(
+      "active"
+    );
 
-function closeSideMenu(){
-
-  sideMenu.classList.remove(
-    "active"
-  );
-
-  overlay.classList.remove(
-    "active"
-  );
+  }
 
 }
 
@@ -217,138 +344,88 @@ menuItems.forEach(item=>{
 
 // CONTADOR DE PROGRESSO
 let progress = {
+
   respiracao: 0,
+
   pronuncia: 0,
+
   audicao: 0,
+
   coordenacao: 0
+
 };
-
-// EXERCÍCIOS CONCLUÍDOS
-let done =
-new Set(
-  JSON.parse(
-    localStorage.getItem(
-      "doneExercises"
-    )
-  ) || []
-);
-
-function animateProgressBar(id, value){
-
-  const bar =
-  document.getElementById(id);
-
-  if(!bar){
-    return;
-  }
-
-  bar.style.transition =
-  "width 0.45s ease";
-
-  bar.style.width = "0%";
-
-  requestAnimationFrame(()=>{
-
-    bar.style.width =
-    value + "%";
-
-  });
-
-}
 
 // ATUALIZA
 function updateUI(){
 
-  const totals = {
-    respiracao: 0,
-    pronuncia: 0,
-    audicao: 0,
-    coordenacao: 0
-  };
+// RESPIRAÇÃO
+const respiracao =
+Number(
+  localStorage.getItem("respiracao-progress")
+) || 0;
 
-  const completed = {
-    respiracao: 0,
-    pronuncia: 0,
-    audicao: 0,
-    coordenacao: 0
-  };
+const sopro =
+Number(
+  localStorage.getItem("sopro-progress")
+) || 0;
 
-  cards.forEach(card=>{
+progress.respiracao =
+Math.round(
+  (respiracao + sopro) / 2
+);
 
-    const category =
-    card.dataset.cat;
+// PRONÚNCIA
+const sonsRL =
+Number(
+  localStorage.getItem("sons-rl-progress")
+) || 0;
 
-    const id =
-    card.dataset.id;
+const leitura =
+Number(
+  localStorage.getItem("leitura-progress")
+) || 0;
 
-    // TOTAL DE EXERCÍCIOS
+const travaLingua =
+Number(
+  localStorage.getItem("travalingua-progress")
+) || 0;
 
-    if(
-      totals[category] !==
-      undefined
-    ){
+progress.pronuncia =
+Math.round(
+  (sonsRL + leitura + travaLingua) / 3
+);
 
-      totals[category]++;
+// AUDIÇÃO
+const escuta =
+Number(
+  localStorage.getItem("escuta-progress")
+) || 0;
 
-    }
+const diferenciacao =
+Number(
+  localStorage.getItem("diferenciacao-progress")
+) || 0;
 
-    // EXERCÍCIOS FEITOS  :)))))
+progress.audicao =
+Math.round(
+  (escuta + diferenciacao) / 2
+);
 
-    if(done.has(id)){
+// COORDENAÇÃO
+const movimentos =
+Number(
+  localStorage.getItem("movimentos-lingua-progress")
+) || 0;
 
-      completed[category]++;
+const sequencia =
+Number(
+  localStorage.getItem("sequencia-palavras-progress")
+) || 0;
 
-      // MARCA CARD COMO COMPLETO
-
-      card.classList.add(
-        "completed"
-      );
-
-    }
-
-  });
-
-  // PORCENTAGENS DAS BARRAS
-
-  progress.respiracao =
-  totals.respiracao
-  ? Math.round(
-      (
-        completed.respiracao /
-        totals.respiracao
-      ) * 100
-    )
-  : 0;
-
-  progress.pronuncia =
-  totals.pronuncia
-  ? Math.round(
-      (
-        completed.pronuncia /
-        totals.pronuncia
-      ) * 100
-    )
-  : 0;
-
-  progress.audicao =
-  totals.audicao
-  ? Math.round(
-      (
-        completed.audicao /
-        totals.audicao
-      ) * 100
-    )
-  : 0;
-
-  progress.coordenacao =
-  totals.coordenacao
-  ? Math.round(
-      (
-        completed.coordenacao /
-        totals.coordenacao
-      ) * 100
-    )
-  : 0;
+progress.coordenacao =
+Math.round(
+  (movimentos + sequencia) / 2
+);
 
   // BARRA DE PROGRESSO DE CADA CATEGORIA
 
@@ -374,53 +451,58 @@ function updateUI(){
 
   // BARRAS DE PROGRESSO
 
-  animateProgressBar(
-    "b-respiracao",
-    progress.respiracao
-  );
+  document.getElementById(
+    "b-respiracao"
+  ).style.width =
+  progress.respiracao + "%";
 
-  animateProgressBar(
-    "b-pronuncia",
-    progress.pronuncia
-  );
+  document.getElementById(
+    "b-pronuncia"
+  ).style.width =
+  progress.pronuncia + "%";
 
-  animateProgressBar(
-    "b-audicao",
-    progress.audicao
-  );
+  document.getElementById(
+    "b-audicao"
+  ).style.width =
+  progress.audicao + "%";
 
-  animateProgressBar(
-    "b-coordenacao",
-    progress.coordenacao
-  );
+  document.getElementById(
+    "b-coordenacao"
+  ).style.width =
+  progress.coordenacao + "%";
 
   // TOTAL DO PROGRESSO GERAL 
 
-  const total =
-  Math.round(
-    (
-      done.size /
-      cards.length
-    ) * 100
+  // TOTAL GERAL
+
+const total =
+Math.round(
+
+  (
+
+    progress.respiracao +
+
+    progress.pronuncia +
+
+    progress.audicao +
+
+    progress.coordenacao
+
+  ) / 4
+
+);
+
+  const pTotal =
+  document.getElementById(
+  "p-total"
   );
 
-  document.getElementById(
-    "p-total"
-  ).innerText =
+  if(pTotal){
+
+  pTotal.innerText =
   total + "%";
 
-  // SALVA
-
-  if(isLoggedIn){
-
-    localStorage.setItem(
-      "doneExercises",
-      JSON.stringify(
-        [...done]
-      )
-    );
-
-  }
+}
 
 }
 // INICIA OS EXERCÍCIOS
@@ -433,29 +515,37 @@ cards.forEach(card=>{
     ".iniciar"
   );
 
-  button.addEventListener(
-    "click",
-    ()=>{
+  if(button){
 
-      const id =
-      card.dataset.id;
+    button.addEventListener(
+      "click",
+      ()=>{
 
-      // ADICIONA 1 VEZ PRA CADA EXERCÍCIO
-
-      if(!done.has(id)){
-        done.add(id);
-        updateUI();
+        // REDIRECIONA
+        window.location.href =
+        button.dataset.link;
 
       }
+    );
 
-      // REDIRECIONA
-      window.location.href =
-      button.dataset.link;
-
-    }
-  );
+  }
 
 });
 
 // INICIA
 updateUI();
+
+window.addEventListener(
+    "focus",
+    updateUI
+);
+
+window.addEventListener(
+    "pageshow",
+    updateUI
+);
+
+window.addEventListener(
+    "progressoAtualizado",
+    updateUI
+);

@@ -10,7 +10,7 @@ function selecionar(tipo) {
     if (tipo === "adulto") {
 
         window.location.href =
-        "./adultos/adultos.html";
+        "./adultos.html";
 
     }
 
