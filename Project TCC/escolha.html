@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>FonemaViva - Data de nascimento</title>
+
+  <link
+    rel="stylesheet"
+    href="./css/escolha.css"
+  >
+
+  <link
+    rel="shortcut icon"
+    href="./Img/goatfc.png"
+  >
+
+  <!-- MATERIAL SYMBOLS -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    rel="stylesheet"
+  >
+
+</head>
+
+<body>
+
+  <!-- FUNDO -->
+  <div class="bg-overlay"></div>
+
+
+  <!-- CONTAINER PRINCIPAL -->
+  <main class="container">
+
+    <!-- BOTÃO VOLTAR -->
+    <button
+        type="button"
+        class="back-btn"
+        id="btnVoltar"
+        aria-label="Voltar"
+    >
+        <span class="material-symbols-outlined">
+            arrow_back
+        </span>
+    </button>
+
+    <section class="birth-card">
+
+      <!-- ÍCONE -->
+      <div class="icon-box">
+
+        <span class="material-symbols-outlined">
+          calendar_month
+        </span>
+
+      </div>
+
+
+      <!-- TÍTULO -->
+      <h1>
+        Qual é a sua data de nascimento?
+      </h1>
+
+
+      <!-- TEXTO -->
+      <p class="subtitle">
+
+        Precisamos dessa informação para direcionar
+        você para os exercícios mais adequados
+        à sua faixa etária.
+
+      </p>
+
+
+      <!-- FORMULÁRIO -->
+      <form id="birthForm">
+
+        <div class="input-group">
+
+          <label>
+
+            <span class="material-symbols-outlined">
+              calendar_month
+            </span>
+
+            Data de nascimento
+
+          </label>
+
+
+          <!-- CAMPOS DA DATA -->
+          <div class="data-nascimento">
+
+
+            <!-- DIA -->
+            <div class="campo-data">
+
+              <label for="diaNascimento">
+                Dia
+              </label>
+
+              <div class="input-box">
+
+                <span class="material-symbols-outlined">
+                  today
+                </span>
+
+                <select
+    id="diaNascimento"
+    name="diaNascimento"
+    required
+>
+    <option value="" disabled selected hidden>
+        Dia
+    </option>
+
+    <option value="1">01</option>
+    <option value="2">02</option>
+    <option value="3">03</option>
+    <option value="4">04</option>
+    <option value="5">05</option>
+    <option value="6">06</option>
+    <option value="7">07</option>
+    <option value="8">08</option>
+    <option value="9">09</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+</select>
+
+              </div>
+
+            </div>
+
+
+            <!-- MÊS -->
+            <div class="campo-data">
+
+              <label for="mesNascimento">
+                Mês
+              </label>
+
+              <div class="input-box">
+
+                <span class="material-symbols-outlined">
+                  calendar_month
+                </span>
+
+                <select
+    id="mesNascimento"
+    name="mesNascimento"
+    required
+>
+    <option value="" disabled selected hidden>
+        Mês
+    </option>
+
+    <option value="1">Janeiro</option>
+    <option value="2">Fevereiro</option>
+    <option value="3">Março</option>
+    <option value="4">Abril</option>
+    <option value="5">Maio</option>
+    <option value="6">Junho</option>
+    <option value="7">Julho</option>
+    <option value="8">Agosto</option>
+    <option value="9">Setembro</option>
+    <option value="10">Outubro</option>
+    <option value="11">Novembro</option>
+    <option value="12">Dezembro</option>
+</select>
+
+              </div>
+
+            </div>
+
+
+            <!-- ANO -->
+            <div class="campo-data">
+
+              <label for="anoNascimento">
+                Ano
+              </label>
+
+              <div class="input-box">
+
+                <span class="material-symbols-outlined">
+                  event
+                </span>
+
+                <input
+                  type="number"
+                  id="anoNascimento"
+                  name="anoNascimento"
+                  min="1965"
+                  max="2026"
+                  inputmode="numeric"
+                  placeholder="Ano"
+                  required
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- MENSAGEM DE ERRO -->
+          <p
+            id="mensagemErro"
+            class="mensagem-erro"
+          ></p>
+
+
+          <!-- BOTÃO -->
+          <button
+            type="submit"
+            id="btnContinuar"
+          >
+
+            <span>
+              Continuar
+            </span>
+
+            <span class="material-symbols-outlined">
+              arrow_forward
+            </span>
+
+          </button>
+
+        </div>
+
+      </form>
+
+
+      <!-- AVISO -->
+      <p class="privacy-text">
+
+        <span class="material-symbols-outlined">
+          verified_user
+        </span>
+
+        Seus dados serão utilizados apenas para
+        personalizar sua experiência na plataforma.
+
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <script src="./js/escolha.js"></script>
+
+</body>
+
+</html> 
