@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Caretas no Espelho</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/movimentos-lingua.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Exercício fonológico</p>
+      <h1>Caretas no espelho</h1>
+      <p class="subtitle">Treine coordenação oral com movimentos faciais, língua e sons claros.</p>
+    </div>
+    <a class="voltar" href="./criancas.html">← Voltar</a>
+  </header>
+
+  <main class="container">
+    <section class="progress-card">
+      <div class="progress-info">
+        <div class="progress-top">
+          <span>Seu progresso</span>
+          <span id="progresso-texto">0/4</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progresso"></div>
+        </div>
+      </div>
+      <div class="stars-display" id="stars-display"></div>
+    </section>
+
+    <section class="exercise-card">
+      <div class="face-area">
+        <div class="face-container">
+          <div id="face" class="face">
+            <div class="eyebrow left"></div>
+            <div class="eyebrow right"></div>
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="mouth"></div>
+            <div class="tongue" id="tongue"></div>
+          </div>
+          <div class="face-hint" id="face-hint"></div>
+        </div>
+      </div>
+
+      <div class="exercise-text">
+        <div class="exercise-header">
+          <span class="mini">Exercício <span id="ex-numero">1</span>/4</span>
+          <h2 id="titulo">Sorriso largo</h2>
+        </div>
+
+        <div class="instructions">
+          <p id="instrucao">Faça uma careta alegre e pronuncie o som "AH" com a boca bem aberta.</p>
+          <div class="instruction-steps">
+            <div class="step"><span class="step-num">1</span> Olhe para o espelho</div>
+            <div class="step"><span class="step-num">2</span> Faça a expressão</div>
+            <div class="step"><span class="step-num">3</span> Fale o som claro</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="btn-ver" class="btn primary">👀 Ver expressão</button>
+          <button id="btn-gravar" class="btn secondary">🎤 Gravar voz</button>
+        </div>
+
+        <div class="feedback-section">
+          <div class="feedback-box" id="feedback-box" style="display: none;">
+            <p>Você pronunciou:</p>
+            <span id="resultado">...</span>
+          </div>
+
+          <p id="feedback" class="feedback"></p>
+
+          <div class="attempts-info" id="attempts-info"></div>
+        </div>
+
+        <div class="nav-actions">
+          <button id="btn-proximo" class="btn primary" disabled>Próximo desafio →</button>
+          <button id="btn-reiniciar" class="btn tertiary">🔄 Recomeçar</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/movimentos-lingua.js"></script>
+</body>
+</html>

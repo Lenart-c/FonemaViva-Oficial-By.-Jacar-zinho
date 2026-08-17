@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Precisão Auditiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+  <link rel="stylesheet" href="../css/diferenciacao.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="logo">
+      <h1><i class="fa-solid fa-wave-square"></i> FonemaViva</h1>
+    </div>
+    <span class="sub">
+      Exercícios • Precisão Auditiva
+    </span>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+
+    <!-- PROGRESSO -->
+    <section class="progresso-container">
+      <div class="progresso-top">
+        <p>Seu progresso</p>
+        <span id="progresso-texto">0/8</span>
+      </div>
+      <div class="progresso-barra">
+        <div id="progresso"></div>
+      </div>
+    </section>
+
+    <!-- CARD DO EXERCÍCIO -->
+    <section class="card">
+      
+      <div class="instrucoes">
+        <p class="titulo-instrucao">📋 Instruções</p>
+        <p class="texto-instrucao">
+          Você ouvirá <strong>uma das duas palavras</strong>. Escute atentamente e 
+          clique no botão da palavra que você ouviu. Foque na <strong>diferença fonética</strong> entre os pares.
+        </p>
+      </div>
+
+      <!-- INFORMAÇÃO DO PAR -->
+      <div class="par-info">
+        <p class="label-par">Discrimine o fonema:</p>
+        <div class="fonemas-display">
+          <span class="fonema fonema-1" id="fonema-1">—</span>
+          <span class="vs">vs</span>
+          <span class="fonema fonema-2" id="fonema-2">—</span>
+        </div>
+      </div>
+
+      <!-- BOTÃO OUVIR -->
+      <div class="actions-audio">
+        <button id="play" class="btn-play">
+          <i class="fas fa-volume-up"></i> Ouvir Palavra
+        </button>
+      </div>
+
+      <!-- STATUS -->
+      <div id="status-container" class="status-container">
+        <p id="status" class="status-info">Clique em "Ouvir Palavra" para começar</p>
+      </div>
+
+      <!-- OPÇÕES -->
+      <div class="opcoes-container">
+        <button id="opcao-1" class="btn-opcao opcao-1" data-opcao="1">
+          <span class="palavra-opcao" id="palavra-opcao-1">—</span>
+          <span class="fonema-pequeño" id="fonema-pequeno-1">—</span>
+        </button>
+
+        <span class="vs-opcoes">OU</span>
+
+        <button id="opcao-2" class="btn-opcao opcao-2" data-opcao="2">
+          <span class="palavra-opcao" id="palavra-opcao-2">—</span>
+          <span class="fonema-pequeño" id="fonema-pequeno-2">—</span>
+        </button>
+      </div>
+
+      <!-- FEEDBACK -->
+      <div id="feedback-container" class="feedback-container">
+        <p id="feedback"></p>
+        <div id="explicacao" class="explicacao"></div>
+      </div>
+
+    </section>
+
+    <!-- NAVEGAÇÃO -->
+    <div class="nav-botoes">
+      <button id="anterior" class="btn-nav btn-anterior" disabled>
+        <i class="fas fa-arrow-left"></i> Anterior
+      </button>
+      <button id="proximo" class="btn-nav btn-proximo" disabled>
+        Próxima <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- SCRIPTS -->
+  <script src="../js/diferenciacao.js"></script>
+
+</body>
+
+</html>

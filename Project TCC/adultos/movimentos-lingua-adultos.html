@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Movimentos de Língua Avançado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/movimentos-lingua-adultos.css">
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+</head>
+
+<body>
+  <header class="topbar">
+    <div>
+      <div class="logo">
+        <h1><i class="fa-solid fa-wave-square"></i> FonemaViva</h1>
+      </div>
+      <p class="subtitle">Movimentos de Língua • Exercícios Avançados de Coordenação Oral</p>
+    </div>
+    <button class="voltar" onclick="history.back()">
+      <i class="fa-solid fa-arrow-left"></i> Voltar
+    </button>
+  </header>
+
+  <main class="container">
+    <!-- Barra de Progresso -->
+    <section class="progress-card">
+      <div class="progress-info">
+        <div class="progress-top">
+          <span>Progresso da Sessão</span>
+          <span id="progresso-texto">0/6</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progresso"></div>
+        </div>
+      </div>
+      <div class="difficulty-badge" id="dificuldade">Nível Intermediário</div>
+    </section>
+
+    <!-- Card Principal do Exercício -->
+    <section class="exercise-card">
+      <!-- Lado Esquerdo: Instruções e Demostrações -->
+      <div class="exercise-left">
+        <div class="exercise-header">
+          <span class="exercise-number" id="ex-numero">1/6</span>
+          <h2 id="titulo">Movimento 1: Língua para Cima e para Baixo</h2>
+        </div>
+
+        <div class="instructions-box">
+          <h3>📋 Instruções</h3>
+          <p id="instrucao">Mova a língua para cima tocando o palato, depois para baixo tocando o chão da boca.</p>
+          
+          <div class="demonstration">
+            <h4>🎯 Como Fazer:</h4>
+            <div class="step-list">
+              <div class="step-item">
+                <span class="step-icon">1️⃣</span>
+                <div>
+                  <strong>Posição inicial</strong>
+                  <p>Língua relaxada no chão da boca</p>
+                </div>
+              </div>
+              <div class="step-item">
+                <span class="step-icon">2️⃣</span>
+                <div>
+                  <strong>Movimento ascendente</strong>
+                  <p>Mova lentamente para cima, tocando o palato duro</p>
+                </div>
+              </div>
+              <div class="step-item">
+                <span class="step-icon">3️⃣</span>
+                <div>
+                  <strong>Movimento descendente</strong>
+                  <p>Retorne lentamente para baixo, tocando o chão da boca</p>
+                </div>
+              </div>
+              <div class="step-item">
+                <span class="step-icon">4️⃣</span>
+                <div>
+                  <strong>Pronunciação</strong>
+                  <p>Repita o som "DA-TA-DA-TA" com movimentos coordenados</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="phonological-info">
+            <h4>🔍 Benefícios Fonológicos</h4>
+            <p id="beneficio">Melhora a precisão articulatória de sons linguodentais (D, T) e a coordenação velofaríngea.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lado Direito: Controles e Feedback -->
+      <div class="exercise-right">
+        <div class="control-panel">
+          <!-- Indicador de Status -->
+          <div class="status-indicator">
+            <div class="status-bar">
+              <div id="status-fill" class="status-fill"></div>
+            </div>
+            <p id="status-text">Pronto para começar</p>
+          </div>
+
+          <!-- Botões de Ação -->
+          <div class="action-buttons">
+            <button id="btn-demonstrar" class="btn btn-info">
+              <i class="fa-solid fa-play"></i> 🔊 Ouvir palavra
+            </button>
+            <button id="btn-gravar" class="btn btn-primary">
+              <i class="fa-solid fa-microphone"></i> Gravar Execução
+            </button>
+            <button id="btn-repetir" class="btn btn-secondary" style="display: none;">
+              <i class="fa-solid fa-redo"></i> Tentar Novamente
+            </button>
+          </div>
+
+          <!-- Caixa de Feedback -->
+          <div class="feedback-container">
+            <div class="feedback-result" id="feedback-result" style="display: none;">
+              <p><strong>Você pronunciou:</strong></p>
+              <p id="resultado" class="resultado-text">...</p>
+            </div>
+
+            <div class="feedback-message" id="feedback-message"></div>
+
+            <div class="attempts-counter">
+              <p id="attempts-text">Tentativas: <strong id="attempts-number">0</strong></p>
+              <div class="attempt-dots" id="attempt-dots"></div>
+            </div>
+          </div>
+
+          <!-- Botões de Navegação -->
+          <div class="nav-buttons">
+            <button id="btn-proximo" class="btn btn-primary" disabled>
+              <i class="fa-solid fa-arrow-right"></i> Próximo Exercício
+            </button>
+            <button id="btn-reiniciar" class="btn btn-ghost">
+              <i class="fa-solid fa-redo"></i> Reiniciar
+            </button>
+          </div>
+
+          <!-- Informações Adicionais -->
+          <div class="additional-info">
+            <p id="info-text" class="info-text"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Card de Resumo de Resultados -->
+    <section class="results-card" id="results-card" style="display: none;">
+      <h2>Resultado da Sessão</h2>
+      <div class="results-summary">
+        <div class="result-item">
+          <span class="result-label">Exercícios Completados:</span>
+          <span class="result-value" id="result-completed">0/6</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Taxa de Sucesso:</span>
+          <span class="result-value" id="result-success">0%</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Tempo Total:</span>
+          <span class="result-value" id="result-time">0 min</span>
+        </div>
+      </div>
+      <div class="recommendations" id="recommendations"></div>
+      <button id="btn-nova-sessao" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+        <i class="fa-solid fa-redo"></i> Iniciar Nova Sessão
+      </button>
+    </section>
+  </main>
+
+  <script src="../js/movimentos-lingua-adultos.js"></script>
+</body>
+
+</html>
