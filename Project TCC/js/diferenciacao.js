@@ -1,337 +1,281 @@
-// =============================================
-// CONFIGURAÇÃO DE PARES DE PALAVRAS
-// =============================================
-
-const pares = [
-  {
-    palavras: ["pato", "bato"],
-    fonemas: ["/p/", "/b/"],
-    tema: "Aliteração Plosiva",
-    descricao: "Diferença entre P (surdo) e B (sonoro)",
-  },
-  {
-    palavras: ["faca", "vaca"],
-    fonemas: ["/f/", "/v/"],
-    tema: "Fricativas",
-    descricao: "Diferença entre F (surdo) e V (sonoro)",
-  },
-  {
-    palavras: ["tato", "dado"],
-    fonemas: ["/t/", "/d/"],
-    tema: "Alveolares",
-    descricao: "Diferença entre T (surdo) e D (sonoro)",
-  },
-  {
-    palavras: ["casa", "caça"],
-    fonemas: ["/z/", "/s/"],
-    tema: "Sibilantes",
-    descricao: "Diferença entre S (surdo) e Z (sonoro)",
-  },
-  {
-    palavras: ["gato", "cato"],
-    fonemas: ["/g/", "/k/"],
-    tema: "Velares",
-    descricao: "Diferença entre G (sonoro) e K (surdo)",
-  },
-  {
-    palavras: ["pala", "bala"],
-    fonemas: ["/p/", "/b/"],
-    tema: "Plosivas",
-    descricao: "Diferença entre P (surdo) e B (sonoro)",
-  },
-  {
-    palavras: ["tela", "dela"],
-    fonemas: ["/t/", "/d/"],
-    tema: "Alveolares",
-    descricao: "Diferença entre T (surdo) e D (sonoro)",
-  },
-  {
-    palavras: ["fita", "vida"],
-    fonemas: ["/f/", "/v/"],
-    tema: "Fricativas",
-    descricao: "Diferença entre F (surdo) e V (sonoro)",
-  },
+const animais = [
+  { nome: 'Cachorro', id: 'dog', palavras: ['cachorro', 'cao', 'cão', 'dog'] },
+  { nome: 'Gato', id: 'cat', palavras: ['gato', 'cat'] },
+  { nome: 'Vaca', id: 'cow', palavras: ['vaca', 'cow'] },
+  { nome: 'Pato', id: 'duck', palavras: ['pato', 'duck'] },
+  { nome: 'Sapo', id: 'frog', palavras: ['sapo', 'frog'] },
+  { nome: 'Leão', id: 'lion', palavras: ['leao', 'leão', 'lion'] },
+  { nome: 'Pássaro', id: 'bird', palavras: ['passaro', 'pássaro', 'bird', 'ave'] },
+  { nome: 'Ovelha', id: 'sheep', palavras: ['ovelha', 'sheep'] }
 ];
 
-// =============================================
-// VARIÁVEIS GLOBAIS
-// =============================================
+let index = 0;
+let acertos = 0;
+let concluidos = new Array(animais.length).fill(false);
+let audioContext = null;
 
-let indiceAtual = 0;
-let palavraAleatoria = 0; // 0 para primeira, 1 para segunda
-let respostaUser = null;
-let exercicioAtivo = false;
+const elAnimal = document.getElementById('animal-atual');
+const elInstrucao = document.getElementById('instrucao');
+const elResultado = document.getElementById('resultado');
+const elFeedback = document.getElementById('feedback');
+const btnOuvir = document.getElementById('btn-ouvir');
+const btnFalar = document.getElementById('btn-falar');
+const btnProximo = document.getElementById('btn-proximo');
+const btnReiniciar = document.getElementById('btn-reiniciar');
+const elProgresso = document.getElementById('progresso');
+const elProgressoTxt = document.getElementById('progresso-texto');
 
-// =============================================
-// INICIALIZAÇÃO
-// =============================================
+const elementos = {
+  elAnimal,
+  elInstrucao,
+  elResultado,
+  elFeedback,
+  btnOuvir,
+  btnFalar,
+  btnProximo,
+  btnReiniciar,
+  elProgresso,
+  elProgressoTxt
+};
 
-function inicializar() {
-  verificarSessao();
-  exibirPar();
+const todosOsElementos = Object.values(elementos).every(Boolean);
 
-  // Event Listeners
-  document.getElementById("play").addEventListener("click", reproduzirPalavra);
-  document.getElementById("opcao-1").addEventListener("click", () => selecionarOpcao(1));
-  document.getElementById("opcao-2").addEventListener("click", () => selecionarOpcao(2));
-  document.getElementById("proximo").addEventListener("click", proximoPar);
-  document.getElementById("anterior").addEventListener("click", parAnterior);
+if (!todosOsElementos) {
+  throw new Error('Alguns elementos da página não foram encontrados.');
 }
 
-// =============================================
-// VERIFICAÇÃO DE SESSÃO
-// =============================================
+function normalizar(texto) {
+  return texto
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '');
+}
 
-function verificarSessao() {
-  const usuarioId =
-    localStorage.getItem("usuarioId") ||
-    sessionStorage.getItem("usuarioId");
+function atualizarBarra() {
+  const total = animais.length;
+  const porcento = Math.round((acertos / total) * 100);
+  elProgresso.style.width = porcento + '%';
+  elProgressoTxt.textContent = porcento + '%';
+}
 
-  if (!usuarioId) {
-    window.location.replace("../index.html");
+function salvar() {
+  localStorage.setItem('qual-e-esse-som', JSON.stringify({ index, acertos, concluidos }));
+}
+
+function carregar() {
+  const salvo = JSON.parse(localStorage.getItem('qual-e-esse-som'));
+  if (salvo) {
+    index = salvo.index || 0;
+    acertos = salvo.acertos || 0;
+    concluidos = salvo.concluidos || new Array(animais.length).fill(false);
   }
 }
 
-// =============================================
-// EXIBIR PAR DE PALAVRAS
-// =============================================
-
-function exibirPar() {
-  const parAtual = pares[indiceAtual];
-
-  // Atualizar fonemas
-  document.getElementById("fonema-1").textContent = parAtual.fonemas[0];
-  document.getElementById("fonema-2").textContent = parAtual.fonemas[1];
-
-  // Atualizar opções
-  document.getElementById("palavra-opcao-1").textContent = parAtual.palavras[0];
-  document.getElementById("palavra-opcao-2").textContent = parAtual.palavras[1];
-  document.getElementById("fonema-pequeno-1").textContent = parAtual.fonemas[0];
-  document.getElementById("fonema-pequeno-2").textContent = parAtual.fonemas[1];
-
-  // Atualizar progresso
-  const percentual = ((indiceAtual + 1) / pares.length) * 100;
-  document.getElementById("progresso").style.width = percentual + "%";
-  document.getElementById("progresso-texto").textContent =
-    `${indiceAtual + 1}/${pares.length}`;
-
-  // Limpar feedback
-  document.getElementById("feedback").textContent = "";
-  document.getElementById("explicacao").textContent = "";
-  document.getElementById("status").textContent = "Clique em 'Ouvir Palavra' para começar";
-
-  // Limpar seleções
-  document.getElementById("opcao-1").classList.remove("selected", "correto", "erro");
-  document.getElementById("opcao-2").classList.remove("selected", "correto", "erro");
-
-  // Resetar variáveis
-  respostaUser = null;
-  exercicioAtivo = false;
-
-  // Atualizar status dos botões
-  document.getElementById("anterior").disabled = indiceAtual === 0;
-  document.getElementById("proximo").disabled = true;
-  document.getElementById("play").disabled = false;
-  document.getElementById("opcao-1").disabled = false;
-  document.getElementById("opcao-2").disabled = false;
-
-  // Gerar palavra aleatória
-  palavraAleatoria = Math.floor(Math.random() * 2);
+function definirFase() {
+  const animal = animais[index];
+  elAnimal.textContent = animal.nome;
+  elInstrucao.textContent = 'Ouça com atenção e depois fale o nome do animal.';
+  elResultado.textContent = '...';
+  elFeedback.textContent = '';
+  btnProximo.disabled = true;
+  atualizarBarra();
+  salvar();
 }
 
-// =============================================
-// REPRODUZIR PALAVRA
-// =============================================
+function ensureAudioContext() {
+  if (!window.AudioContext && !window.webkitAudioContext) {
+    return null;
+  }
 
-function reproduzirPalavra() {
-  const parAtual = pares[indiceAtual];
-  const palavra = parAtual.palavras[palavraAleatoria];
+  if (!audioContext) {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  }
 
-  // Usar Web Speech API para síntese de voz
-  const utterance = new SpeechSynthesisUtterance(palavra);
-  utterance.lang = "pt-BR";
-  utterance.rate = 0.8; // Velocidade mais lenta para clareza
-  utterance.pitch = 1;
-  utterance.volume = 1;
+  return audioContext;
+}
 
-  // Desabilitar botão durante a reprodução
-  const botaoPlay = document.getElementById("play");
-  botaoPlay.disabled = true;
+async function playAnimalSound(animal) {
+  const ctx = ensureAudioContext();
 
-  utterance.onend = () => {
-    botaoPlay.disabled = false;
-    document.getElementById("status").textContent = "Qual palavra você ouviu?";
-    exercicioAtivo = true;
+  if (!ctx) {
+    throw new Error('Web Audio API não suportada neste navegador.');
+  }
+
+  if (ctx.state === 'suspended') {
+    await ctx.resume();
+  }
+
+  const now = ctx.currentTime;
+  const master = ctx.createGain();
+  master.gain.setValueAtTime(0.0001, now);
+  master.gain.exponentialRampToValueAtTime(0.3, now + 0.02);
+  master.gain.exponentialRampToValueAtTime(0.0001, now + 1.5);
+  master.connect(ctx.destination);
+
+  const createTone = (freq, type, duration, volume, delay = 0) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, now + delay);
+    gain.gain.setValueAtTime(0.0001, now + delay);
+    gain.gain.exponentialRampToValueAtTime(volume, now + 0.02 + delay);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + duration + delay);
+
+    osc.connect(gain);
+    gain.connect(master);
+
+    osc.start(now + delay);
+    osc.stop(now + duration + delay);
   };
 
-  speechSynthesis.speak(utterance);
-}
+  const createNoiseBurst = (duration, volume, delay = 0) => {
+    const buffer = ctx.createBuffer(1, ctx.sampleRate * duration, ctx.sampleRate);
+    const data = buffer.getChannelData(0);
 
-// =============================================
-// SELECIONAR OPÇÃO
-// =============================================
-
-function selecionarOpcao(opcao) {
-  if (!exercicioAtivo || respostaUser !== null) {
-    return;
-  }
-
-  respostaUser = opcao;
-  const parAtual = pares[indiceAtual];
-  const correta = palavraAleatoria + 1; // 1 ou 2
-
-  // Marcar seleção
-  document.getElementById(`opcao-${opcao}`).classList.add("selected");
-
-  // Verificar resposta após um pequeno delay para visualização
-  setTimeout(() => {
-    verificarResposta(opcao, correta, parAtual);
-  }, 500);
-}
-
-// =============================================
-// VERIFICAR RESPOSTA
-// =============================================
-
-function verificarResposta(respostaUser, correta, parAtual) {
-  const feedbackElement = document.getElementById("feedback");
-  const explicacaoElement = document.getElementById("explicacao");
-
-  // Remover classe selected
-  document.getElementById(`opcao-${respostaUser}`).classList.remove("selected");
-
-  if (respostaUser === correta) {
-    // RESPOSTA CORRETA
-    document.getElementById(`opcao-${respostaUser}`).classList.add("correto");
-    feedbackElement.textContent = "✅ Correto! Você identificou a palavra corretamente.";
-    feedbackElement.className = "sucesso";
-
-    explicacaoElement.innerHTML = `
-      <strong>Você ouviu:</strong> ${parAtual.palavras[palavraAleatoria]} (${parAtual.fonemas[palavraAleatoria]})<br>
-      <strong>Diferença fonética:</strong> ${parAtual.descricao}
-    `;
-
-    document.getElementById("proximo").disabled = false;
-  } else {
-    // RESPOSTA INCORRETA
-    document.getElementById(`opcao-${respostaUser}`).classList.add("erro");
-    document.getElementById(`opcao-${correta}`).classList.add("correto");
-
-    feedbackElement.textContent = `❌ Incorreto! A palavra correta era "${parAtual.palavras[palavraAleatoria]}"`;
-    feedbackElement.className = "erro";
-
-    explicacaoElement.innerHTML = `
-      <strong>A palavra ouvida:</strong> ${parAtual.palavras[palavraAleatoria]} (${parAtual.fonemas[palavraAleatoria]})<br>
-      <strong>Diferença fonética:</strong> ${parAtual.descricao}<br>
-      <small>Tente concentrar-se na diferença entre os sons.</small>
-    `;
-
-    document.getElementById("proximo").disabled = false;
-  }
-
-  // Desabilitar opções
-  document.getElementById("opcao-1").disabled = true;
-  document.getElementById("opcao-2").disabled = true;
-  document.getElementById("play").disabled = false;
-}
-
-// =============================================
-// NAVEGAÇÃO - PRÓXIMO PAR
-// =============================================
-
-function proximoPar() {
-  if (indiceAtual < pares.length - 1) {
-    indiceAtual++;
-    exibirPar();
-
-    // Animar transição
-    const parInfo = document.querySelector(".par-info");
-    parInfo.style.animation = "none";
-    setTimeout(() => {
-      parInfo.style.animation = "fadeIn 0.5s ease-out";
-    }, 10);
-  } else {
-    finalizarExercicio();
-  }
-}
-
-// =============================================
-// NAVEGAÇÃO - PAR ANTERIOR
-// =============================================
-
-function parAnterior() {
-  if (indiceAtual > 0) {
-    indiceAtual--;
-    exibirPar();
-
-    // Animar transição
-    const parInfo = document.querySelector(".par-info");
-    parInfo.style.animation = "none";
-    setTimeout(() => {
-      parInfo.style.animation = "fadeIn 0.5s ease-out";
-    }, 10);
-  }
-}
-
-// =============================================
-// FINALIZAR EXERCÍCIO
-// =============================================
-
-function finalizarExercicio() {
-  document.getElementById("feedback").textContent =
-    "🏆 Parabéns! Você completou o exercício de Precisão Auditiva!";
-  document.getElementById("feedback").className = "sucesso";
-
-  document.getElementById("explicacao").innerHTML = `
-    <strong>Exercício finalizado!</strong><br>
-    Você trabalhou discriminação de fonemas com sucesso.
-    Volte sempre para aprimorar sua precisão auditiva.
-  `;
-
-  // Desabilitar botões
-  document.getElementById("play").disabled = true;
-  document.getElementById("opcao-1").disabled = true;
-  document.getElementById("opcao-2").disabled = true;
-  document.getElementById("proximo").disabled = true;
-  document.getElementById("anterior").disabled = true;
-
-  // Mostrar botão de retorno
-  setTimeout(() => {
-    const navBotoes = document.querySelector(".nav-botoes");
-    if (!document.querySelector(".btn-retorno")) {
-      const botaoVoltar = document.createElement("button");
-      botaoVoltar.className = "btn-nav btn-retorno";
-      botaoVoltar.innerHTML =
-        '<i class="fas fa-home"></i> Voltar ao Menu';
-      botaoVoltar.onclick = () => history.back();
-      navBotoes.appendChild(botaoVoltar);
+    for (let i = 0; i < data.length; i++) {
+      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 2);
     }
-  }, 500);
+
+    const source = ctx.createBufferSource();
+    const gain = ctx.createGain();
+
+    source.buffer = buffer;
+    gain.gain.setValueAtTime(0.0001, now + delay);
+    gain.gain.exponentialRampToValueAtTime(volume, now + 0.01 + delay);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + duration + delay);
+
+    source.connect(gain);
+    gain.connect(master);
+
+    source.start(now + delay);
+    source.stop(now + duration + delay);
+  };
+
+  if (animal.id === 'dog') {
+    createTone(700, 'triangle', 0.22, 0.18, 0);
+    createTone(920, 'sawtooth', 0.18, 0.12, 0.16);
+    createTone(650, 'triangle', 0.24, 0.16, 0.34);
+    createNoiseBurst(0.18, 0.04, 0.05);
+  } else if (animal.id === 'cat') {
+    createTone(1300, 'sine', 0.26, 0.12, 0);
+    createTone(1600, 'sine', 0.22, 0.08, 0.14);
+    createTone(1450, 'sine', 0.18, 0.05, 0.29);
+  } else if (animal.id === 'cow') {
+    createTone(180, 'sine', 0.6, 0.18, 0);
+    createTone(150, 'triangle', 0.5, 0.14, 0.1);
+    createNoiseBurst(0.18, 0.03, 0.35);
+  } else if (animal.id === 'duck') {
+    createTone(580, 'square', 0.16, 0.16, 0);
+    createTone(760, 'square', 0.14, 0.12, 0.16);
+    createTone(640, 'square', 0.15, 0.1, 0.3);
+  } else if (animal.id === 'frog') {
+    createTone(320, 'triangle', 0.16, 0.14, 0);
+    createTone(290, 'triangle', 0.14, 0.1, 0.18);
+    createTone(260, 'triangle', 0.16, 0.08, 0.34);
+  } else if (animal.id === 'lion') {
+    createTone(200, 'sawtooth', 0.5, 0.2, 0);
+    createTone(240, 'sawtooth', 0.46, 0.16, 0.12);
+    createNoiseBurst(0.28, 0.05, 0.08);
+  } else if (animal.id === 'bird') {
+    createTone(980, 'square', 0.12, 0.12, 0);
+    createTone(1180, 'square', 0.1, 0.1, 0.1);
+    createTone(1080, 'square', 0.12, 0.08, 0.2);
+  } else if (animal.id === 'sheep') {
+    createTone(300, 'sine', 0.34, 0.14, 0);
+    createTone(270, 'sine', 0.3, 0.1, 0.12);
+    createTone(245, 'sine', 0.28, 0.08, 0.24);
+  }
 }
 
-// =============================================
-// ANIMAÇÃO FADEIN
-// =============================================
+function verificar(texto) {
+  const normal = normalizar(texto);
+  const animal = animais[index];
+  return animal.palavras.some((palavra) => normal.includes(normalizar(palavra)));
+}
 
-const style = document.createElement("style");
-style.textContent = `
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+btnOuvir.addEventListener('click', async () => {
+  try {
+    await playAnimalSound(animais[index]);
+    elFeedback.textContent = `Ouça o som do ${animais[index].nome.toLowerCase()}.`;
+  } catch (error) {
+    elFeedback.textContent = 'Não foi possível reproduzir o som.';
   }
-`;
-document.head.appendChild(style);
+});
 
-// =============================================
-// EXECUTAR QUANDO PÁGINA CARREGAR
-// =============================================
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", inicializar);
+if (SpeechRecognition) {
+  const recognition = new SpeechRecognition();
+  recognition.lang = 'pt-BR';
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  btnFalar.addEventListener('click', () => {
+    try {
+      recognition.start();
+      btnFalar.textContent = '🎙️ Ouvindo...';
+      elFeedback.textContent = 'Fale o nome do animal.';
+    } catch (error) {
+      btnFalar.textContent = '🎤 Responder';
+      elFeedback.textContent = 'Não foi possível iniciar a gravação de voz.';
+    }
+  });
+
+  recognition.onresult = (evento) => {
+    const texto = Array.from(evento.results)
+      .map((resultado) => resultado[0].transcript)
+      .join(' ');
+
+    elResultado.textContent = texto.trim() || '...';
+
+    if (verificar(texto)) {
+      if (!concluidos[index]) {
+        concluidos[index] = true;
+        acertos++;
+        atualizarBarra();
+        salvar();
+      }
+      elFeedback.textContent = '✔ Muito bem! Você acertou.';
+      btnProximo.disabled = false;
+    } else {
+      elFeedback.textContent = '❌ Tente novamente. Ouça o som mais uma vez.';
+      btnProximo.disabled = true;
+    }
+  };
+
+  recognition.onerror = () => {
+    elFeedback.textContent = 'Não foi possível ouvir sua resposta. Tente novamente.';
+  };
+
+  recognition.onend = () => {
+    btnFalar.textContent = '🎤 Responder';
+  };
 } else {
-  inicializar();
+  btnFalar.disabled = true;
+  btnFalar.textContent = '🎤 Indisponível';
+  elFeedback.textContent = 'Seu navegador não suporta reconhecimento de voz.';
 }
+
+btnProximo.addEventListener('click', () => {
+  if (index < animais.length - 1) {
+    index++;
+  } else {
+    index = 0;
+    acertos = 0;
+    concluidos = new Array(animais.length).fill(false);
+  }
+  definirFase();
+});
+
+btnReiniciar.addEventListener('click', () => {
+  index = 0;
+  acertos = 0;
+  concluidos = new Array(animais.length).fill(false);
+  definirFase();
+  elFeedback.textContent = 'Exercício reiniciado.';
+});
+
+carregar();
+definirFase();
