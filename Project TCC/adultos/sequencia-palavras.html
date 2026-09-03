@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Sequência de Palavras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+  <link rel="stylesheet" href="../css/sequencia-palavras.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="logo">
+      <h1><i class="fa-solid fa-wave-square"></i> FonemaViva</h1>
+    </div>
+    <span class="sub">
+      Exercícios • Sequência de Palavras
+    </span>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+
+    <!-- PROGRESSO -->
+    <section class="progresso-container">
+      <div class="progresso-top">
+        <p>Seu progresso</p>
+        <span id="progresso-texto">0/5</span>
+      </div>
+      <div class="progresso-barra">
+        <div id="progresso"></div>
+      </div>
+    </section>
+
+    <!-- CARD DO EXERCÍCIO -->
+    <section class="card">
+      
+      <div class="instrucoes">
+        <p class="titulo-instrucao">📋 Instruções</p>
+        <p class="texto-instrucao">
+          Pronuncie a sequência de palavras com <strong>fluidez e clareza</strong>. 
+          Ouça o exemplo e tente reproduzir a mesma pronúncia. 
+          Foque em cada palavra da sequência.
+        </p>
+      </div>
+
+      <div class="sequencia-display">
+        <p class="label-sequencia">Sequência:</p>
+        <div class="palavras-container">
+          <span id="palavra-1" class="palavra">—</span>
+          <span class="separador">•</span>
+          <span id="palavra-2" class="palavra">—</span>
+          <span class="separador">•</span>
+          <span id="palavra-3" class="palavra">—</span>
+        </div>
+      </div>
+
+      <!-- BOTÕES DE ÁUDIO -->
+      <div class="actions-audio">
+        <button id="play" class="btn-play">
+          <i class="fas fa-volume-up"></i> Ouvir Exemplo
+        </button>
+        <button id="gravar" class="btn-mic">
+          <i class="fas fa-microphone"></i> Gravar Pronúncia
+        </button>
+      </div>
+
+      <!-- STATUS DO MICROFONE -->
+      <div id="mic-status" class="mic-status hidden">
+        <span class="recording-indicator"></span>
+        <p>Gravando...</p>
+      </div>
+
+      <!-- RESULTADO -->
+      <div class="resposta" id="resposta-container">
+        <span>Sua pronúncia:</span>
+        <strong id="resultado">Clique em "Gravar Pronúncia" para começar</strong>
+      </div>
+
+      <!-- FEEDBACK -->
+      <div id="feedback-container" class="feedback-container">
+        <p id="feedback"></p>
+      </div>
+
+    </section>
+
+    <!-- NAVEGAÇÃO -->
+    <div class="nav-botoes">
+      <button id="anterior" class="btn-nav btn-anterior" disabled>
+        <i class="fas fa-arrow-left"></i> Anterior
+      </button>
+      <button id="proximo" class="btn-nav btn-proximo">
+        Próxima <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- SCRIPTS -->
+  <script src="../js/sequencia-palavras.js"></script>
+
+</body>
+
+</html>

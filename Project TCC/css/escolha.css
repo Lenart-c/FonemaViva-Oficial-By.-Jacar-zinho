@@ -1,0 +1,1602 @@
+/* =========================================================
+   FONEMAVIVA
+   DATA DE NASCIMENTO
+   IDENTIDADE VISUAL — PREMIUM
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================================
+   HTML
+========================================================= */
+
+html {
+    width: 100%;
+    min-height: 100%;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow-x: hidden;
+
+    padding: 40px 20px;
+
+    background:
+        url("../Img/imagem.jpeg")
+        center center /
+        cover
+        no-repeat;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.bg-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2, 6, 23, 0.94) 0%,
+            rgba(3, 31, 36, 0.88) 45%,
+            rgba(15, 118, 110, 0.72) 100%
+        );
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ILUMINAÇÃO AMBIENTAL
+========================================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 650px;
+    height: 650px;
+
+    top: -330px;
+    left: -280px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(45, 212, 191, 0.20) 0%,
+            rgba(20, 184, 166, 0.08) 38%,
+            transparent 72%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 650px;
+    height: 650px;
+
+    right: -340px;
+    bottom: -360px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(59, 130, 246, 0.16) 0%,
+            rgba(15, 118, 110, 0.08) 38%,
+            transparent 72%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+    max-width: 760px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    animation:
+        entradaCard
+        0.75s
+        cubic-bezier(.22, 1, .36, 1)
+        both;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes entradaCard {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   CARD PRINCIPAL
+========================================================= */
+
+.birth-card {
+    position: relative;
+
+    width: 100%;
+
+    padding: 48px;
+
+    border-radius: 38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.135),
+            rgba(255, 255, 255, 0.065)
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    backdrop-filter:
+        blur(24px)
+        saturate(135%);
+
+    -webkit-backdrop-filter:
+        blur(24px)
+        saturate(135%);
+
+    box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.40),
+        0 8px 25px rgba(0, 0, 0, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   LINHA DE LUZ SUPERIOR
+========================================================= */
+
+.birth-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 7%;
+
+    width: 86%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.65),
+            transparent
+        );
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   BRILHO DECORATIVO
+========================================================= */
+
+.birth-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    top: -180px;
+    right: -130px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(94, 234, 212, 0.14),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ÍCONE
+========================================================= */
+
+.icon-box {
+    position: relative;
+
+    z-index: 2;
+
+    width: 76px;
+    height: 76px;
+
+    margin-bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.18),
+            rgba(255, 255, 255, 0.07)
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.17);
+
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    animation:
+        iconEntrada
+        0.8s
+        0.2s
+        cubic-bezier(.22, 1, .36, 1)
+        both;
+}
+
+.icon-box span {
+    font-size: 36px;
+
+    line-height: 1;
+
+    color: #5eead4;
+
+    filter:
+        drop-shadow(
+            0 5px 12px
+            rgba(0, 0, 0, 0.20)
+        );
+}
+
+@keyframes iconEntrada {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.75)
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.birth-card h1 {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 600px;
+
+    margin-bottom: 17px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            2.15rem,
+            5vw,
+            3.25rem
+        );
+
+    line-height: 1.07;
+
+    letter-spacing: -0.045em;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+========================================================= */
+
+.subtitle {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 590px;
+
+    margin-bottom: 32px;
+
+    color: #d8e5e7;
+
+    font-size: 1rem;
+
+    line-height: 1.75;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+#birthForm {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    padding: 26px;
+
+    border-radius: 27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.095),
+            rgba(255, 255, 255, 0.045)
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.105);
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   GRUPO
+========================================================= */
+
+.input-group {
+    width: 100%;
+}
+
+
+/* =========================================================
+   LABEL PRINCIPAL
+========================================================= */
+
+.input-group > label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 16px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.01em;
+}
+
+.input-group > label
+.material-symbols-outlined {
+    color: #5eead4;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   DATA — COLUNAS
+========================================================= */
+
+.data-nascimento {
+    display: grid;
+
+    grid-template-columns:
+        0.85fr
+        1.45fr
+        1fr;
+
+    gap: 14px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   CADA CAMPO
+========================================================= */
+
+.campo-data {
+    min-width: 0;
+}
+
+.campo-data > label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #cbd5e1;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.02em;
+}
+
+
+/* =========================================================
+   INPUT BOX
+========================================================= */
+
+.campo-data .input-box {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   ÍCONE DO CAMPO
+========================================================= */
+
+.campo-data
+.input-box
+.material-symbols-outlined {
+    position: absolute;
+
+    left: 17px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    color: #0f766e;
+
+    font-size: 20px;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   SELECTS
+========================================================= */
+
+.campo-data select,
+.campo-data input[type="number"] {
+
+    width: 100%;
+
+    height: 58px;
+
+    padding:
+        0 15px 0 48px;
+
+    border:
+        1px solid
+        rgba(15, 23, 42, 0.06);
+
+    outline: none;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    color: #0f172a;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 22px
+        rgba(0, 0, 0, 0.10);
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.campo-data select:hover,
+.campo-data input[type="number"]:hover {
+
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 28px
+        rgba(0, 0, 0, 0.14);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.campo-data select:focus,
+.campo-data input[type="number"]:focus {
+
+    background: #ffffff;
+
+    border-color:
+        rgba(45, 212, 191, 0.75);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(45, 212, 191, 0.14),
+
+        0 14px 30px
+        rgba(0, 0, 0, 0.14);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* ÍCONE AO FOCAR */
+
+.campo-data
+.input-box:focus-within
+.material-symbols-outlined {
+
+    color: #00a89e;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+
+/* =========================================================
+   INPUT NUMBER
+========================================================= */
+
+#anoNascimento {
+    cursor: text;
+}
+
+
+/* =========================================================
+   SETA DO CAMPO ANO
+========================================================= */
+
+#anoNascimento::-webkit-inner-spin-button,
+#anoNascimento::-webkit-outer-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+
+}
+
+/* =========================================================
+   MENSAGEM DE ERRO
+========================================================= */
+
+#mensagemErro {
+
+    min-height: 20px;
+
+    margin-top: 12px;
+
+    color: #fda4af;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   BOTÃO
+========================================================= */
+
+#btnContinuar {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 59px;
+
+    margin-top: 17px;
+
+    border: none;
+
+    border-radius: 17px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00b8a9 0%,
+            #00a89e 42%,
+            #0f766e 100%
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.01em;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 14px 30px
+        rgba(0, 0, 0, 0.24),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.18);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+/* =========================================================
+   BRILHO
+========================================================= */
+
+#btnContinuar::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 75%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.22),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.65s ease;
+}
+
+
+#btnContinuar:hover::before {
+
+    left: 140%;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+#btnContinuar:hover {
+
+    transform:
+        translateY(-3px);
+
+    filter:
+        brightness(1.05);
+
+    box-shadow:
+        0 19px 38px
+        rgba(0, 0, 0, 0.30),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.20);
+}
+
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+#btnContinuar:active {
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 10px 22px
+        rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   DESATIVADO
+========================================================= */
+
+#btnContinuar:disabled {
+
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    filter: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   TEXTO DE PRIVACIDADE
+========================================================= */
+
+.privacy-text {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 520px;
+
+    margin:
+        21px
+        auto
+        0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #aebfc2;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+.privacy-text
+.material-symbols-outlined {
+
+    color: #5eead4;
+
+    font-size: 16px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVO — TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    body {
+        padding:
+            30px
+            18px;
+    }
+
+    .birth-card {
+        padding: 38px;
+
+        border-radius: 34px;
+    }
+
+    #birthForm {
+        padding: 23px;
+
+        border-radius: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVO — CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding:
+            18px
+            12px;
+    }
+
+    .birth-card {
+
+        padding:
+            31px
+            20px;
+
+        border-radius: 29px;
+    }
+
+    .icon-box {
+
+        width: 66px;
+        height: 66px;
+
+        margin-bottom: 21px;
+
+        border-radius: 19px;
+    }
+
+    .icon-box span {
+        font-size: 31px;
+    }
+
+    .birth-card h1 {
+
+        font-size: 2.15rem;
+
+        letter-spacing: -0.035em;
+    }
+
+    .subtitle {
+
+        font-size: 0.92rem;
+
+        line-height: 1.65;
+
+        margin-bottom: 26px;
+    }
+
+    #birthForm {
+
+        padding: 18px;
+
+        border-radius: 22px;
+    }
+
+    .data-nascimento {
+
+        grid-template-columns:
+            0.85fr
+            1.35fr
+            1fr;
+
+        gap: 9px;
+    }
+
+    .campo-data > label {
+
+        font-size: 11px;
+    }
+
+    .campo-data select,
+    .campo-data input[type="number"] {
+
+        height: 55px;
+
+        padding-left: 43px;
+
+        font-size: 14px;
+
+        border-radius: 15px;
+    }
+
+    .campo-data
+    .input-box
+    .material-symbols-outlined {
+
+        left: 14px;
+
+        font-size: 18px;
+    }
+
+    #btnContinuar {
+
+        height: 56px;
+
+        border-radius: 16px;
+
+        font-size: 15px;
+    }
+
+    .privacy-text {
+
+        font-size: 11.5px;
+    }
+
+}
+
+/* =========================================================
+   RESPONSIVO — CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 380px) {
+
+    body {
+        padding:
+            12px
+            9px;
+    }
+
+    .birth-card {
+
+        padding:
+            26px
+            16px;
+
+        border-radius: 25px;
+    }
+
+    .icon-box {
+
+        width: 60px;
+        height: 60px;
+    }
+
+    .icon-box span {
+        font-size: 28px;
+    }
+
+    .birth-card h1 {
+
+        font-size: 1.85rem;
+    }
+
+    .subtitle {
+
+        font-size: 0.87rem;
+    }
+
+    #birthForm {
+
+        padding: 15px;
+    }
+
+    .data-nascimento {
+
+        grid-template-columns:
+            1fr 1.35fr 1fr;
+
+        gap: 7px;
+    }
+
+    .campo-data select,
+    .campo-data input[type="number"] {
+
+        padding-left: 38px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}
+
+/* =========================================================
+   TEMA CLARO AUTOMÁTICO
+========================================================= */
+
+body:not(.dark-mode) {
+
+    color: #0f172a;
+
+    background:
+        url("../Img/imagem.jpeg")
+        center center /
+        cover
+        no-repeat;
+
+}
+
+
+/* =========================================================
+   FUNDO — CLARO
+========================================================= */
+
+body:not(.dark-mode) .bg-overlay {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(240, 253, 250, 0.94) 0%,
+            rgba(236, 253, 245, 0.88) 45%,
+            rgba(204, 251, 241, 0.78) 100%
+        );
+
+}
+
+
+/* =========================================================
+   CARD — CLARO
+========================================================= */
+
+body:not(.dark-mode) .birth-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.88),
+            rgba(255, 255, 255, 0.72)
+        );
+
+    border-color:
+        rgba(15, 118, 110, 0.14);
+
+    box-shadow:
+        0 35px 90px
+        rgba(15, 23, 42, 0.18),
+
+        0 8px 25px
+        rgba(15, 23, 42, 0.08),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.90);
+
+}
+
+
+/* =========================================================
+   LINHA SUPERIOR — CLARO
+========================================================= */
+
+body:not(.dark-mode) .birth-card::before {
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(15, 118, 110, 0.35),
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   TÍTULO — CLARO
+========================================================= */
+
+body:not(.dark-mode) .birth-card h1 {
+
+    color: #0f172a;
+
+}
+
+
+/* =========================================================
+   SUBTÍTULO — CLARO
+========================================================= */
+
+body:not(.dark-mode) .subtitle {
+
+    color: #475569;
+
+}
+
+
+/* =========================================================
+   FORMULÁRIO — CLARO
+========================================================= */
+
+body:not(.dark-mode) #birthForm {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.78),
+            rgba(248, 250, 252, 0.64)
+        );
+
+    border-color:
+        rgba(15, 23, 42, 0.08);
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.90);
+
+}
+
+
+/* =========================================================
+   LABEL PRINCIPAL — CLARO
+========================================================= */
+
+body:not(.dark-mode) .input-group > label {
+
+    color: #0f172a;
+
+}
+
+
+/* =========================================================
+   LABEL DOS CAMPOS — CLARO
+========================================================= */
+
+body:not(.dark-mode) .campo-data > label {
+
+    color: #475569;
+
+}
+
+
+/* =========================================================
+   CAMPOS — CLARO
+========================================================= */
+
+body:not(.dark-mode)
+.campo-data select,
+
+body:not(.dark-mode)
+.campo-data input[type="number"] {
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    color: #0f172a;
+
+    border-color:
+        rgba(15, 23, 42, 0.10);
+
+    box-shadow:
+        0 8px 22px
+        rgba(15, 23, 42, 0.10);
+
+}
+
+
+/* =========================================================
+   HOVER — CLARO
+========================================================= */
+
+body:not(.dark-mode)
+.campo-data select:hover,
+
+body:not(.dark-mode)
+.campo-data input[type="number"]:hover {
+
+    background: #ffffff;
+
+}
+
+
+/* =========================================================
+   FOCUS — CLARO
+========================================================= */
+
+body:not(.dark-mode)
+.campo-data select:focus,
+
+body:not(.dark-mode)
+.campo-data input[type="number"]:focus {
+
+    background: #ffffff;
+
+    color: #0f172a;
+
+}
+
+
+/* =========================================================
+   PRIVACIDADE — CLARO
+========================================================= */
+
+body:not(.dark-mode) .privacy-text {
+
+    color: #64748b;
+
+}
+
+
+/* =========================================================
+   OPÇÕES DOS SELECTS — CLARO
+========================================================= */
+
+body:not(.dark-mode)
+.campo-data select option {
+
+    background: #ffffff;
+
+    color: #0f172a;
+
+}
+
+
+/* =========================================================
+   MODO ESCURO AUTOMÁTICO
+========================================================= */
+
+body.dark-mode {
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   CAMPOS — ESCURO
+========================================================= */
+
+body.dark-mode
+.campo-data select,
+
+body.dark-mode
+.campo-data input[type="number"] {
+
+    background:
+        rgba(15, 23, 42, 0.88);
+
+    color: #f8fafc;
+
+    border-color:
+        rgba(255, 255, 255, 0.12);
+
+}
+
+
+/* =========================================================
+   HOVER — ESCURO
+========================================================= */
+
+body.dark-mode
+.campo-data select:hover,
+
+body.dark-mode
+.campo-data input[type="number"]:hover {
+
+    background:
+        rgba(15, 23, 42, 0.96);
+
+}
+
+
+/* =========================================================
+   FOCUS — ESCURO
+========================================================= */
+
+body.dark-mode
+.campo-data select:focus,
+
+body.dark-mode
+.campo-data input[type="number"]:focus {
+
+    background:
+        rgba(15, 23, 42, 0.96);
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   OPÇÕES DOS SELECTS — ESCURO
+========================================================= */
+
+body.dark-mode
+.campo-data select option {
+
+    background: #0f172a;
+
+    color: #ffffff;
+
+}
+
+body.dark-mode .bg-overlay{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2,6,23,0.92),
+            rgba(15,23,42,0.88)
+        );
+}
+
+/* =========================================================
+   REMOVER SCROLL VISÍVEL DOS SELECTS
+========================================================= */
+
+.campo-data select {
+    scrollbar-width: none;
+}
+
+.campo-data select::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* =========================================================
+   BOTÃO VOLTAR — AO LADO DIREITO DO CARD
+========================================================= */
+
+.back-btn {
+
+    position: absolute;
+
+    top: 28px;
+    right: 28px;
+    margin-top: 31px;
+
+    width: 100px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.16);
+
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    color: #ffffff;
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 10px 28px
+        rgba(0, 0, 0, 0.22),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.12);
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   ÍCONE
+========================================================= */
+
+.back-btn .material-symbols-outlined {
+
+    font-size: 24px;
+
+    color: #5eead4;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.back-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(255, 255, 255, 0.16);
+
+    box-shadow:
+        0 14px 32px
+        rgba(0, 0, 0, 0.28),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.16);
+}
+
+
+.back-btn:hover
+.material-symbols-outlined {
+
+    transform:
+        translateX(-2px);
+}
+
+
+/* =========================================================
+   CLIQUE
+========================================================= */
+
+.back-btn:active {
+
+    transform:
+        translateY(0)
+        scale(0.96);
+}
