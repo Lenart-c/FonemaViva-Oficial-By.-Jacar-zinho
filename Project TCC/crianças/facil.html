@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>FonemaViva • Trava-Línguas</title>
+
+  <link rel="preconnect"
+  href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet">
+
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+  <link rel="stylesheet" href="../css/facil.css">
+
+</head>
+
+<body>
+
+  <header class="topbar">
+
+    <h1>FonemaViva</h1>
+
+    <span>
+      Exercício • Trava-Línguas
+    </span>
+
+  </header>
+
+  <main class="container">
+
+    <!-- PROGRESSO -->
+
+    <section class="progresso-container">
+
+      <div class="progresso-top">
+
+        <p>Seu progresso</p>
+
+        <span id="progresso-texto">
+          0%
+        </span>
+
+      </div>
+
+      <div class="progresso-barra">
+
+        <div id="progresso"></div>
+
+      </div>
+
+    </section>
+
+    <!-- CARD -->
+
+    <section class="card">
+
+      <p class="mini">
+        Leia em voz alta
+      </p>
+
+      <h2 id="trava">
+        O rato roeu a roupa do rei.
+      </h2>
+
+      <p class="instrucao">
+        Clique no botão e fale o trava-língua inteiro.
+      </p>
+
+      <button id="gravar"
+      class="btn">
+
+        🎤 Falar
+
+      </button>
+
+      <div class="resultado">
+
+        <p>
+          Você falou:
+        </p>
+
+        <span id="texto">
+          ...
+        </span>
+
+      </div>
+
+      <p id="feedback"></p>
+
+      <button id="proximo"
+      class="btn-next"
+      disabled>
+
+        Próximo →
+
+      </button>
+
+    </section>
+
+  </main>
+
+  <script src="../js/facil.js"></script>
+
+</body>
+</html>

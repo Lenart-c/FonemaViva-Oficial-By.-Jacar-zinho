@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Central de Suporte do FonemaViva">
+  <link rel="shortcut icon" href="./Img/goatfc.png">
+  <meta name="theme-color" content="#00A89E">
+
+  <title>FonemaViva - Central de Suporte</title>
+
+
+  <!-- =========================================================
+       FONTES
+  ========================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- =========================================================
+       FONT AWESOME
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+
+  <!-- =========================================================
+       CSS DA PÁGINA
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="./css/suporte.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================================
+       TELA DE CARREGAMENTO
+  ========================================================== -->
+
+  <div
+    class="loading-screen"
+    id="loadingScreen"
+  >
+
+    <div class="loading-content">
+
+      <div class="loading-logo">
+        <i class="fa-solid fa-headset"></i>
+      </div>
+
+      <h1>FonemaViva</h1>
+
+      <p>Carregando suporte...</p>
+
+      <div
+        class="loading-spinner"
+        role="status"
+        aria-label="Carregando"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       APLICAÇÃO
+  ========================================================== -->
+
+  <div class="support-app">
+
+
+    <!-- =======================================================
+         CABEÇALHO
+    ======================================================== -->
+
+    <header class="support-header">
+
+      <div class="header-left">
+
+
+        <!-- BOTÃO VOLTAR -->
+
+        <button
+          type="button"
+          class="back-button"
+          id="btnVoltar"
+          aria-label="Voltar"
+          onclick="history.back()"
+        >
+
+          <i class="fa-solid fa-arrow-left"></i>
+
+          <span>Voltar</span>
+
+        </button>
+
+
+        <!-- TÍTULO -->
+
+        <div class="header-title">
+
+          <div class="header-title-icon">
+
+            <i class="fa-solid fa-headset"></i>
+
+          </div>
+
+          <div>
+
+            <h1>Central de Suporte</h1>
+
+            <p>
+              Estamos aqui para ajudar
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =======================================================
+         CONTEÚDO PRINCIPAL
+    ======================================================== -->
+
+    <main class="support-main">
+
+
+      <!-- =====================================================
+           HERO
+      ====================================================== -->
+
+      <section class="support-hero">
+
+        <div class="hero-content">
+
+          <span class="hero-badge">
+
+            <i class="fa-solid fa-life-ring"></i>
+
+            Suporte FonemaViva
+
+          </span>
+
+
+          <h2>
+            Como podemos ajudar?
+          </h2>
+
+
+          <p>
+
+            Encontre respostas rapidamente ou entre em contato
+            com nossa equipe de suporte.
+
+          </p>
+
+
+          <!-- BUSCA -->
+
+          <div class="search-container">
+
+            <i
+              class="fa-solid fa-magnifying-glass search-icon"
+              aria-hidden="true"
+            ></i>
+
+
+            <input
+              type="search"
+              id="supportSearch"
+              class="support-search"
+              placeholder="Pesquise por uma dúvida..."
+              autocomplete="off"
+              aria-label="Pesquisar dúvidas"
+            >
+
+
+            <button
+              type="button"
+              class="clear-search"
+              id="btnClearSearch"
+              aria-label="Limpar pesquisa"
+              hidden
+            >
+
+              <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           CATEGORIAS
+      ====================================================== -->
+
+      <section
+        class="support-categories-section"
+        aria-labelledby="categoriesTitle"
+      >
+
+        <div class="section-heading">
+
+          <span class="section-eyebrow">
+            Encontre sua solução
+          </span>
+
+          <h2 id="categoriesTitle">
+            Escolha uma categoria
+          </h2>
+
+          <p>
+            Selecione o assunto relacionado à sua dúvida.
+          </p>
+
+        </div>
+
+
+        <div class="support-categories">
+
+
+          <!-- CONTA -->
+
+          <button
+            type="button"
+            class="category-card"
+            data-category="conta"
+          >
+
+            <span class="category-icon">
+
+              <i class="fa-solid fa-user"></i>
+
+            </span>
+
+
+            <span class="category-content">
+
+              <strong>
+                Conta e acesso
+              </strong>
+
+              <small>
+                Login, cadastro e informações da conta
+              </small>
+
+            </span>
+
+
+            <i
+              class="fa-solid fa-chevron-right category-arrow"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+
+          <!-- EXERCÍCIOS -->
+
+          <button
+            type="button"
+            class="category-card"
+            data-category="exercicios"
+          >
+
+            <span class="category-icon">
+
+              <i class="fa-solid fa-dumbbell"></i>
+
+            </span>
+
+
+            <span class="category-content">
+
+              <strong>
+                Exercícios
+              </strong>
+
+              <small>
+                Dúvidas sobre atividades e exercícios
+              </small>
+
+            </span>
+
+
+            <i
+              class="fa-solid fa-chevron-right category-arrow"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+
+          <!-- MICROFONE -->
+
+          <button
+            type="button"
+            class="category-card"
+            data-category="microfone"
+          >
+
+            <span class="category-icon">
+
+              <i class="fa-solid fa-microphone"></i>
+
+            </span>
+
+
+            <span class="category-content">
+
+              <strong>
+                Microfone e áudio
+              </strong>
+
+              <small>
+                Reconhecimento de voz e problemas de áudio
+              </small>
+
+            </span>
+
+
+            <i
+              class="fa-solid fa-chevron-right category-arrow"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+
+          <!-- ACESSIBILIDADE -->
+
+          <button
+            type="button"
+            class="category-card"
+            data-category="acessibilidade"
+          >
+
+            <span class="category-icon">
+
+              <i class="fa-solid fa-universal-access"></i>
+
+            </span>
+
+
+            <span class="category-content">
+
+              <strong>
+                Acessibilidade
+              </strong>
+
+              <small>
+                Recursos e opções de acessibilidade
+              </small>
+
+            </span>
+
+
+            <i
+              class="fa-solid fa-chevron-right category-arrow"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+
+          <!-- PROGRESSO -->
+
+          <button
+            type="button"
+            class="category-card"
+            data-category="progresso"
+          >
+
+            <span class="category-icon">
+
+              <i class="fa-solid fa-chart-line"></i>
+
+            </span>
+
+
+            <span class="category-content">
+
+              <strong>
+                Progresso
+              </strong>
+
+              <small>
+                Atividades, resultados e acompanhamento
+              </small>
+
+            </span>
+
+
+            <i
+              class="fa-solid fa-chevron-right category-arrow"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+
+          <!-- PROBLEMAS TÉCNICOS -->
+
+          <button
+            type="button"
+            class="category-card"
+            data-category="tecnico"
+          >
+
+            <span class="category-icon">
+
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+
+            </span>
+
+
+            <span class="category-content">
+
+              <strong>
+                Problemas técnicos
+              </strong>
+
+              <small>
+                Erros, falhas e problemas no sistema
+              </small>
+
+            </span>
+
+
+            <i
+              class="fa-solid fa-chevron-right category-arrow"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           FAQ
+      ====================================================== -->
+
+      <section
+        class="faq-section"
+        id="faqSection"
+        aria-labelledby="faqTitle"
+      >
+
+        <div class="section-heading">
+
+          <span class="section-eyebrow">
+            Perguntas frequentes
+          </span>
+
+          <h2 id="faqTitle">
+            Dúvidas comuns
+          </h2>
+
+          <p>
+            Confira algumas das perguntas mais frequentes
+            dos usuários.
+          </p>
+
+        </div>
+
+
+        <div
+          class="faq-list"
+          id="faqList"
+        >
+
+
+          <!-- FAQ 1 -->
+
+          <article
+            class="faq-item"
+            data-category="conta"
+            data-search="login entrar acessar conta acesso"
+          >
+
+            <button
+              type="button"
+              class="faq-question"
+              aria-expanded="false"
+            >
+
+              <span>
+                Não consigo acessar minha conta. O que devo fazer?
+              </span>
+
+              <i
+                class="fa-solid fa-chevron-down"
+                aria-hidden="true"
+              ></i>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                Verifique se o e-mail e a senha foram digitados
+                corretamente. Caso o problema continue, tente
+                sair da conta e entrar novamente. Se ainda não
+                conseguir acessar, entre em contato com o suporte.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- FAQ 2 -->
+
+          <article
+            class="faq-item"
+            data-category="conta"
+            data-search="cadastro criar conta registrar usuário"
+          >
+
+            <button
+              type="button"
+              class="faq-question"
+              aria-expanded="false"
+            >
+
+              <span>
+                Como faço para criar uma conta?
+              </span>
+
+              <i
+                class="fa-solid fa-chevron-down"
+                aria-hidden="true"
+              ></i>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                Na tela inicial do FonemaViva, selecione a opção
+                de cadastro e preencha os dados solicitados.
+                Depois, siga as etapas apresentadas pelo sistema.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- FAQ 3 -->
+
+          <article
+            class="faq-item"
+            data-category="exercicios"
+            data-search="exercício atividade exercícios atividade não funciona"
+          >
+
+            <button
+              type="button"
+              class="faq-question"
+              aria-expanded="false"
+            >
+
+              <span>
+                Um exercício não está funcionando corretamente.
+              </span>
+
+              <i
+                class="fa-solid fa-chevron-down"
+                aria-hidden="true"
+              ></i>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                Primeiro, atualize a página e tente realizar o
+                exercício novamente. Se o problema persistir,
+                verifique sua conexão com a internet e, caso
+                necessário, envie uma solicitação ao suporte.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- FAQ 4 -->
+
+          <article
+            class="faq-item"
+            data-category="microfone"
+            data-search="microfone voz áudio reconhecimento não funciona"
+          >
+
+            <button
+              type="button"
+              class="faq-question"
+              aria-expanded="false"
+            >
+
+              <span>
+                O microfone não está sendo reconhecido.
+              </span>
+
+              <i
+                class="fa-solid fa-chevron-down"
+                aria-hidden="true"
+              ></i>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                Verifique se o navegador possui permissão para
+                utilizar o microfone. Também confira se o dispositivo
+                correto está selecionado no sistema. Depois, atualize
+                a página e tente novamente.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- FAQ 5 -->
+
+          <article
+            class="faq-item"
+            data-category="acessibilidade"
+            data-search="acessibilidade fonte tamanho contraste acessibilidade"
+          >
+
+            <button
+              type="button"
+              class="faq-question"
+              aria-expanded="false"
+            >
+
+              <span>
+                Como utilizar os recursos de acessibilidade?
+              </span>
+
+              <i
+                class="fa-solid fa-chevron-down"
+                aria-hidden="true"
+              ></i>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                Os recursos de acessibilidade podem ser configurados
+                nas opções disponíveis no sistema. As preferências
+                são aplicadas de forma global para proporcionar uma
+                experiência mais confortável.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- FAQ 6 -->
+
+          <article
+            class="faq-item"
+            data-category="progresso"
+            data-search="progresso atividade resultado histórico exercícios"
+          >
+
+            <button
+              type="button"
+              class="faq-question"
+              aria-expanded="false"
+            >
+
+              <span>
+                Meu progresso não foi atualizado.
+              </span>
+
+              <i
+                class="fa-solid fa-chevron-down"
+                aria-hidden="true"
+              ></i>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                Aguarde alguns instantes após concluir uma atividade
+                e atualize a página. Se o progresso continuar sem
+                atualização, envie uma solicitação informando qual
+                exercício apresentou o problema.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- FAQ 7 -->
+
+          <article
+            class="faq-item"
+            data-category="tecnico"
+            data-search="erro sistema página travou bug problema técnico"
+          >
+
+            <button
+              type="button"
+              class="faq-question"
+              aria-expanded="false"
+            >
+
+              <span>
+                A página apresentou um erro ou travou.
+              </span>
+
+              <i
+                class="fa-solid fa-chevron-down"
+                aria-hidden="true"
+              ></i>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                Tente atualizar a página. Se o erro continuar,
+                verifique sua conexão com a internet e tente
+                acessar novamente. Caso o problema persista,
+                entre em contato com nossa equipe.
+
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- FAQ 8 -->
+
+          <article
+            class="faq-item"
+            data-category="tecnico"
+            data-search="site aplicativo navegador celular computador sistema"
+          >
+
+            <button
+              type="button"
+              class="faq-question"
+              aria-expanded="false"
+            >
+
+              <span>
+                O FonemaViva funciona em diferentes dispositivos?
+              </span>
+
+              <i
+                class="fa-solid fa-chevron-down"
+                aria-hidden="true"
+              ></i>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <p>
+
+                O FonemaViva foi desenvolvido para funcionar em
+                diferentes dispositivos e tamanhos de tela.
+                Para obter a melhor experiência, mantenha seu
+                navegador atualizado.
+
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- ===================================================
+             NENHUM RESULTADO
+        ==================================================== -->
+
+        <div
+          class="faq-empty"
+          id="faqEmpty"
+          hidden
+        >
+
+          <div class="faq-empty-icon">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+          </div>
+
+
+          <h3>
+            Nenhuma dúvida encontrada
+          </h3>
+
+
+          <p>
+
+            Não encontrou o que procurava?
+            Envie uma solicitação e nossa equipe poderá
+            analisar seu problema.
+
+          </p>
+
+
+          <button
+            type="button"
+            class="primary-button"
+            id="btnAbrirChamadoSemResultado"
+          >
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+            Abrir solicitação
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           CONTATO
+      ====================================================== -->
+
+      <section
+        class="support-contact"
+        aria-labelledby="contactTitle"
+      >
+
+        <div class="contact-icon">
+
+          <i class="fa-solid fa-headset"></i>
+
+        </div>
+
+
+        <div class="contact-content">
+
+          <span class="section-eyebrow">
+            Ainda precisa de ajuda?
+          </span>
+
+          <h2 id="contactTitle">
+            Fale com nossa equipe
+          </h2>
+
+          <p>
+
+            Não encontrou o que procurava?
+            Envie uma solicitação e nossa equipe poderá
+            analisar seu problema.
+
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="primary-button"
+          id="btnAbrirChamado"
+        >
+
+          <i class="fa-solid fa-paper-plane"></i>
+
+          Abrir solicitação
+
+        </button>
+
+      </section>
+
+
+      <!-- =====================================================
+           FORMULÁRIO
+      ====================================================== -->
+
+      <section
+        class="support-form-section"
+        id="supportFormSection"
+        hidden
+        aria-labelledby="formTitle"
+      >
+
+        <div class="support-form-card">
+
+
+          <!-- CABEÇALHO DO FORMULÁRIO -->
+
+          <div class="form-header">
+
+            <div>
+
+              <span class="section-eyebrow">
+                Atendimento
+              </span>
+
+              <h2 id="formTitle">
+                Enviar uma solicitação
+              </h2>
+
+              <p>
+                Explique o problema para que possamos ajudar
+                da melhor maneira possível.
+              </p>
+
+            </div>
+
+
+            <!-- BOTÃO FECHAR -->
+
+            <button
+              type="button"
+              class="form-close-button"
+              id="btnFecharFormulario"
+              aria-label="Fechar formulário"
+            >
+
+              <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+          </div>
+
+
+          <!-- FORM -->
+
+          <form
+            id="supportForm"
+            novalidate
+          >
+
+
+            <!-- ASSUNTO -->
+
+            <div class="form-group">
+
+              <label for="assunto">
+                Assunto
+              </label>
+
+              <input
+                type="text"
+                id="assunto"
+                name="assunto"
+                placeholder="Ex.: Problema com o microfone"
+                minlength="3"
+                maxlength="100"
+                autocomplete="off"
+                required
+              >
+
+              <small class="form-help">
+                Informe brevemente o motivo do contato.
+              </small>
+
+            </div>
+
+
+            <!-- CATEGORIA -->
+
+            <div class="form-group">
+
+              <label for="categoria">
+                Categoria
+              </label>
+
+              <select
+                id="categoria"
+                name="categoria"
+                required
+              >
+
+                <option
+                  value=""
+                  selected
+                  disabled
+                >
+                  Selecione uma categoria
+                </option>
+
+                <option value="conta">
+                  Conta e acesso
+                </option>
+
+                <option value="exercicios">
+                  Exercícios
+                </option>
+
+                <option value="microfone">
+                  Microfone e áudio
+                </option>
+
+                <option value="acessibilidade">
+                  Acessibilidade
+                </option>
+
+                <option value="progresso">
+                  Progresso
+                </option>
+
+                <option value="tecnico">
+                  Problemas técnicos
+                </option>
+
+                <option value="outro">
+                  Outro
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- DESCRIÇÃO -->
+
+            <div class="form-group">
+
+              <div class="label-row">
+
+                <label for="descricao">
+                  Descrição
+                </label>
+
+                <span
+                  class="character-counter"
+                  id="descricaoCounter"
+                >
+                  0/2000
+                </span>
+
+              </div>
+
+
+              <textarea
+                id="descricao"
+                name="descricao"
+                rows="7"
+                minlength="10"
+                maxlength="2000"
+                placeholder="Descreva o que aconteceu com o máximo de detalhes possível..."
+                required
+              ></textarea>
+
+
+              <small class="form-help">
+
+                Quanto mais detalhes você fornecer, mais fácil será
+                identificar o problema.
+
+              </small>
+
+            </div>
+
+
+            <!-- BOTÕES -->
+
+            <div class="form-actions">
+
+              <button
+                type="button"
+                class="secondary-button"
+                id="btnCancelarChamado"
+              >
+                Cancelar
+              </button>
+
+
+              <button
+                type="submit"
+                class="primary-button"
+                id="btnEnviarChamado"
+              >
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Enviar solicitação
+
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           SUCESSO
+      ====================================================== -->
+
+      <section
+        class="support-success"
+        id="supportSuccess"
+        hidden
+        aria-labelledby="successTitle"
+      >
+
+        <div class="success-icon">
+
+          <i class="fa-solid fa-check"></i>
+
+        </div>
+
+
+        <span class="section-eyebrow">
+          Solicitação enviada
+        </span>
+
+
+        <h2 id="successTitle">
+          Tudo certo!
+        </h2>
+
+
+        <p>
+
+          Sua solicitação foi registrada com sucesso.
+          Nossa equipe poderá analisar as informações
+          enviadas e ajudar você.
+
+        </p>
+
+
+        <div class="success-actions">
+
+
+          <button
+            type="button"
+            class="primary-button"
+            id="btnVoltarSuporte"
+          >
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Voltar para o suporte
+
+          </button>
+
+
+          <button
+            type="button"
+            class="secondary-button"
+            id="btnNovaSolicitacao"
+          >
+
+            <i class="fa-solid fa-plus"></i>
+
+            Nova solicitação
+
+          </button>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- =======================================================
+         RODAPÉ
+    ======================================================== -->
+
+    <footer class="support-footer">
+
+      <div class="footer-brand">
+
+        <span class="footer-logo">
+
+          <i class="fa-solid fa-wave-square"></i>
+
+        </span>
+
+
+        <div>
+
+          <strong>
+            FonemaViva
+          </strong>
+
+          <span>
+            Aprender, praticar e evoluir.
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <p>
+        © 2026 FonemaViva. Todos os direitos reservados.
+      </p>
+
+    </footer>
+
+  </div>
+
+
+  <!-- =========================================================
+       MODAL DE SAÍDA
+  ========================================================== -->
+
+  <div
+    class="modal-backdrop"
+    id="logoutModal"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="logoutTitle"
+  >
+
+    <div class="logout-modal">
+
+
+      <!-- FECHAR -->
+
+      <button
+        type="button"
+        class="modal-close"
+        id="btnFecharLogout"
+        aria-label="Fechar"
+      >
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
+
+      <!-- ÍCONE -->
+
+      <div class="modal-icon">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+      </div>
+
+
+      <h2 id="logoutTitle">
+        Sair da conta?
+      </h2>
+
+
+      <p>
+        Tem certeza de que deseja sair da sua conta?
+      </p>
+
+
+      <div class="modal-actions">
+
+
+        <button
+          type="button"
+          class="secondary-button"
+          id="btnCancelarLogout"
+        >
+          Cancelar
+        </button>
+
+
+        <button
+          type="button"
+          class="danger-button"
+          id="btnConfirmarLogout"
+        >
+
+          <i class="fa-solid fa-right-from-bracket"></i>
+
+          Sair
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       TOAST
+  ========================================================== -->
+
+  <div
+    class="support-toast"
+    id="supportToast"
+    hidden
+    role="status"
+    aria-live="polite"
+  >
+
+    <i
+      class="fa-solid fa-circle-check"
+      aria-hidden="true"
+    ></i>
+
+    <span id="supportToastMessage">
+      Operação realizada com sucesso.
+    </span>
+
+  </div>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="./js/acessibilidade.js"></script>
+
+  <script src="./js/suporte.js"></script>
+
+</body>
+
+</html>

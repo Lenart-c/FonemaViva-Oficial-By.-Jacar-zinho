@@ -1,0 +1,608 @@
+/* ==========================================
+   FONEMAVIVA
+   PÁGINA — EM DESENVOLVIMENTO
+   ========================================== */
+
+
+/* ==========================================
+   RESET
+   ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  background: #f4f8f8;
+  color: #163b39;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* ==========================================
+   PÁGINA
+   ========================================== */
+
+.development-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+
+  overflow: hidden;
+}
+
+
+/* ==========================================
+   ELEMENTOS DECORATIVOS DE FUNDO
+   ========================================== */
+
+.development-page::before,
+.development-page::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.development-page::before {
+  width: 420px;
+  height: 420px;
+
+  top: -220px;
+  right: -160px;
+
+  background: rgba(0, 168, 158, 0.07);
+}
+
+.development-page::after {
+  width: 360px;
+  height: 360px;
+
+  bottom: -210px;
+  left: -150px;
+
+  background: rgba(15, 118, 110, 0.05);
+}
+
+
+/* ==========================================
+   CARD PRINCIPAL
+   ========================================== */
+
+.development-card {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 540px;
+
+  padding: 54px 48px 46px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(15, 118, 110, 0.10);
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 4px 10px rgba(15, 50, 48, 0.03),
+    0 18px 45px rgba(15, 118, 110, 0.08),
+    0 35px 80px rgba(15, 50, 48, 0.05);
+}
+
+
+/* ==========================================
+   ÍCONE
+   ========================================== */
+
+.development-icon {
+  width: 88px;
+  height: 88px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e8faf8,
+      #dff5f2
+    );
+
+  border: 1px solid rgba(0, 168, 158, 0.12);
+
+  color: #00a89e;
+
+  font-size: 35px;
+
+  box-shadow:
+    0 10px 25px rgba(0, 168, 158, 0.10);
+}
+
+.development-icon i {
+  line-height: 1;
+}
+
+
+/* ==========================================
+   MARCA
+   ========================================== */
+
+.development-label {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  color: #0f766e;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+  line-height: 1.4;
+}
+
+
+/* ==========================================
+   TÍTULO
+   ========================================== */
+
+.development-card h1 {
+  margin-bottom: 15px;
+
+  color: #123b39;
+
+  font-size: 34px;
+  font-weight: 800;
+
+  letter-spacing: -0.7px;
+  line-height: 1.18;
+}
+
+
+/* ==========================================
+   DESCRIÇÃO
+   ========================================== */
+
+.development-card > p {
+  max-width: 430px;
+
+  margin: 0 auto;
+
+  color: #627674;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 1.7;
+}
+
+
+/* ==========================================
+   BLOCO INFORMATIVO
+   ========================================== */
+
+.development-info {
+  width: 100%;
+
+  margin: 30px 0;
+
+  padding: 16px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  background: #f4f9f9;
+
+  border: 1px solid #e4efee;
+
+  border-radius: 15px;
+
+  color: #55716f;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+.development-info i {
+  flex-shrink: 0;
+
+  color: #00a89e;
+
+  font-size: 17px;
+}
+
+
+/* ==========================================
+   BOTÃO VOLTAR
+   ========================================== */
+
+.btn-voltar {
+  position: relative;
+
+  width: 100%;
+  min-height: 54px;
+
+  padding: 0 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border: none;
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00a89e,
+      #0f766e
+    );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 20px rgba(0, 168, 158, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+
+/* brilho sutil */
+
+.btn-voltar::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.12) 50%,
+      transparent 80%
+    );
+
+  transform: translateX(-100%);
+
+  transition: transform 0.5s ease;
+
+  pointer-events: none;
+}
+
+.btn-voltar:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-voltar:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 26px rgba(0, 168, 158, 0.26);
+
+  filter: brightness(1.02);
+}
+
+.btn-voltar:active {
+  transform: translateY(0);
+
+  box-shadow:
+    0 6px 14px rgba(0, 168, 158, 0.18);
+}
+
+.btn-voltar i,
+.btn-voltar span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-voltar i {
+  font-size: 14px;
+}
+
+
+/* ==========================================
+   FOCO ACESSÍVEL
+   ========================================== */
+
+.btn-voltar:focus-visible {
+  outline: 3px solid rgba(0, 168, 158, 0.30);
+  outline-offset: 4px;
+}
+
+
+/* ==========================================
+   MODO ESCURO
+   ========================================== */
+
+@media (prefers-color-scheme: dark) {
+
+  body {
+    background: #0d1919;
+    color: #e8f4f2;
+  }
+
+
+  /* Fundo */
+
+  .development-page::before {
+    background: rgba(0, 168, 158, 0.08);
+  }
+
+  .development-page::after {
+    background: rgba(0, 168, 158, 0.045);
+  }
+
+
+  /* Card */
+
+  .development-card {
+    background: #142323;
+
+    border-color: rgba(120, 210, 201, 0.10);
+
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.18),
+      0 20px 50px rgba(0, 0, 0, 0.24),
+      0 35px 80px rgba(0, 0, 0, 0.18);
+  }
+
+
+  /* Ícone */
+
+  .development-icon {
+    background:
+      linear-gradient(
+        145deg,
+        #183d3b,
+        #153432
+      );
+
+    border-color: rgba(0, 168, 158, 0.16);
+
+    color: #38c9bf;
+
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.18);
+  }
+
+
+  /* Marca */
+
+  .development-label {
+    color: #42c9c0;
+  }
+
+
+  /* Título */
+
+  .development-card h1 {
+    color: #edf8f6;
+  }
+
+
+  /* Descrição */
+
+  .development-card > p {
+    color: #a8bcba;
+  }
+
+
+  /* Informação */
+
+  .development-info {
+    background: #10201f;
+
+    border-color: rgba(120, 210, 201, 0.10);
+
+    color: #9eb5b2;
+  }
+
+  .development-info i {
+    color: #38c9bf;
+  }
+
+
+  /* Botão */
+
+  .btn-voltar {
+    background:
+      linear-gradient(
+        135deg,
+        #00a89e,
+        #0f766e
+      );
+
+    color: #ffffff;
+
+    box-shadow:
+      0 8px 22px rgba(0, 168, 158, 0.20);
+  }
+
+  .btn-voltar:hover {
+    box-shadow:
+      0 12px 28px rgba(0, 168, 158, 0.28);
+  }
+
+}
+
+
+/* ==========================================
+   TELAS MENORES
+   ========================================== */
+
+@media (max-width: 600px) {
+
+  .development-page {
+    padding: 24px 16px;
+  }
+
+  .development-card {
+    max-width: 100%;
+
+    padding: 42px 24px 30px;
+
+    border-radius: 22px;
+  }
+
+  .development-icon {
+    width: 76px;
+    height: 76px;
+
+    margin-bottom: 21px;
+
+    border-radius: 21px;
+
+    font-size: 30px;
+  }
+
+  .development-label {
+    font-size: 10px;
+    letter-spacing: 1.6px;
+  }
+
+  .development-card h1 {
+    margin-bottom: 13px;
+
+    font-size: 28px;
+    letter-spacing: -0.4px;
+  }
+
+  .development-card > p {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .development-info {
+    margin: 25px 0;
+
+    padding: 14px 15px;
+
+    font-size: 13px;
+  }
+
+  .btn-voltar {
+    min-height: 52px;
+
+    font-size: 14px;
+  }
+
+}
+
+
+/* ==========================================
+   TELAS MUITO PEQUENAS
+   ========================================== */
+
+@media (max-width: 380px) {
+
+  .development-page {
+    padding: 18px 12px;
+  }
+
+  .development-card {
+    padding: 34px 19px 25px;
+
+    border-radius: 19px;
+  }
+
+  .development-icon {
+    width: 68px;
+    height: 68px;
+
+    border-radius: 18px;
+
+    font-size: 27px;
+  }
+
+  .development-card h1 {
+    font-size: 25px;
+  }
+
+  .development-card > p {
+    font-size: 14px;
+  }
+
+  .development-info {
+    font-size: 12px;
+  }
+
+}
+
+
+/* ==========================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn-voltar,
+  .btn-voltar::before {
+    transition: none;
+  }
+
+  .btn-voltar:hover {
+    transform: none;
+  }
+
+}

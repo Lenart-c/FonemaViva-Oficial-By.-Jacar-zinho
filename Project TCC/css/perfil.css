@@ -1,0 +1,2079 @@
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+    font-family: 'Inter', sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f7fafc,
+            #eef3f8
+        );
+
+    color: #111827;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   TOPO
+========================================================= */
+
+.topo {
+    height: 90px;
+
+    background: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, .05);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.logo i {
+    color: #00A89E;
+    font-size: 28px;
+}
+
+
+.logo h1 {
+    color: #00A89E;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+
+.btn-voltar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 22px;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00A89E,
+            #0F766E
+        );
+
+    color: white;
+
+    border: none;
+    border-radius: 16px;
+
+    font-weight: 700;
+    font-size: 15px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+}
+
+
+.btn-voltar i {
+    font-size: 15px;
+
+    transition:
+        transform .25s ease;
+}
+
+
+.btn-voltar:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.05);
+}
+
+
+.btn-voltar:hover i {
+    transform: translateX(-4px);
+}
+
+
+.btn-voltar:active {
+    transform: scale(.97);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.perfil-page {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 40px 25px 80px;
+}
+
+
+/* =========================================================
+   CARD PERFIL
+========================================================= */
+
+.perfil-card {
+    background: white;
+
+    border-radius: 35px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, .08);
+
+    margin-bottom: 35px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   BANNER
+========================================================= */
+
+.perfil-banner {
+    height: 220px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00A89E,
+            #0F766E
+        );
+
+    position: relative;
+}
+
+
+.banner-verde {
+    background:
+        linear-gradient(
+            135deg,
+            #00A89E,
+            #0f6b63
+        );
+}
+
+
+.banner-azul {
+    background:
+        linear-gradient(
+            135deg,
+            #2563EB,
+            #1D4ED8
+        ) !important;
+}
+
+
+.banner-vermelho {
+    background:
+        linear-gradient(
+            135deg,
+            #e03030,
+            #bd1e1e
+        ) !important;
+}
+
+
+.banner-rosa {
+    background:
+        linear-gradient(
+            135deg,
+            #EC4899,
+            #aa215f
+        ) !important;
+}
+
+
+.banner-laranja {
+    background:
+        linear-gradient(
+            135deg,
+            #bb4f02ee,
+            #da5711
+        ) !important;
+}
+
+
+.banner-roxo {
+    background:
+        linear-gradient(
+            135deg,
+            #8B5CF6,
+            #7C3AED
+        ) !important;
+}
+
+
+.banner-preto {
+    background:
+        linear-gradient(
+            135deg,
+            #000000,
+            #414141b7
+        ) !important;
+}
+
+
+.banner-amarelo {
+    background:
+        linear-gradient(
+            135deg,
+            #ffee00,
+            #fbff009f
+        ) !important;
+}
+
+
+.perfil-banner::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, .08);
+
+    top: -100px;
+    right: -100px;
+}
+
+
+.perfil-banner::after {
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, .05);
+
+    left: 50px;
+    bottom: -80px;
+}
+
+
+/* =========================================================
+   BOTÃO ALTERAR BANNER
+========================================================= */
+
+.btn-banner {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, .95);
+
+    color: #111827;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .15);
+
+    z-index: 10;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.btn-banner:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOTO
+========================================================= */
+
+.foto-area {
+    margin-top: -90px;
+
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.foto-wrapper {
+    position: relative;
+}
+
+
+.foto-perfil-container {
+    position: relative;
+
+    width: 180px;
+    height: 180px;
+}
+
+
+#previewFoto {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    display: block;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, .18);
+}
+
+
+.editar-foto {
+    position: absolute;
+
+    right: 10px;
+    bottom: 10px;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background:
+        #00a89dad;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0, 168, 158, .4);
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+}
+
+
+.editar-foto:hover {
+    transform: scale(1.06);
+
+    background: #00A89E;
+}
+
+
+#fotoPerfil {
+    display: none;
+}
+
+
+.foto-placeholder {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #00A89E;
+
+    color: white;
+
+    font-size: 42px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   INFORMAÇÕES DO PERFIL
+========================================================= */
+
+.perfil-info {
+    text-align: center;
+
+    padding: 25px 25px 40px;
+}
+
+
+.perfil-info h2 {
+    font-size: 34px;
+
+    margin-bottom: 10px;
+}
+
+
+.perfil-info p {
+    color: #6B7280;
+}
+
+
+/* =========================================================
+   CARDS DO FORMULÁRIO
+========================================================= */
+
+.form-card {
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 30px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, .05);
+}
+
+
+.card-title {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+
+.card-title i {
+    color: #00A89E;
+
+    font-size: 22px;
+}
+
+
+.card-title h3 {
+    font-size: 24px;
+}
+
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CAMPOS
+========================================================= */
+
+.input-box {
+    height: 60px;
+
+    border: 2px solid #E5E7EB;
+
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 18px;
+
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+
+    background: white;
+
+    position: relative;
+}
+
+
+.input-box:focus-within {
+    border-color: #00A89E;
+
+    box-shadow:
+        0 0 0 4px rgba(0, 168, 158, .1);
+}
+
+
+.input-box i {
+    color: #00A89E;
+
+    margin-right: 14px;
+
+    flex-shrink: 0;
+}
+
+
+.input-box input {
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 15px;
+
+    background: transparent;
+
+    min-width: 0;
+}
+
+
+.input-box input::placeholder {
+    color: #9CA3AF;
+}
+
+
+/* =========================================================
+   CAMPOS BLOQUEADOS
+========================================================= */
+
+.input-box.readonly {
+    background: #f8fafc;
+
+    cursor: not-allowed;
+}
+
+
+.input-box.readonly input {
+    pointer-events: none;
+
+    cursor: not-allowed;
+
+    opacity: 1;
+
+    color: #6B7280;
+}
+
+
+.input-box.readonly:hover {
+    border-color: #D1D5DB;
+}
+
+
+/* =========================================================
+   AVISO DOS CAMPOS BLOQUEADOS
+========================================================= */
+
+.input-box.readonly::after {
+    content: attr(data-tooltip);
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: calc(100% + 11px);
+
+    transform:
+        translateX(-50%)
+        translateY(5px);
+
+    background: #111827;
+
+    color: #ffffff;
+
+    padding: 9px 14px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .18);
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease;
+
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   SETA DO AVISO
+========================================================= */
+
+.input-box.readonly::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: calc(100% + 4px);
+
+    transform:
+        translateX(-50%)
+        translateY(5px);
+
+    border-left: 6px solid transparent;
+
+    border-right: 6px solid transparent;
+
+    border-top: 7px solid #111827;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease;
+
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   MOSTRAR AVISO
+========================================================= */
+
+.input-box.readonly:hover::after {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+.input-box.readonly:hover::before {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+/* =========================================================
+   ESTATÍSTICAS
+========================================================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-bottom: 35px;
+}
+
+
+.stat-card {
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, .05);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.stat-card:hover {
+    transform: translateY(-6px);
+}
+
+
+.stat-card i {
+    font-size: 35px;
+
+    color: #00A89E;
+
+    margin-bottom: 18px;
+}
+
+
+.stat-card h4 {
+    margin-bottom: 8px;
+
+    font-size: 20px;
+}
+
+
+.stat-card p {
+    color: #6B7280;
+}
+
+
+/* =========================================================
+   BOTÃO SALVAR
+========================================================= */
+
+.btn-salvar {
+    width: 100%;
+
+    height: 70px;
+
+    border: none;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00A89E,
+            #0F766E
+        );
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 168, 158, .3);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        filter .3s ease;
+}
+
+
+.btn-salvar:hover {
+    transform: translateY(-4px);
+}
+
+
+.btn-salvar:active {
+    transform: scale(.98);
+}
+
+
+/* =========================================================
+   LOADING / FEEDBACK
+========================================================= */
+
+.loading-screen {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, .5);
+
+    backdrop-filter:
+        blur(5px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .3s;
+
+    z-index: 99999;
+}
+
+
+.loading-screen.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.loading-box {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    min-width: 260px;
+
+    text-align: center;
+}
+
+
+.loader {
+    width: 50px;
+
+    height: 50px;
+
+    margin: auto;
+
+    border: 4px solid #ddd;
+
+    border-top: 4px solid #00A89E;
+
+    border-radius: 50%;
+
+    animation:
+        spin 1s linear infinite;
+}
+
+
+.success-icon,
+.error-icon,
+.warning-icon {
+    display: none;
+
+    width: 60px;
+    height: 60px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    font-weight: bold;
+}
+
+
+.success-icon {
+    background: #00A89E;
+
+    color: white;
+}
+
+
+.error-icon {
+    background: #ef4444;
+
+    color: white;
+}
+
+
+.warning-icon {
+    background: #facc15;
+
+    color: #854d0e;
+
+    font-size: 32px;
+}
+
+
+#statusText {
+    margin-top: 15px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   MODAL DE BANNER
+========================================================= */
+
+.modal-banner {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, .35);
+
+    backdrop-filter:
+        blur(4px);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+}
+
+
+.modal-banner.active {
+    display: flex;
+}
+
+
+.modal-banner-content {
+    background: white;
+
+    border-radius: 24px;
+
+    padding: 30px;
+
+    width: min(900px, 90%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, .2);
+}
+
+
+.modal-banner-content h3 {
+    font-size: 22px;
+
+    margin-bottom: 20px;
+}
+
+
+.banner-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 24px;
+}
+
+
+.banner-header p {
+    color: #6B7280;
+}
+
+
+.btn-fechar-modal {
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #F3F4F6;
+
+    cursor: pointer;
+
+    transition:
+        .25s;
+}
+
+
+.btn-fechar-modal:hover {
+    background: #E5E7EB;
+}
+
+
+/* =========================================================
+   LISTA DE BANNERS
+========================================================= */
+
+.lista-banners {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(220px, 1fr));
+
+    gap: 20px;
+}
+
+
+.banner-card {
+    flex: 0 0 200px;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease;
+}
+
+
+.banner-card:hover {
+    transform: translateY(-4px);
+}
+
+
+.banner-opcao {
+    height: 110px;
+
+    border-radius: 16px;
+
+    border: 3px solid transparent;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
+}
+
+
+.banner-opcao:hover {
+    transform: scale(1.03);
+}
+
+
+.banner-card span {
+    display: block;
+
+    text-align: center;
+
+    margin-top: 10px;
+
+    font-weight: 600;
+}
+
+
+.banner-card.selecionado .banner-opcao {
+    border-color: #00A89E;
+}
+
+
+/* =========================================================
+   MODO ESCURO AUTOMÁTICO
+========================================================= */
+
+@media (prefers-color-scheme: dark) {
+
+    body {
+        background: #0d121d;
+
+        color: #f8fafc;
+    }
+
+
+    .topo {
+        background: #0d121d;
+
+        box-shadow:
+            0 8px 30px rgba(0, 0, 0, .35);
+    }
+
+
+    .logo i {
+        color: white;
+    }
+
+
+    .logo h1 {
+        color: white;
+    }
+
+
+    /* O botão permanece escuro somente quando
+       o modo escuro automático está ativo. */
+
+    body:not(.light-mode) .btn-voltar {
+        background: #1e293b;
+
+        color: white;
+    }
+
+
+    .loading-box {
+        background: #252e3d;
+    }
+
+
+    .perfil-info p,
+    .stat-card p {
+        color: #94a3b8;
+    }
+
+
+    .input-box {
+        background: #232935;
+
+        border-color: #334155;
+    }
+
+
+    .input-box input {
+        color: #f8fafc;
+    }
+
+
+    .input-box input::placeholder {
+        color: #64748b;
+    }
+
+
+    .card-title h3,
+    .perfil-info h2,
+    .stat-card h4,
+    label {
+        color: #f8fafc;
+    }
+
+
+    #statusText {
+        color: #f8fafc;
+    }
+
+
+    .modal-banner {
+        background:
+            rgba(0, 0, 0, .75);
+    }
+
+
+    .btn-fechar-modal {
+        background: #0f172a;
+
+        color: white;
+
+        border: 1px solid #334155;
+    }
+
+
+    .btn-banner {
+        background:
+            rgba(15, 23, 42, .95);
+
+        color: white;
+
+        backdrop-filter:
+            blur(10px);
+    }
+
+
+    .form-card,
+    .perfil-card,
+    .stat-card {
+        background:
+            linear-gradient(
+                135deg,
+                rgba(255, 255, 255, .08),
+                rgba(255, 255, 255, .04)
+            );
+
+        color: white;
+
+        border: 1px solid #334155;
+    }
+
+
+    .modal-banner-content {
+        background: #252e3d;
+
+        color: white;
+
+        border: 1px solid #334155;
+    }
+
+
+    .input-box.readonly {
+        background: #000000;
+
+        border-color: #334155;
+    }
+
+
+    .input-box.readonly input {
+        color: #94a3b8;
+    }
+
+
+    /* =====================================================
+       AVISO DOS CAMPOS BLOQUEADOS — MODO ESCURO
+    ===================================================== */
+
+    .input-box.readonly::after {
+        background: #f8fafc;
+
+        color: #111827;
+
+        box-shadow:
+            0 8px 20px rgba(0, 0, 0, .45);
+    }
+
+
+    .input-box.readonly::before {
+        border-top-color: #f8fafc;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVO — TABLETS
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .perfil-banner {
+        height: 180px;
+    }
+
+
+    .foto-wrapper img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVO — CELULARES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .topo {
+        padding: 0 20px;
+    }
+
+
+    .logo h1 {
+        font-size: 24px;
+    }
+
+
+    .btn-voltar {
+        padding: 10px 15px;
+    }
+
+
+    .btn-voltar span {
+        display: none;
+    }
+
+
+    .perfil-info h2 {
+        font-size: 28px;
+    }
+
+
+    .form-card {
+        padding: 20px;
+    }
+
+
+    .lista-banners {
+        grid-template-columns: 1fr;
+    }
+
+
+    .modal-banner-content {
+        padding: 20px;
+
+        width: 94%;
+    }
+
+
+    /* =====================================================
+       TOOLTIP NO CELULAR
+    ===================================================== */
+
+    .input-box.readonly::after {
+        white-space: normal;
+
+        width: max-content;
+
+        max-width: 220px;
+
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   FONEMAVIVA — ACESSIBILIDADE GLOBAL
+========================================================= */
+
+
+/* =========================================================
+   TAMANHO DO TEXTO
+========================================================= */
+
+body.text-small {
+    font-size: 90%;
+}
+
+
+body.text-normal {
+    font-size: 100%;
+}
+
+
+body.text-large {
+    font-size: 112%;
+}
+
+
+body.text-large .logo h1 {
+    font-size: 1.08em;
+}
+
+
+body.text-large .perfil-info h2 {
+    font-size: 1.08em;
+}
+
+
+body.text-large .card-title h3 {
+    font-size: 1.08em;
+}
+
+
+body.text-large .stat-card h4 {
+    font-size: 1.08em;
+}
+
+
+body.text-large .btn-salvar {
+    font-size: 1.08em;
+}
+
+
+/* =========================================================
+   FONTE AMIGÁVEL
+========================================================= */
+
+body.friendly-font,
+body.friendly-font input,
+body.friendly-font button,
+body.friendly-font label {
+    font-family:
+        Arial,
+        Verdana,
+        sans-serif;
+}
+
+
+/* =========================================================
+   ESPAÇAMENTO DO TEXTO
+========================================================= */
+
+body.spacing-medium {
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+}
+
+
+body.spacing-large {
+    letter-spacing: 0.06em;
+    line-height: 1.8;
+}
+
+
+body.spacing-medium .perfil-info p,
+body.spacing-large .perfil-info p,
+body.spacing-medium .stat-card p,
+body.spacing-large .stat-card p,
+body.spacing-medium .banner-header p,
+body.spacing-large .banner-header p {
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BOTÕES MAIORES
+========================================================= */
+
+body.large-buttons .btn-voltar {
+    padding: 15px 26px;
+    min-height: 52px;
+}
+
+
+body.large-buttons .btn-banner {
+    padding: 15px 22px;
+    min-height: 52px;
+}
+
+
+body.large-buttons .btn-salvar {
+    min-height: 78px;
+}
+
+
+body.large-buttons .btn-fechar-modal {
+    width: 48px;
+    height: 48px;
+}
+
+
+/* =========================================================
+   DESTAQUE DE FOCO
+========================================================= */
+
+body.focus-highlight
+button:focus-visible,
+body.focus-highlight
+input:focus-visible,
+body.focus-highlight
+label:focus-visible {
+    outline: 4px solid #F59E0B;
+    outline-offset: 4px;
+}
+
+
+body.focus-highlight .input-box:focus-within {
+    outline: 4px solid #F59E0B;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   ALTO CONTRASTE
+========================================================= */
+
+body.high-contrast {
+    background: #ffffff;
+    color: #000000;
+}
+
+
+body.high-contrast .topo,
+body.high-contrast .perfil-card,
+body.high-contrast .form-card,
+body.high-contrast .stat-card,
+body.high-contrast .modal-banner-content,
+body.high-contrast .loading-box {
+    background: #ffffff;
+    color: #000000;
+    border-color: #000000;
+}
+
+
+body.high-contrast .perfil-info p,
+body.high-contrast .stat-card p,
+body.high-contrast .banner-header p {
+    color: #000000;
+}
+
+
+body.high-contrast .input-box {
+    background: #ffffff;
+    color: #000000;
+    border-color: #000000;
+}
+
+
+body.high-contrast .input-box input {
+    color: #000000;
+}
+
+
+body.high-contrast .input-box input::placeholder {
+    color: #000000;
+}
+
+
+body.high-contrast .input-box i,
+body.high-contrast .card-title i,
+body.high-contrast .stat-card i {
+    color: #000000;
+}
+
+
+body.high-contrast .btn-voltar,
+body.high-contrast .btn-salvar {
+    background: #000000;
+    color: #ffffff;
+}
+
+
+body.high-contrast .btn-banner {
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+
+body.high-contrast .btn-fechar-modal {
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+
+body.high-contrast .input-box.readonly {
+    background: #eeeeee;
+    border-color: #000000;
+}
+
+
+body.high-contrast .input-box.readonly input {
+    color: #000000;
+}
+
+
+body.high-contrast .input-box.readonly::after {
+    background: #000000;
+    color: #ffffff;
+}
+
+
+body.high-contrast .input-box.readonly::before {
+    border-top-color: #000000;
+}
+
+
+/* =========================================================
+   ESCALA DE CINZA
+========================================================= */
+
+body.grayscale {
+    filter: grayscale(100%);
+}
+
+
+/* =========================================================
+   REDUZIR ANIMAÇÕES
+========================================================= */
+
+body.reduced-motion *,
+body.reduced-motion *::before,
+body.reduced-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+}
+
+
+/* =========================================================
+   MODO CLARO MANUAL
+========================================================= */
+
+body.light-mode {
+    background:
+        linear-gradient(
+            180deg,
+            #f7fafc,
+            #eef3f8
+        );
+
+    color: #111827;
+}
+
+body.light-mode .editar-foto {
+    color: #ffffff;
+}
+
+
+body.light-mode .topo {
+    background: #ffffff;
+
+    color: #111827;
+}
+
+
+body.light-mode .logo i,
+body.light-mode .logo h1 {
+    color: #00A89E;
+}
+
+
+body.light-mode .perfil-card,
+body.light-mode .form-card,
+body.light-mode .stat-card {
+    background: #ffffff;
+
+    color: #111827;
+
+    border-color: transparent;
+}
+
+
+body.light-mode .perfil-info h2,
+body.light-mode .card-title h3,
+body.light-mode .stat-card h4,
+body.light-mode label {
+    color: #111827;
+}
+
+
+body.light-mode .perfil-info p,
+body.light-mode .stat-card p,
+body.light-mode .banner-header p {
+    color: #6B7280;
+}
+
+
+body.light-mode .input-box {
+    background: #ffffff;
+
+    border-color: #E5E7EB;
+}
+
+
+body.light-mode .input-box input {
+    color: #111827;
+}
+
+
+body.light-mode .input-box.readonly {
+    background: #f8fafc;
+
+    border-color: #E5E7EB;
+}
+
+
+body.light-mode .input-box.readonly input {
+    color: #6B7280;
+}
+
+
+body.light-mode .modal-banner-content {
+    background: #ffffff;
+
+    color: #111827;
+
+    border-color: transparent;
+}
+
+
+body.light-mode .btn-fechar-modal {
+    background: #F3F4F6;
+
+    color: #111827;
+
+    border: none;
+}
+
+
+body.light-mode .btn-banner {
+    background: rgba(255, 255, 255, .95);
+
+    color: #111827;
+}
+
+
+/* =========================================================
+   MODO ESCURO MANUAL
+========================================================= */
+
+body.dark-mode {
+    background: #0d121d;
+
+    color: #f8fafc;
+}
+
+
+body.dark-mode .topo {
+    background: #0d121d;
+
+    color: #f8fafc;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, .35);
+}
+
+
+body.dark-mode .logo i,
+body.dark-mode .logo h1 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .btn-voltar {
+    background: #1e293b;
+
+    color: #ffffff;
+}
+
+
+body.dark-mode .perfil-info p,
+body.dark-mode .stat-card p,
+body.dark-mode .banner-header p {
+    color: #94a3b8;
+}
+
+
+body.dark-mode .perfil-card,
+body.dark-mode .form-card,
+body.dark-mode .stat-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, .08),
+            rgba(255, 255, 255, .04)
+        );
+
+    color: #ffffff;
+
+    border: 1px solid #334155;
+}
+
+
+body.dark-mode .perfil-info h2,
+body.dark-mode .card-title h3,
+body.dark-mode .stat-card h4,
+body.dark-mode label {
+    color: #f8fafc;
+}
+
+
+body.dark-mode .input-box {
+    background: #232935;
+
+    border-color: #334155;
+}
+
+
+body.dark-mode .input-box input {
+    color: #f8fafc;
+}
+
+
+body.dark-mode .input-box input::placeholder {
+    color: #64748b;
+}
+
+
+body.dark-mode .input-box.readonly {
+    background: #000000;
+
+    border-color: #334155;
+}
+
+
+body.dark-mode .input-box.readonly input {
+    color: #94a3b8;
+}
+
+
+body.dark-mode .modal-banner {
+    background:
+        rgba(0, 0, 0, .75);
+}
+
+
+body.dark-mode .modal-banner-content {
+    background: #252e3d;
+
+    color: #ffffff;
+
+    border: 1px solid #334155;
+}
+
+
+body.dark-mode .btn-fechar-modal {
+    background: #0f172a;
+
+    color: #ffffff;
+
+    border: 1px solid #334155;
+}
+
+
+body.dark-mode .btn-banner {
+    background:
+        rgba(15, 23, 42, .95);
+
+    color: #ffffff;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+body.dark-mode .loading-box {
+    background: #252e3d;
+
+    color: #ffffff;
+}
+
+
+body.dark-mode #statusText {
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   MODO ESCURO — AVISO DOS CAMPOS BLOQUEADOS
+========================================================= */
+
+body.dark-mode .input-box.readonly::after {
+    background: #f8fafc;
+
+    color: #111827;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .45);
+}
+
+
+body.dark-mode .input-box.readonly::before {
+    border-top-color: #f8fafc;
+}
+
+
+/* =========================================================
+   INDICADOR DE MICROFONE
+========================================================= */
+
+body.microphone-indicator-enabled .microphone-indicator {
+    display: block;
+}
+
+
+body:not(.microphone-indicator-enabled) .microphone-indicator {
+    display: none;
+}
+
+
+/* =========================================================
+   FEEDBACK SONORO
+========================================================= */
+
+body.sound-feedback-enabled .sound-feedback {
+    display: block;
+}
+
+
+/* =========================================================
+   REDUÇÃO DE ANIMAÇÕES — RESPEITA PREFERÊNCIA GLOBAL
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body:not(.reduced-motion) *,
+    body:not(.reduced-motion) *::before,
+    body:not(.reduced-motion) *::after {
+        scroll-behavior: auto;
+    }
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE — FOCO MAIS VISÍVEL
+========================================================= */
+
+body.focus-highlight :focus-visible {
+    outline: 4px solid #F59E0B;
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE — TEXTO GRANDE
+========================================================= */
+
+body.text-large .input-box input {
+    font-size: 1.05em;
+}
+
+
+body.text-large .input-group label {
+    font-size: 1.05em;
+}
+
+
+body.text-large .btn-voltar,
+body.text-large .btn-banner,
+body.text-large .btn-salvar {
+    font-size: 1.05em;
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE — ESPAÇAMENTO GRANDE
+========================================================= */
+
+body.spacing-large .form-grid {
+    gap: 30px;
+}
+
+
+body.spacing-large .stats-grid {
+    gap: 30px;
+}
+
+
+body.spacing-large .card-title {
+    margin-bottom: 32px;
+}
+
+
+body.spacing-large .input-group label {
+    margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE — BOTÕES MAIORES
+========================================================= */
+
+body.large-buttons .btn-voltar,
+body.large-buttons .btn-banner,
+body.large-buttons .btn-salvar,
+body.large-buttons .btn-fechar-modal {
+    min-height: 52px;
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE — CONTRASTE E FOCO
+========================================================= */
+
+body.high-contrast :focus-visible {
+    outline:
+        4px solid #000000;
+
+    outline-offset: 4px;
+}
+
+
+body.dark-mode.high-contrast :focus-visible {
+    outline-color: #ffffff;
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE — FONTE AMIGÁVEL
+========================================================= */
+
+body.friendly-font {
+    font-family:
+        Arial,
+        Verdana,
+        sans-serif;
+}
+
+
+body.friendly-font input,
+body.friendly-font button {
+    font-family:
+        Arial,
+        Verdana,
+        sans-serif;
+}

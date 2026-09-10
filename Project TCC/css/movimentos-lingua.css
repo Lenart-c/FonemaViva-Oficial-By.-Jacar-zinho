@@ -1,0 +1,1878 @@
+/* =========================================================
+   FONEMAVIVA — CARETAS
+   CSS COMPLETO
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  background: #f5f8f9;
+  color: #17252b;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* =========================================================
+   TELA DE CARREGAMENTO
+   ========================================================= */
+
+.page-loading {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.page-loading.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 16px;
+}
+
+.loading-spinner {
+  width: 42px;
+  height: 42px;
+
+  border: 4px solid #dff4f2;
+  border-top-color: #00a89e;
+
+  border-radius: 50%;
+
+  animation:
+    loadingSpin 0.8s linear infinite;
+}
+
+.loading-content p {
+  color: #52646b;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@keyframes loadingSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   CONTAINER PRINCIPAL
+   ========================================================= */
+
+.exercise {
+  width: min(1080px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  padding:
+    34px
+    0
+    60px;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.exercise-header {
+  display: grid;
+
+  grid-template-columns:
+    48px
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+   ========================================================= */
+
+.btn-voltar {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid #dce7e9;
+
+  border-radius: 14px;
+
+  background: #ffffff;
+  color: #40545b;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 14px rgba(24, 55, 63, 0.05);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-voltar:hover {
+  transform: translateY(-1px);
+
+  background: #00a89e;
+  border-color: #00a89e;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 18px rgba(0, 168, 158, 0.18);
+}
+
+.btn-voltar:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   TEXTO DO CABEÇALHO
+   ========================================================= */
+
+.header-text {
+  min-width: 0;
+}
+
+.exercise-category {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #00a89e;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.25px;
+}
+
+.header-text h1 {
+  color: #17252b;
+
+  font-size: 34px;
+  font-weight: 800;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.7px;
+}
+
+.header-text p {
+  margin-top: 6px;
+
+  color: #687980;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CONTADOR DA ETAPA
+   ========================================================= */
+
+.step-counter {
+  min-width: 74px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 15px;
+
+  border:
+    1px solid #ccefeb;
+
+  border-radius: 12px;
+
+  background: #effaf9;
+  color: #008f87;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   PROGRESSO
+   ========================================================= */
+
+.progress-section {
+  margin-bottom: 20px;
+}
+
+.progress-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+}
+
+.progress-info span {
+  color: #718188;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.progress-info strong {
+  color: #008f87;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.progress-track {
+  width: 100%;
+  height: 7px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #e3ecee;
+}
+
+.progress-bar {
+  width: 20%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: #00a89e;
+
+  transition:
+    width 0.35s ease;
+}
+
+
+/* =========================================================
+   CARD DO EXERCÍCIO
+   ========================================================= */
+
+.exercise-card {
+  padding:
+    38px
+    42px
+    34px;
+
+  border:
+    1px solid #e1eaec;
+
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 12px 40px rgba(30, 58, 65, 0.07);
+}
+
+
+/* =========================================================
+   CABEÇALHO DO EXERCÍCIO
+   ========================================================= */
+
+.exercise-heading {
+  max-width: 690px;
+
+  margin:
+    0
+    auto
+    30px;
+
+  text-align: center;
+}
+
+.exercise-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 27px;
+
+  padding:
+    5px
+    11px;
+
+  border-radius: 999px;
+
+  background: #eaf8f7;
+  color: #008f87;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 1.1px;
+}
+
+.exercise-heading h2 {
+  margin-top: 11px;
+
+  color: #17252b;
+
+  font-size: 30px;
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.5px;
+}
+
+.exercise-heading p {
+  max-width: 610px;
+
+  margin:
+    9px
+    auto
+    0;
+
+  color: #697a81;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   ÁREA DE DEMONSTRAÇÃO
+   ========================================================= */
+
+.demonstration-section {
+  width: 100%;
+  max-width: 790px;
+
+  margin: 0 auto;
+}
+
+.demonstration-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  margin-bottom: 15px;
+}
+
+.demonstration-header > i {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+
+  background: #eaf8f7;
+  color: #00a89e;
+
+  font-size: 15px;
+}
+
+.demonstration-header h3 {
+  color: #25373e;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.demonstration-header p {
+  margin-top: 2px;
+
+  color: #829096;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   PALCO DO ROSTO
+   ========================================================= */
+
+.face-container {
+  position: relative;
+
+  width: 100%;
+  min-height: 365px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #e4edef;
+
+  border-radius: 21px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f9fbfb 0%,
+      #f3f7f8 100%
+    );
+}
+
+.face-container::before {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 168, 158, 0.035);
+}
+
+
+/* =========================================================
+   ROSTO
+   ========================================================= */
+
+.face {
+  position: relative;
+
+  z-index: 1;
+
+  width: 250px;
+  height: 280px;
+
+  flex-shrink: 0;
+
+  border:
+    3px solid #d89a6a;
+
+  border-radius:
+    48%
+    48%
+    45%
+    45%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffdbb8 0%,
+      #f8c08e 58%,
+      #efad79 100%
+    );
+
+  box-shadow:
+    inset 0 -12px 24px rgba(160, 83, 43, 0.07),
+    0 13px 28px rgba(48, 58, 61, 0.14);
+
+  transform-origin: center;
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+/* =========================================================
+   ORELHAS
+   ========================================================= */
+
+.ear {
+  position: absolute;
+
+  top: 95px;
+
+  width: 39px;
+  height: 68px;
+
+  border:
+    3px solid #d89a6a;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f8c08e,
+      #efad79
+    );
+
+  z-index: -1;
+}
+
+.ear::after {
+  content: "";
+
+  position: absolute;
+
+  top: 17px;
+
+  width: 15px;
+  height: 30px;
+
+  border:
+    2px solid rgba(185, 102, 62, 0.35);
+
+  border-radius: 50%;
+}
+
+.ear-left {
+  left: -29px;
+}
+
+.ear-left::after {
+  left: 9px;
+}
+
+.ear-right {
+  right: -29px;
+}
+
+.ear-right::after {
+  right: 9px;
+}
+
+
+/* =========================================================
+   SOBRANCELHAS
+   ========================================================= */
+
+.eyebrow {
+  position: absolute;
+
+  top: 64px;
+
+  width: 65px;
+  height: 12px;
+
+  border-top:
+    7px solid #593a2c;
+
+  border-radius: 50%;
+
+  transition:
+    top 0.3s ease,
+    transform 0.3s ease;
+}
+
+.eyebrow-left {
+  left: 34px;
+}
+
+.eyebrow-right {
+  right: 34px;
+}
+
+
+/* =========================================================
+   OLHOS
+   ========================================================= */
+
+.eye {
+  position: absolute;
+
+  top: 82px;
+
+  width: 55px;
+  height: 47px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border:
+    3px solid #3e3029;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  transition:
+    top 0.3s ease,
+    height 0.3s ease,
+    transform 0.3s ease;
+}
+
+.eye-left {
+  left: 36px;
+}
+
+.eye-right {
+  right: 36px;
+}
+
+.pupil {
+  width: 18px;
+  height: 21px;
+
+  border-radius: 50%;
+
+  background: #202a2e;
+
+  box-shadow:
+    4px -4px 0 rgba(255, 255, 255, 0.7);
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   NARIZ
+   ========================================================= */
+
+.nose {
+  position: absolute;
+
+  left: 50%;
+  top: 126px;
+
+  width: 28px;
+  height: 47px;
+
+  transform: translateX(-50%);
+
+  border-left:
+    3px solid rgba(182, 99, 59, 0.42);
+
+  border-bottom:
+    3px solid rgba(182, 99, 59, 0.42);
+
+  border-radius:
+    0
+    0
+    14px
+    14px;
+}
+
+
+/* =========================================================
+   BOCHECHAS
+   ========================================================= */
+
+.cheek {
+  position: absolute;
+
+  top: 150px;
+
+  width: 42px;
+  height: 27px;
+
+  border-radius: 50%;
+
+  background: rgba(232, 116, 107, 0.17);
+
+  transition:
+    width 0.35s ease,
+    height 0.35s ease,
+    top 0.35s ease,
+    left 0.35s ease,
+    right 0.35s ease,
+    background 0.35s ease,
+    border 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.cheek-left {
+  left: 21px;
+}
+
+.cheek-right {
+  right: 21px;
+}
+
+
+/* =========================================================
+   BOCA BASE
+   ========================================================= */
+
+.mouth {
+  position: absolute;
+
+  left: 50%;
+  top: 189px;
+
+  width: 98px;
+  height: 44px;
+
+  transform: translateX(-50%);
+
+  overflow: hidden;
+
+  border:
+    4px solid #742d35;
+
+  border-radius: 50%;
+
+  background: #a42f3b;
+
+  transition:
+    width 0.35s ease,
+    height 0.35s ease,
+    top 0.35s ease,
+    left 0.35s ease,
+    border-radius 0.35s ease,
+    background 0.35s ease,
+    transform 0.35s ease;
+}
+
+.mouth-inner {
+  position: absolute;
+
+  inset: 0;
+
+  background: #641f29;
+}
+
+.teeth {
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  width: 76%;
+  height: 20px;
+
+  transform: translateX(-50%);
+
+  border-radius:
+    0
+    0
+    11px
+    11px;
+
+  background: #ffffff;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.3s ease;
+}
+
+.tongue {
+  position: absolute;
+
+  left: 50%;
+  bottom: -7px;
+
+  width: 50px;
+  height: 31px;
+
+  transform: translateX(-50%);
+
+  border-top:
+    3px solid #d34f59;
+
+  border-radius:
+    50%
+    50%
+    42%
+    42%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ff8d93,
+      #eb626d
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity 0.35s ease,
+    width 0.35s ease,
+    height 0.35s ease,
+    left 0.35s ease,
+    bottom 0.35s ease,
+    transform 0.35s ease;
+}
+
+
+/* =========================================================
+   CARETA 1 — SORRISO AMPLO
+   ========================================================= */
+
+.face-exercicio-1 .mouth {
+  width: 132px;
+  height: 57px;
+
+  top: 184px;
+
+  border-radius:
+    17px
+    17px
+    62px
+    62px;
+}
+
+.face-exercicio-1 .teeth {
+  opacity: 1;
+}
+
+.face-exercicio-1 .eye {
+  height: 39px;
+}
+
+.face-exercicio-1 .eyebrow {
+  top: 60px;
+}
+
+.face-exercicio-1 .cheek {
+  background: rgba(235, 105, 99, 0.28);
+}
+
+
+/* =========================================================
+   CARETA 2 — BICO DE BEIJO
+   ========================================================= */
+
+.face-exercicio-2 .eye {
+  top: 91px;
+  height: 28px;
+
+  transform: scaleX(0.92);
+}
+
+.face-exercicio-2 .pupil {
+  transform: scale(0.72);
+}
+
+.face-exercicio-2 .eyebrow-left {
+  top: 69px;
+  transform: rotate(8deg);
+}
+
+.face-exercicio-2 .eyebrow-right {
+  top: 69px;
+  transform: rotate(-8deg);
+}
+
+.face-exercicio-2 .mouth {
+  width: 68px;
+  height: 57px;
+
+  top: 186px;
+
+  border:
+    5px solid #a52e47;
+
+  border-radius: 50%;
+
+  background: #dc5474;
+
+  box-shadow:
+    inset 0 4px 7px rgba(255, 255, 255, 0.2);
+}
+
+.face-exercicio-2 .mouth-inner {
+  background: #c93f61;
+}
+
+.face-exercicio-2 .mouth-inner::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 7px;
+
+  width: 35px;
+  height: 18px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: #ef7893;
+
+  opacity: 0.75;
+}
+
+.face-exercicio-2 .teeth,
+.face-exercicio-2 .tongue {
+  display: none;
+}
+
+.face-exercicio-2 .cheek {
+  background: rgba(235, 105, 99, 0.23);
+}
+
+
+/* =========================================================
+   CARETA 3 — LÍNGUA PARA FORA
+   ========================================================= */
+
+.face-exercicio-3 .eyebrow {
+  top: 57px;
+}
+
+.face-exercicio-3 .eyebrow-left {
+  transform: rotate(-7deg);
+}
+
+.face-exercicio-3 .eyebrow-right {
+  transform: rotate(7deg);
+}
+
+.face-exercicio-3 .eye {
+  top: 80px;
+  height: 50px;
+}
+
+.face-exercicio-3 .mouth {
+  width: 113px;
+  height: 80px;
+
+  top: 180px;
+
+  border-radius:
+    34%
+    34%
+    48%
+    48%;
+}
+
+.face-exercicio-3 .teeth {
+  height: 17px;
+  opacity: 1;
+}
+
+.face-exercicio-3 .tongue {
+  width: 66px;
+  height: 62px;
+
+  bottom: -26px;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   CARETA 4 — LÍNGUA PARA O CANTO
+   ========================================================= */
+
+.face-exercicio-4 .eye-left {
+  top: 87px;
+
+  transform: rotate(-6deg);
+}
+
+.face-exercicio-4 .eye-right {
+  top: 84px;
+
+  transform: rotate(5deg);
+}
+
+.face-exercicio-4 .eyebrow-left {
+  top: 68px;
+
+  transform: rotate(9deg);
+}
+
+.face-exercicio-4 .eyebrow-right {
+  top: 60px;
+
+  transform: rotate(-9deg);
+}
+
+.face-exercicio-4 .mouth {
+  width: 116px;
+  height: 70px;
+
+  top: 184px;
+
+  border-radius:
+    34%
+    34%
+    48%
+    48%;
+}
+
+.face-exercicio-4 .teeth {
+  height: 16px;
+  opacity: 1;
+}
+
+.face-exercicio-4 .tongue {
+  width: 61px;
+  height: 46px;
+
+  left: 77%;
+  bottom: -14px;
+
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    rotate(-10deg);
+}
+
+.face-exercicio-4 .cheek-left {
+  left: 26px;
+}
+
+.face-exercicio-4 .cheek-right {
+  right: 14px;
+}
+
+
+/* =========================================================
+   CARETA 5 — BOCHECHAS INFLADAS
+   ========================================================= */
+
+.face-exercicio-5 .eye {
+  top: 88px;
+  height: 30px;
+}
+
+.face-exercicio-5 .eyebrow {
+  top: 67px;
+}
+
+.face-exercicio-5 .mouth {
+  width: 39px;
+  height: 27px;
+
+  top: 198px;
+
+  border-width: 4px;
+
+  border-radius: 50%;
+
+  background: #70232d;
+}
+
+.face-exercicio-5 .mouth-inner {
+  background: #51171f;
+}
+
+.face-exercicio-5 .teeth,
+.face-exercicio-5 .tongue {
+  display: none;
+}
+
+.face-exercicio-5 .cheek {
+  width: 72px;
+  height: 59px;
+
+  top: 144px;
+
+  border:
+    3px solid rgba(205, 126, 86, 0.36);
+
+  background:
+    radial-gradient(
+      circle at 50% 55%,
+      #ffd6be 0%,
+      #f8bea0 75%
+    );
+
+  box-shadow:
+    inset 0 -5px 9px rgba(180, 95, 45, 0.07);
+}
+
+.face-exercicio-5 .cheek-left {
+  left: 4px;
+}
+
+.face-exercicio-5 .cheek-right {
+  right: 4px;
+}
+
+
+/* =========================================================
+   CAIXA DE INSTRUÇÃO
+   ========================================================= */
+
+.instruction-box {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 18px;
+  padding: 16px 18px;
+
+  border:
+    1px solid #d8efed;
+
+  border-radius: 16px;
+
+  background: #f6fbfb;
+}
+
+.instruction-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background: #00a89e;
+  color: #ffffff;
+
+  font-size: 16px;
+}
+
+.instruction-content {
+  min-width: 0;
+}
+
+.instruction-content > span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #008f87;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.1px;
+}
+
+.instruction-content p {
+  color: #41535a;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   TIMER
+   ========================================================= */
+
+.timer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 28px;
+}
+
+.timer-circle {
+  position: relative;
+
+  width: 132px;
+  height: 132px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      #00a89e 360deg,
+      #e1ecee 360deg
+    );
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.timer-circle::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 7px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+.timer-circle.active {
+  animation:
+    timerPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes timerPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.018);
+  }
+}
+
+.timer-content {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-label {
+  color: #829096;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.4px;
+}
+
+.timer {
+  margin-top: 2px;
+
+  color: #008f87;
+
+  font-size: 42px;
+  font-weight: 900;
+
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.timer-unit {
+  margin-top: 3px;
+
+  color: #98a6ab;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.timer-message {
+  max-width: 520px;
+
+  margin-top: 11px;
+
+  color: #718188;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-align: center;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   BOTÃO DE AVANÇAR
+   ========================================================= */
+
+.btn-concluir {
+  width: 100%;
+
+  min-height: 53px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 22px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #00a89e;
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px rgba(0, 168, 158, 0.16);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.btn-concluir:hover:not(:disabled) {
+  transform: translateY(-1px);
+
+  background: #0f766e;
+
+  box-shadow:
+    0 9px 22px rgba(15, 118, 110, 0.18);
+}
+
+.btn-concluir:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-concluir:disabled {
+  background: #d7e0e2;
+  color: #819095;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+.btn-concluir i {
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   FOCO ACESSÍVEL
+   ========================================================= */
+
+.btn-voltar:focus-visible,
+.btn-concluir:focus-visible,
+.btn-finalizar:focus-visible {
+  outline:
+    3px solid rgba(0, 168, 158, 0.28);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   TELA DE CONCLUSÃO
+   ========================================================= */
+
+.completion {
+  min-height: 550px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.completion-card {
+  width: min(590px, 100%);
+
+  padding:
+    44px
+    34px;
+
+  text-align: center;
+
+  border:
+    1px solid #e1eaec;
+
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 12px 40px rgba(30, 58, 65, 0.07);
+
+  animation:
+    completionAppear 0.45s ease;
+}
+
+@keyframes completionAppear {
+  from {
+    opacity: 0;
+    transform:
+      translateY(12px)
+      scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+.completion-icon {
+  width: 68px;
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin:
+    0
+    auto
+    18px;
+
+  border-radius: 50%;
+
+  background: #eaf8f7;
+  color: #00a89e;
+
+  font-size: 27px;
+}
+
+.completion-label {
+  color: #008f87;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+.completion-card h2 {
+  margin-top: 9px;
+
+  color: #17252b;
+
+  font-size: 32px;
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+.completion-card p {
+  max-width: 460px;
+
+  margin:
+    10px
+    auto
+    0;
+
+  color: #718188;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   ESTRELAS
+   ========================================================= */
+
+.completion-stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin:
+    23px
+    0
+    28px;
+}
+
+.completion-stars i {
+  color: #f4b740;
+
+  font-size: 27px;
+
+  animation:
+    starAppear 0.45s ease both;
+}
+
+.completion-stars i:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.completion-stars i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.completion-stars i:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+@keyframes starAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.65)
+      rotate(-8deg);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      rotate(0);
+  }
+}
+
+
+/* =========================================================
+   BOTÃO FINALIZAR
+   ========================================================= */
+
+.btn-finalizar {
+  width: 100%;
+  max-width: 390px;
+
+  min-height: 53px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin: 0 auto;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #00a89e;
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px rgba(0, 168, 158, 0.16);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-finalizar:hover {
+  transform: translateY(-1px);
+
+  background: #0f766e;
+
+  box-shadow:
+    0 9px 22px rgba(15, 118, 110, 0.18);
+}
+
+.btn-finalizar:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .exercise {
+    width: min(100% - 28px, 1080px);
+
+    padding-top: 25px;
+  }
+
+  .exercise-card {
+    padding:
+      30px
+      28px;
+  }
+
+  .face-container {
+    min-height: 340px;
+  }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 560px) {
+
+  .exercise {
+    width: calc(100% - 18px);
+
+    padding:
+      18px
+      0
+      35px;
+  }
+
+  .exercise-header {
+    grid-template-columns:
+      43px
+      minmax(0, 1fr)
+      auto;
+
+    gap: 11px;
+
+    margin-bottom: 22px;
+  }
+
+  .btn-voltar {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 12px;
+  }
+
+  .header-text h1 {
+    font-size: 27px;
+  }
+
+  .header-text p {
+    font-size: 12px;
+  }
+
+  .exercise-card {
+    padding:
+      25px
+      16px
+      25px;
+
+    border-radius: 20px;
+  }
+
+  .exercise-heading {
+    margin-bottom: 24px;
+  }
+
+  .exercise-heading h2 {
+    font-size: 25px;
+  }
+
+  .exercise-heading p {
+    font-size: 13px;
+  }
+
+  .demonstration-header {
+    justify-content: flex-start;
+  }
+
+  .face-container {
+    min-height: 305px;
+
+    padding: 5px;
+  }
+
+  .face-container::before {
+    width: 245px;
+    height: 245px;
+  }
+
+  .face {
+    transform: scale(0.78);
+  }
+
+  .instruction-box {
+    align-items: flex-start;
+
+    padding:
+      14px;
+  }
+
+  .instruction-icon {
+    width: 39px;
+    height: 39px;
+
+    border-radius: 11px;
+  }
+
+  .instruction-content p {
+    font-size: 12px;
+  }
+
+  .timer-section {
+    margin-top: 25px;
+  }
+
+  .timer-circle {
+    width: 124px;
+    height: 124px;
+  }
+
+  .timer {
+    font-size: 40px;
+  }
+
+  .timer-message {
+    font-size: 11px;
+  }
+
+  .completion-card {
+    padding:
+      38px
+      20px;
+  }
+
+  .completion-card h2 {
+    font-size: 29px;
+  }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .exercise-header {
+    grid-template-columns:
+      41px
+      minmax(0, 1fr);
+
+    gap: 10px;
+  }
+
+  .step-counter {
+    grid-column: 2;
+
+    justify-self: start;
+
+    margin-top: -5px;
+
+    min-width: 67px;
+    height: 36px;
+
+    font-size: 11px;
+  }
+
+  .header-text h1 {
+    font-size: 24px;
+  }
+
+  .header-text p {
+    font-size: 11px;
+  }
+
+  .exercise-card {
+    padding:
+      22px
+      13px;
+  }
+
+  .face-container {
+    min-height: 280px;
+  }
+
+  .face {
+    transform: scale(0.68);
+  }
+
+  .instruction-content p {
+    font-size: 11px;
+  }
+
+  .timer-circle {
+    width: 116px;
+    height: 116px;
+  }
+
+  .timer {
+    font-size: 37px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
