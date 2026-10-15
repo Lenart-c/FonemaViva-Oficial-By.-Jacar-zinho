@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Encher o balão</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+  <link rel="stylesheet" href="../css/encherbalao.css">
+  <link rel="stylesheet" href="../css/back-arrow.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div>
+
+      <div class="logo">
+      <h1> <i class="fa-solid fa-wave-square"></i> FonemaViva </h1>
+    </div>
+
+      <p class="subtitle">Aprenda a controlar o ar e melhorar sua fala de um jeito divertido!</p>
+    
+    </div>
+    
+    <a class="back-arrow" href="criancas.html" aria-label="Voltar aos exercícios para crianças" title="Voltar aos exercícios">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    </a>
+
+  </header>
+
+  <main class="container">
+    <section class="progress-card">
+      <div class="progress-top">
+        <span>Seu progresso</span>
+        <span id="progresso-texto">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progresso"></div>
+      </div>
+    </section>
+
+    <section class="exercise-card">
+      <div class="balloon-wrap">
+        <div id="balao" class="balloon"></div>
+      </div>
+
+      <div class="exercise-text">
+        <p class="mini">Fase atual</p>
+        <h2 id="fase">Respire fundo</h2>
+        <p id="instrucao">Inspire pelo nariz por 4 segundos e solte o ar devagar.</p>
+
+        <div class="actions">
+          <button id="btn-iniciar" class="btn primary">Começar exercício</button>
+          <button id="btn-gravar" class="btn secondary" type="button">
+            <i class="fa-solid fa-microphone" aria-hidden="true"></i> Captar respiração
+          </button>
+
+        </div>
+
+        <div class="feedback-box">
+          <p>Som captado pelo microfone:</p>
+          <div
+            class="audio-meter"
+            id="audio-meter"
+            role="progressbar"
+            aria-label="Nível de som captado"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <div class="audio-meter-fill" id="audio-meter-fill"></div>
+          </div>
+          <strong id="resultado" aria-live="polite">Pronto para captar</strong>
+          <p class="privacy-note">O microfone analisa o nível de som ao vivo neste dispositivo; o áudio não é gravado nem enviado. A captação pode incluir fala ou ruído ambiente e não identifica nem avalia clinicamente a respiração. Respire normalmente e aproxime-se do microfone sem forçar.</p>
+        </div>
+
+        <p id="feedback" class="feedback"></p>
+
+        <div class="nav-actions">
+          <button id="btn-proximo" class="btn ghost" disabled>Próximo →</button>
+          <button id="btn-reiniciar" class="btn ghost">Reiniciar</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps">
+      <article class="step active">
+        <h3>1. Respiração lenta</h3>
+        <p>Inspire pelo nariz e solte o ar de forma contínua.</p>
+      </article>
+      <article class="step">
+        <h3>2. Som suave</h3>
+        <p>Repita “pá” enquanto o ar sai do corpo.</p>
+      </article>
+      <article class="step">
+        <h3>3. Fluxo estável</h3>
+        <p>Mantenha o som firme e sem forçar a voz.</p>
+      </article>
+      <article class="step">
+        <h3>4. Controle final</h3>
+        <p>Feche o exercício com uma saída de ar calma.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="../js/encherbalao.js"></script>
+</body>
+
+</html>

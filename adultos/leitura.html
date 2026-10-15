@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>FonemaViva - Leitura</title>
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/leitura.css">
+  <link rel="stylesheet" href="../css/back-arrow.css">
+  
+</head>
+
+<body>
+
+<header class="topbar">
+  <h1> FonemaViva </h1>
+  <span class="sub">Treino de Pronúncia - Leitura</span>
+  <a class="back-arrow" href="adultos.html" aria-label="Voltar aos exercícios para adultos" title="Voltar aos exercícios">
+    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+  </a>
+</header>
+
+<div class="container">
+
+  <!-- 🔥 BARRA DE PROGRESSO -->
+  <div class="progresso-container">
+    <div class="progresso-barra">
+      <div id="progresso"></div>
+    </div>
+    <span id="progresso-texto">0%</span>
+  </div>
+
+  <div class="card">
+
+    <p class="instrucao">Leia o texto abaixo em voz alta:</p>
+
+    <p id="palavra">
+      Texto aparecerá aqui
+    </p>
+
+    <button id="gravar" class="btn-mic">🎤 Falar</button>
+
+    <div class="resposta">
+      <span id="resultado">...</span>
+      <div id="feedback"></div>
+    </div>
+
+  </div>
+
+  <!-- 🔥 FORA DO CARD -->
+  <div class="nav-botoes">
+    <button id="anterior" class="btn-next">⬅ Anterior</button>
+    <button id="proximo" class="btn-next" disabled>Próximo ➡</button>
+  </div>
+
+</div>
+
+<script src="../js/leitura.js"></script>
+
+</body>
+</html>

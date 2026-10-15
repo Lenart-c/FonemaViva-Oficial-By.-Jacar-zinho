@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Qual é esse som?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+  <link rel="stylesheet" href="../css/diferenciacao.css">
+  <link rel="stylesheet" href="../css/back-arrow.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div>
+      <div class="logo">
+      <h1> <i class="fa-solid fa-wave-square"></i> FonemaViva </h1>
+    </div>
+      <p class="subtitle">Ouça o som do animal, e fale o nome dele.</p>
+    </div>
+    <a class="back-arrow" href="criancas.html" aria-label="Voltar aos exercícios para crianças" title="Voltar aos exercícios">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    </a>
+  </header>
+
+  <main class="container">
+    <section class="progress-card">
+      <div class="progress-top">
+        <span>Seu progresso</span>
+        <span id="progresso-texto">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progresso"></div>
+      </div>
+    </section>
+
+    <section class="exercise-card">
+      <div class="sound-panel">
+        <div class="speaker">🔊</div>
+        <h2 id="animal-atual">Cachorro</h2>
+        <p id="instrucao">Ouça com atenção e depois fale o nome do animal.</p>
+
+        <div class="actions">
+          <button id="btn-ouvir" class="btn primary">Ouvir som</button>
+          <button id="btn-falar" class="btn secondary">🎤 Responder</button>
+        </div>
+
+        <div class="feedback-box">
+          <p>Você falou:</p>
+          <span id="resultado">...</span>
+        </div>
+
+        <p id="feedback" class="feedback"></p>
+
+        <div class="nav-actions">
+          <button id="btn-proximo" class="btn ghost" disabled>Próximo →</button>
+          <button id="btn-reiniciar" class="btn ghost">Reiniciar</button>
+        </div>
+      </div>
+    </section>
+
+    <details class="audio-credits">
+      <summary>Créditos das gravações</summary>
+      <ul>
+        <li>Cachorro — Amada44, <a href="https://commons.wikimedia.org/wiki/File:Barking_of_a_dog.ogg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.</li>
+        <li>Gato — freemaster2, <a href="https://commons.wikimedia.org/wiki/File:Meow_of_a_Siamese_cat_-_freemaster2.wav" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, CC0.</li>
+        <li>Vaca — Secretlondon, <a href="https://commons.wikimedia.org/wiki/File:Mudchute_cow_1.ogg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.</li>
+        <li>Pato — gravação do grasnado de um marreco por Jonathon Jongsma, <a href="https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_-_Mallard_-_XC62258.ogg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.</li>
+        <li>Sapo — Vis M, <a href="https://commons.wikimedia.org/wiki/File:Frog_croaking_after_rain,_Kerala.wav" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.</li>
+        <li>Leão — rugido gravado em cativeiro, por தகவலுழவன், <a href="https://commons.wikimedia.org/wiki/File:Lion_raring-sound1TamilNadu178.ogg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, domínio público.</li>
+        <li>Pássaro — Jidanni, <a href="https://commons.wikimedia.org/wiki/File:Bird_call_with_so-called_separated_chirps.ogg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, CC0.</li>
+        <li>Ovelha — Eviatar Bach, <a href="https://commons.wikimedia.org/wiki/File:Sheep_bleat.ogg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, CC0.</li>
+      </ul>
+      <p>As gravações são reproduzidas a partir do Wikimedia Commons.</p>
+    </details>
+  </main>
+
+  <script src="../js/diferenciacao.js"></script>
+</body>
+</html>
+''

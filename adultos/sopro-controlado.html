@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Sopro Controlado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+  <link rel="stylesheet" href="../css/sopro-controlado.css">
+  <link rel="stylesheet" href="../css/back-arrow.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="logo">
+      <h1><i class="fa-solid fa-wave-square"></i> FonemaViva</h1>
+    </div>
+
+    <div class="header-actions">
+      <a class="back-arrow" href="adultos.html" aria-label="Voltar aos exercícios para adultos" title="Voltar aos exercícios">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+      </a>
+      <span>Exercícios • Sopro Controlado</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="progress-card">
+      <div class="progress-top">
+        <span>Seu progresso</span>
+        <span id="progresso-texto">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progresso"></div>
+      </div>
+    </section>
+
+    <section class="exercise-card">
+      <div class="timer-panel">
+        <div class="phase-badge" id="fase-badge">Inspire</div>
+
+        <div class="timer-circle" id="timer-circle">
+          <div class="timer-value">
+            <span id="tempo">03</span>
+            <small>segundos</small>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="btn-iniciar" class="btn primary" type="button">Iniciar ciclo</button>
+          <button id="btn-pausar" class="btn secondary" type="button">Pausar</button>
+          <button id="btn-reiniciar" class="btn secondary" type="button">Recomeçar</button>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <p class="mini">Prática de respiração e sopro</p>
+        <h2>Sopro Controlado</h2>
+        <p id="instrucao" class="instrucao">
+          Acompanhe o ritmo sem forçar a respiração. Inspire naturalmente e solte o ar com suavidade.
+        </p>
+
+        <div class="steps">
+          <div class="step-item">
+            <strong>1.</strong>
+            <span>Inspire naturalmente por 4 segundos, sem prender o ar</span>
+          </div>
+          <div class="step-item">
+            <strong>2.</strong>
+            <span>Solte o ar suavemente por 4 segundos</span>
+          </div>
+          <div class="step-item">
+            <strong>3.</strong>
+            <span>Continue soltando o ar com conforto por 4 segundos</span>
+          </div>
+          <div class="step-item">
+            <strong>4.</strong>
+            <span>Respire normalmente por 4 segundos antes de repetir</span>
+          </div>
+        </div>
+
+        <div class="status-box">
+          <p>Etapa atual</p>
+          <strong id="status">Pronto para começar</strong>
+        </div>
+
+        <div class="cycle-box">
+          <span>Ciclos concluídos</span>
+          <strong id="ciclos">0 / 5</strong>
+        </div>
+
+        <div class="actions">
+          <button id="btn-ouvir" class="btn secondary small" type="button">
+            <i class="fa-solid fa-volume-high" aria-hidden="true"></i> Ouvir instrução
+          </button>
+          <button id="btn-gravar" class="btn primary small" type="button">
+            <i class="fa-solid fa-microphone" aria-hidden="true"></i> Captar sopro
+          </button>
+        </div>
+
+        <div class="result-box">
+          <p>Som do sopro captado pelo microfone:</p>
+          <div
+            class="audio-meter"
+            id="audio-meter"
+            role="progressbar"
+            aria-label="Nível de som captado"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <div class="audio-meter-fill" id="audio-meter-fill"></div>
+          </div>
+          <strong id="resultado" aria-live="polite">Pronto para captar</strong>
+          <p class="privacy-note">O som é analisado ao vivo neste dispositivo e não é gravado nem enviado. A captação identifica o nível de som — que também pode incluir fala ou ruído ambiente —, não mede a respiração clinicamente. Use em local silencioso e sopre suavemente perto do microfone.</p>
+        </div>
+
+        <p id="feedback" class="feedback"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/sopro-controlado.js"></script>
+</body>
+
+</html>
