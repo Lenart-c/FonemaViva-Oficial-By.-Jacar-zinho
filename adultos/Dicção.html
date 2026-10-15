@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a2b">
+  <title>FonemaViva • Desafio de Dicção</title>
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/diccao.css">
+  <link rel="stylesheet" href="../css/back-arrow.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="adultos.html" aria-label="Voltar aos exercícios para adultos">
+      <i class="fa-solid fa-wave-square" aria-hidden="true"></i>
+      <span>FonemaViva</span>
+    </a>
+    <a class="back-arrow" href="adultos.html" aria-label="Voltar aos exercícios para adultos" title="Voltar aos exercícios">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    </a>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <span class="eyebrow">Prática de fala para adultos</span>
+      <h1>Desafio de Dicção</h1>
+      <p>Um desafio progressivo com palavras difíceis e frases. Fale cada item ao microfone; a próxima etapa só será liberada quando o reconhecimento de voz identificar o texto esperado.</p>
+      <p class="gentle-note"><i class="fa-solid fa-heart" aria-hidden="true"></i> Não é uma prova: fale devagar, faça pausas e pare se sentir desconforto.</p>
+    </section>
+
+    <section class="progress-card" aria-label="Progresso do desafio">
+      <div class="progress-top">
+        <span>Etapas praticadas</span>
+        <span id="progress-text">0 de 12</span>
+      </div>
+      <div
+        class="progress-track"
+        id="progress-track"
+        role="progressbar"
+        aria-label="Etapas praticadas"
+        aria-valuemin="0"
+        aria-valuemax="12"
+        aria-valuenow="0"
+      >
+        <div id="progress-fill"></div>
+      </div>
+    </section>
+
+    <section class="exercise-card" id="exercise-card" aria-labelledby="exercise-title">
+      <div class="exercise-meta">
+        <span class="level-badge" id="level-badge">NÍVEL 1 · PALAVRAS</span>
+        <span class="step-count" id="step-count">ETAPA 1 DE 12</span>
+      </div>
+      <h2 id="exercise-title">Sua vez de praticar</h2>
+      <p class="focus" id="exercise-focus">Comece por uma palavra com encontro consonantal.</p>
+
+      <div class="practice-panel">
+        <p class="panel-label">Sua sequência de prática</p>
+        <p class="target" id="exercise-target">Problema</p>
+        <p class="tip" id="exercise-tip">Diga “pro-ble-ma” devagar. Repita três vezes, fazendo uma pausa entre cada tentativa.</p>
+      </div>
+
+      <div class="pace-control">
+        <label for="pace-slider">Velocidade do modelo: <strong id="pace-value">0,8x</strong></label>
+        <input id="pace-slider" type="range" min="0.65" max="1" step="0.05" value="0.8">
+        <div class="pace-ends"><span>Mais devagar</span><span>Natural</span></div>
+      </div>
+
+      <div class="actions">
+        <button class="button button-primary" id="listen-button" type="button">
+          <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+          <span>Ouvir modelo</span>
+        </button>
+        <button class="button button-secondary" id="practice-button" type="button">
+          <i class="fa-solid fa-microphone" aria-hidden="true"></i>
+          Falar palavra para verificar
+        </button>
+      </div>
+
+      <p class="recognized-text" id="recognized-text" aria-live="polite"></p>
+      <p class="feedback" id="feedback" role="status" aria-live="polite">Permita o uso do microfone e fale a palavra ou frase mostrada. A transcrição precisa corresponder ao modelo para liberar a próxima etapa.</p>
+
+      <div class="navigation">
+        <button class="button button-next" id="next-button" type="button" disabled>
+          Próxima etapa
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </section>
+
+    <section class="guidance-card" aria-labelledby="guidance-title">
+      <h2 id="guidance-title"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i> Dicas para praticar</h2>
+      <ul>
+        <li>Repita cada palavra ou frase até três vezes, ou menos se preferir.</li>
+        <li>Divida palavras longas em sílabas e faça pausas sempre que precisar.</li>
+        <li>A etapa é liberada quando a transcrição reconhecida corresponde ao modelo; o reconhecimento pode cometer erros e não substitui uma avaliação fonoaudiológica.</li>
+        <li>A voz é processada pelo recurso de reconhecimento do navegador, que pode usar um serviço online. O FonemaViva não armazena o áudio.</li>
+      </ul>
+      <p>Esta atividade é um apoio de prática e não substitui uma avaliação ou acompanhamento fonoaudiológico.</p>
+    </section>
+
+    <section class="completion-card" id="completion-card" aria-live="polite" hidden>
+      <div class="completion-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+      <h2>Prática concluída</h2>
+      <p>Você percorreu as 12 etapas. Continue praticando apenas enquanto estiver confortável.</p>
+      <button class="button button-primary" id="restart-button" type="button">Recomeçar prática</button>
+    </section>
+  </main>
+
+  <script src="../js/diccao.js"></script>
+</body>
+
+</html>

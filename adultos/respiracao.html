@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FonemaViva • Controle da Respiração</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+  <link rel="stylesheet" href="../css/respiracao.css">
+  <link rel="stylesheet" href="../css/back-arrow.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="logo">
+      <h1><i class="fa-solid fa-wave-square"></i> FonemaViva</h1>
+    </div>
+
+    <div class="header-actions">
+      <a class="back-arrow" href="adultos.html" aria-label="Voltar aos exercícios para adultos" title="Voltar aos exercícios">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+      <span>Exercícios • Respiração</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="progress-card">
+      <div class="progress-top">
+        <span>Seu progresso</span>
+        <span id="progresso-texto">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progresso"></div>
+      </div>
+    </section>
+
+    <section class="exercise-card">
+      <div class="timer-panel">
+        <div class="phase-badge" id="fase-badge">Inspire</div>
+
+        <div class="timer-circle" id="timer-circle">
+          <div class="timer-value">
+            <span id="tempo">04</span>
+            <small>segundos</small>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="btn-iniciar" class="btn primary">Iniciar ciclo</button>
+          <button id="btn-pausar" class="btn secondary">Pausar</button>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <p class="mini">Exercício de respiração</p>
+        <h2>Controle da respiração</h2>
+        <p id="instrucao" class="instrucao">
+          Inspire pelo nariz por 4 segundos e solte o ar de forma longa e calma.
+        </p>
+
+        <div class="steps">
+          <div class="step-item">
+            <strong>1.</strong>
+            <span>Inspire por 4 segundos</span>
+          </div>
+          <div class="step-item">
+            <strong>2.</strong>
+            <span>Faça uma pausa breve, se for confortável</span>
+          </div>
+          <div class="step-item">
+            <strong>3.</strong>
+            <span>Expire por 6 segundos</span>
+          </div>
+        </div>
+
+        <div class="status-box">
+          <p>Etapa atual</p>
+          <strong id="status">Pronto para começar</strong>
+        </div>
+
+        <div class="cycle-box">
+          <span>Ciclos concluídos</span>
+          <strong id="ciclos">0 / 5</strong>
+        </div>
+
+        <div class="actions">
+          <button id="btn-ouvir" class="btn secondary small" type="button">
+            <i class="fa-solid fa-volume-high" aria-hidden="true"></i> Ouvir instrução
+          </button>
+          <button id="btn-gravar" class="btn primary small" type="button">
+            <i class="fa-solid fa-microphone" aria-hidden="true"></i> Captar respiração
+          </button>
+        </div>
+
+        <div class="result-box">
+          <p>Som captado pelo microfone:</p>
+          <div
+            class="audio-meter"
+            id="audio-meter"
+            role="progressbar"
+            aria-label="Nível de som captado"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <div class="audio-meter-fill" id="audio-meter-fill"></div>
+          </div>
+          <strong id="resultado" aria-live="polite">Pronto para captar</strong>
+          <p class="privacy-note">O som é analisado ao vivo neste dispositivo, sem gravação ou envio. O microfone capta som geral, que pode incluir ruído ambiente; não mede a respiração clinicamente. Para praticar, aproxime o microfone e respire com suavidade.</p>
+        </div>
+
+        <p id="feedback" class="feedback">
+          Mantenha a coluna erguida e o movimento do ar suave e controlado.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/respiracao.js"></script>
+</body>
+
+</html>

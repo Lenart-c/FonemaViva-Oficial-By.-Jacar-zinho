@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a2b">
+  <title>FonemaViva • Desafio Progressivo de Pronúncia</title>
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/diferenciacao-adultos.css">
+  <link rel="stylesheet" href="../css/back-arrow.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="adultos.html" aria-label="Voltar aos exercícios para adultos">
+      <i class="fa-solid fa-wave-square" aria-hidden="true"></i>
+      <span>FonemaViva</span>
+    </a>
+    <a class="back-arrow" href="adultos.html" aria-label="Voltar aos exercícios para adultos" title="Voltar aos exercícios">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    </a>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <span class="eyebrow">Fala e articulação</span>
+      <h1>Desafio Progressivo de Pronúncia</h1>
+      <p>Fale cada palavra em voz alta. Começamos com palavras desafiadoras e avançamos gradualmente até termos longos e complexos.</p>
+      <p class="support-note"><i class="fa-solid fa-heart" aria-hidden="true"></i> Pratique no seu ritmo. Você pode ouvir um exemplo e tentar falar a palavra quantas vezes quiser.</p>
+    </section>
+
+    <section class="progress-card" aria-label="Progresso do desafio">
+      <div class="progress-top">
+        <span>Etapas concluídas</span>
+        <span id="progress-text">0 de 9 palavras</span>
+      </div>
+      <div
+        class="progress-track"
+        id="progress-track"
+        role="progressbar"
+        aria-label="Progresso do desafio"
+        aria-valuemin="0"
+        aria-valuemax="9"
+        aria-valuenow="0"
+      >
+        <div id="progresso"></div>
+      </div>
+    </section>
+
+    <section class="exercise-card" aria-labelledby="exercise-title">
+      <div class="round-label" id="round-label">PALAVRA 1 DE 9</div>
+      <p class="level-label" id="level-label">Nível 1 · Aquecimento</p>
+      <h2 id="exercise-title">Fale a palavra</h2>
+      <p class="instruction" id="instruction">Leia a palavra e diga-a em voz alta, com calma e clareza.</p>
+
+      <div class="target-word" aria-live="polite">
+        <span id="target-word">Arquipélago</span>
+      </div>
+
+      <div class="exercise-actions">
+        <button class="button button-secondary" id="listen-button" type="button">
+          <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+          Ouvir exemplo
+        </button>
+        <button class="button button-primary" id="speak-button" type="button">
+          <i class="fa-solid fa-microphone" aria-hidden="true"></i>
+          Falar palavra
+        </button>
+      </div>
+
+      <p class="feedback" id="feedback" role="status" aria-live="polite">Quando estiver pronto, toque em “Falar palavra”.</p>
+      <p class="transcript" id="transcript" hidden></p>
+
+      <div class="exercise-actions follow-up-actions">
+        <button class="button button-secondary" id="retry-button" type="button" hidden>
+          <i class="fa-solid fa-rotate-right" aria-hidden="true"></i>
+          Tentar novamente
+        </button>
+        <button class="button button-primary" id="next-button" type="button" disabled>
+          Próxima palavra
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </section>
+
+    <section class="tips-card" aria-labelledby="tips-title">
+      <h2 id="tips-title"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i> Como funciona</h2>
+      <ul>
+        <li>As nove palavras ficam progressivamente mais longas e complexas.</li>
+        <li>Toque em “Falar palavra” e permita o acesso ao microfone para receber uma verificação automática.</li>
+        <li>É necessário que o navegador reconheça a palavra para avançar. Se não reconhecer, tente novamente em um local silencioso.</li>
+      </ul>
+      <p class="disclaimer">A verificação usa o reconhecimento de voz disponível no navegador, que pode processar o áudio conforme as políticas do próprio navegador. O FonemaViva não armazena gravações. A pronúncia varia entre pessoas e regiões; a atividade é uma prática, não substitui uma avaliação fonoaudiológica.</p>
+    </section>
+
+    <section class="completion-card" id="completion-card" aria-live="polite" tabindex="-1" hidden>
+      <div class="completion-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+      <h2>Desafio concluído!</h2>
+      <p id="final-score"></p>
+      <button class="button button-primary" id="restart-button" type="button">Recomeçar desafio</button>
+    </section>
+  </main>
+
+  <script src="../js/diferenciacao-adultos.js"></script>
+</body>
+
+</html>

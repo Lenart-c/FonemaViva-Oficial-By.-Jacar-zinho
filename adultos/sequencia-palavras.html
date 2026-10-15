@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a2b">
+  <title>FonemaViva • Sequência de palavras</title>
+  <link rel="shortcut icon" href="../Img/goatfc.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/sequencia-palavras.css">
+  <link rel="stylesheet" href="../css/back-arrow.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="adultos.html" aria-label="Voltar aos exercícios para adultos">
+      <i class="fa-solid fa-wave-square" aria-hidden="true"></i>
+      <span>FonemaViva</span>
+    </a>
+    <a class="back-arrow" href="adultos.html" aria-label="Voltar aos exercícios para adultos" title="Voltar aos exercícios">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    </a>
+  </header>
+
+  <main class="container">
+    <section class="intro" aria-labelledby="page-title">
+      <span class="eyebrow">Articulação e fluidez</span>
+      <h1 id="page-title">Sequência de palavras</h1>
+      <p>Leia as palavras em voz alta, na ordem em que aparecem. As sequências aumentam aos poucos para você praticar no seu ritmo.</p>
+      <p class="support-note">
+        <i class="fa-solid fa-heart" aria-hidden="true"></i>
+        Não precisa ter pressa. Você pode ouvir o modelo e tentar novamente sempre que quiser.
+      </p>
+    </section>
+
+    <section class="progress-card" aria-label="Progresso do exercício">
+      <div class="progress-top">
+        <span>Progresso</span>
+        <span id="progress-text">0 de 8 sequências</span>
+      </div>
+      <div
+        class="progress-track"
+        id="progress-track"
+        role="progressbar"
+        aria-label="Progresso das sequências"
+        aria-valuemin="0"
+        aria-valuemax="8"
+        aria-valuenow="0"
+      >
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </section>
+
+    <section class="exercise-card" id="exercise-card" aria-labelledby="exercise-title">
+      <div class="round-label" id="round-label">SEQUÊNCIA 1 DE 8</div>
+      <p class="level-label" id="level-label">Nível 1 · Aquecimento</p>
+      <h2 id="exercise-title">Fale as palavras na ordem</h2>
+      <p class="instruction">Leia cada palavra com calma. Depois, toque em “Gravar sequência” e diga todas na ordem apresentada.</p>
+
+      <ol class="word-sequence" id="word-sequence" aria-label="Palavras para praticar"></ol>
+
+      <div class="audio-actions">
+        <button class="button button-secondary" id="listen-button" type="button">
+          <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+          Ouvir modelo
+        </button>
+        <button class="button button-primary" id="record-button" type="button">
+          <i class="fa-solid fa-microphone" aria-hidden="true"></i>
+          <span>Gravar sequência</span>
+        </button>
+      </div>
+
+      <p class="feedback" id="feedback" role="status" aria-live="polite">Quando estiver pronto, pratique a sequência.</p>
+      <p class="recognized-text" id="recognized-text" hidden></p>
+
+      <div class="exercise-actions">
+        <button class="button button-secondary" id="retry-button" type="button" hidden>
+          <i class="fa-solid fa-rotate-right" aria-hidden="true"></i>
+          Tentar novamente
+        </button>
+        <button class="button button-primary" id="next-button" type="button" disabled>
+          Próxima sequência
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </section>
+
+    <details class="accessibility-panel">
+      <summary><i class="fa-solid fa-universal-access" aria-hidden="true"></i> Acessibilidade</summary>
+      <div class="accessibility-controls">
+        <label for="speech-speed">Velocidade do áudio-modelo</label>
+        <select id="speech-speed">
+          <option value="0.65">Mais devagar</option>
+          <option value="0.8" selected>Devagar</option>
+          <option value="1">Normal</option>
+        </select>
+        <button class="button button-secondary" id="text-size-button" type="button" aria-pressed="false">
+          <i class="fa-solid fa-text-height" aria-hidden="true"></i>
+          Aumentar texto
+        </button>
+      </div>
+    </details>
+
+    <p class="disclaimer">Este exercício é uma prática de fala acolhedora. Não faz diagnóstico nem substitui uma avaliação fonoaudiológica.</p>
+
+    <section class="completion-card" id="completion-card" aria-live="polite" tabindex="-1" hidden>
+      <div class="completion-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+      <h2>Prática concluída!</h2>
+      <p id="completion-message"></p>
+      <button class="button button-primary" id="restart-button" type="button">Recomeçar exercício</button>
+    </section>
+  </main>
+
+  <script src="../js/sequencia-palavras.js"></script>
+</body>
+
+</html>

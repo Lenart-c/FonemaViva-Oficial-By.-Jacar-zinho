@@ -1,0 +1,1988 @@
+/* =========================================================
+   FONEMAVIVA — PRIVACIDADE
+   CSS PRINCIPAL
+========================================================= */
+
+
+/* =========================================================
+   ANIMAÇÕES
+========================================================= */
+
+@keyframes spin {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+@keyframes pageFadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes aparecer {
+
+  from {
+    opacity: 0;
+    transform: scale(.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+
+  --primary: #00A89E;
+  --primary-dark: #0F766E;
+  --primary-light: #E8F8F6;
+
+  --background: #F4F7FA;
+  --surface: #FFFFFF;
+  --surface-soft: #F8FAFC;
+
+  --text: #1F2937;
+  --text-soft: #64748B;
+  --text-muted: #94A3B8;
+
+  --border: #E2E8F0;
+
+  --danger: #DC2626;
+  --success: #16A34A;
+
+  --shadow:
+    0 10px 30px rgba(15, 23, 42, .08);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
+body {
+
+  min-height: 100vh;
+
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: var(--background);
+
+  color: var(--text);
+
+  -webkit-font-smoothing: antialiased;
+
+  animation:
+    pageFadeIn .45s ease both;
+
+}
+
+
+/* =========================================================
+   TOPO
+========================================================= */
+
+.topo {
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding:
+    20px
+    clamp(20px, 5vw, 70px);
+
+  background: var(--surface);
+
+  border-bottom:
+    1px solid var(--border);
+
+  box-shadow:
+    0 2px 12px rgba(15, 23, 42, .04);
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+}
+
+.logo-icon {
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--primary-dark)
+    );
+
+  color: #FFFFFF;
+
+  font-size: 19px;
+
+  box-shadow:
+    0 5px 14px rgba(0, 168, 158, .22);
+
+}
+
+.logo h1 {
+
+  color: var(--primary-dark);
+
+  font-size: 22px;
+
+  font-weight: 800;
+
+  letter-spacing: -.5px;
+
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+========================================================= */
+
+.btn-voltar {
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding:
+    10px
+    17px;
+
+  border:
+    1px solid var(--primary);
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--primary-dark)
+    );
+
+  color: #FFFFFF;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+
+}
+
+.btn-voltar:hover {
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 16px rgba(0, 168, 158, .22);
+
+}
+
+.btn-voltar:active {
+
+  transform: translateY(0);
+
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+========================================================= */
+
+.privacidade-page {
+
+  width: 100%;
+
+  max-width: 920px;
+
+  margin: 0 auto;
+
+  padding:
+    42px
+    24px
+    70px;
+
+}
+
+#formPrivacidade {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 22px;
+
+}
+
+
+/* =========================================================
+   CABEÇALHO DE SEGURANÇA
+========================================================= */
+
+.security-header {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 26px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #E8F8F6,
+      #F8FAFC
+    );
+
+  border:
+    1px solid #D5F1EE;
+
+}
+
+.security-icon {
+
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--primary-dark)
+    );
+
+  color: #FFFFFF;
+
+  font-size: 24px;
+
+  box-shadow:
+    0 8px 18px rgba(0, 168, 158, .2);
+
+}
+
+.security-header h2 {
+
+  margin-bottom: 5px;
+
+  color: var(--text);
+
+  font-size: 21px;
+
+  font-weight: 800;
+
+}
+
+.security-header p {
+
+  color: var(--text-soft);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.security-card {
+
+  padding: 28px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 18px;
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow);
+
+}
+
+.card-title {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+
+  margin-bottom: 24px;
+
+}
+
+.card-title-icon {
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: var(--primary-light);
+
+  color: var(--primary-dark);
+
+  font-size: 17px;
+
+}
+
+.card-title h3 {
+
+  margin-bottom: 4px;
+
+  color: var(--text);
+
+  font-size: 17px;
+
+  font-weight: 800;
+
+}
+
+.card-title p {
+
+  color: var(--text-soft);
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   CAMPOS
+========================================================= */
+
+.password-fields {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+
+}
+
+.input-group {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+}
+
+.input-group label {
+
+  color: var(--text);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+}
+
+.input-box {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+}
+
+.input-icon {
+
+  position: absolute;
+
+  left: 14px;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+
+  pointer-events: none;
+
+}
+
+.input-box input {
+
+  width: 100%;
+
+  height: 48px;
+
+  padding:
+    0
+    43px
+    0
+    42px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 11px;
+
+  outline: none;
+
+  background: var(--surface);
+
+  color: var(--text);
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+
+}
+
+.input-box input::placeholder {
+
+  color: var(--text-muted);
+
+}
+
+.input-box input:focus {
+
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(0, 168, 158, .12);
+
+}
+
+.btn-mostrar-senha {
+
+  position: absolute;
+
+  right: 8px;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    color .2s ease;
+
+}
+
+.btn-mostrar-senha:hover {
+
+  background: var(--surface-soft);
+
+  color: var(--primary-dark);
+
+}
+
+
+/* =========================================================
+   DICA DA SENHA
+========================================================= */
+
+.password-hint {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 17px;
+
+  padding: 12px 14px;
+
+  border-radius: 10px;
+
+  background: var(--surface-soft);
+
+  color: var(--text-soft);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+}
+
+.password-hint-icon {
+
+  color: var(--primary);
+
+  font-size: 14px;
+
+}
+
+
+/* =========================================================
+   INFORMAÇÕES DE SEGURANÇA
+========================================================= */
+
+.security-info {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 15px;
+
+  padding: 21px;
+
+  border:
+    1px solid #D5F1EE;
+
+  border-radius: 15px;
+
+  background:
+    #F0FDFA;
+
+}
+
+.security-info-icon {
+
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #D9F7F3;
+
+  color: var(--primary-dark);
+
+}
+
+.security-info h3 {
+
+  margin-bottom: 5px;
+
+  color: var(--text);
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+}
+
+.security-info p {
+
+  margin-top: 4px;
+
+  color: var(--text-soft);
+
+  font-size: 12px;
+
+  line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   BOTÃO SALVAR
+========================================================= */
+
+.btn-salvar {
+
+  width: 100%;
+
+  min-height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 0;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--primary-dark)
+    );
+
+  color: #FFFFFF;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px rgba(0, 168, 158, .18);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    opacity .2s ease;
+
+}
+
+.btn-salvar:hover {
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 22px rgba(0, 168, 158, .23);
+
+}
+
+.btn-salvar:active {
+
+  transform: translateY(0);
+
+}
+
+.btn-salvar:disabled {
+
+  opacity: .65;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading-screen {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(244, 247, 250, .96);
+
+  backdrop-filter: blur(6px);
+
+}
+
+.loading-screen.active {
+
+  display: flex;
+
+}
+
+.loading-box {
+
+  min-width: 240px;
+
+  padding: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background: var(--surface);
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, .16);
+
+  animation:
+    aparecer .3s ease both;
+
+}
+
+.loader {
+
+  width: 40px;
+  height: 40px;
+
+  margin-bottom: 17px;
+
+  border:
+    4px solid rgba(0, 168, 158, .18);
+
+  border-top-color: var(--primary);
+
+  border-radius: 50%;
+
+  animation:
+    spin .8s linear infinite;
+
+}
+
+.loading-box p {
+
+  color: var(--text);
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+}
+
+.success-icon {
+
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  border-radius: 50%;
+
+  background: #DCFCE7;
+
+  color: var(--success);
+
+  font-size: 23px;
+
+  font-weight: 800;
+
+}
+
+.error-icon {
+
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  border-radius: 50%;
+
+  background: #FEE2E2;
+
+  color: var(--danger);
+
+  font-size: 23px;
+
+  font-weight: 800;
+
+}
+
+
+/* =========================================================
+   MODO ESCURO AUTOMÁTICO
+   Só será aplicado quando o usuário não tiver escolhido
+   manualmente o modo claro.
+========================================================= */
+
+@media (prefers-color-scheme: dark) {
+
+  body:not(.light-mode) {
+
+    --background: #0F172A;
+
+    --surface: #111827;
+
+    --surface-soft: #1E293B;
+
+    --text: #F8FAFC;
+
+    --text-soft: #CBD5E1;
+
+    --text-muted: #94A3B8;
+
+    --border: #334155;
+
+    --primary-light: #123C3A;
+
+    background: var(--background);
+
+    color: var(--text);
+
+  }
+
+  body:not(.light-mode) .topo {
+
+    background: #111827;
+
+    border-color: #334155;
+
+  }
+
+  body:not(.light-mode) .logo h1 {
+
+    color: #00A89E;
+
+  }
+
+  body:not(.light-mode) .btn-voltar {
+
+    background: #1E293B;
+
+    border-color: #1E293B;
+
+    color: #FFFFFF;
+
+  }
+
+  body:not(.light-mode) .security-header {
+
+    background:
+      linear-gradient(
+        135deg,
+        #123C3A,
+        #111827
+      );
+
+    border-color: #245A57;
+
+  }
+
+  body:not(.light-mode) .security-header h2 {
+
+    color: #F8FAFC;
+
+  }
+
+  body:not(.light-mode) .security-header p {
+
+    color: #CBD5E1;
+
+  }
+
+  body:not(.light-mode) .security-card {
+
+    background: #111827;
+
+    border-color: #334155;
+
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, .2);
+
+  }
+
+  body:not(.light-mode) .card-title h3 {
+
+    color: #F8FAFC;
+
+  }
+
+  body:not(.light-mode) .card-title p {
+
+    color: #CBD5E1;
+
+  }
+
+  body:not(.light-mode) .card-title-icon {
+
+    background: #123C3A;
+
+    color: #5EEAD4;
+
+  }
+
+  body:not(.light-mode) .input-group label {
+
+    color: #F8FAFC;
+
+  }
+
+  body:not(.light-mode) .input-box input {
+
+    background: #0F172A;
+
+    border-color: #334155;
+
+    color: #F8FAFC;
+
+  }
+
+  body:not(.light-mode) .input-box input::placeholder {
+
+    color: #64748B;
+
+  }
+
+  body:not(.light-mode) .input-icon {
+
+    color: #64748B;
+
+  }
+
+  body:not(.light-mode) .btn-mostrar-senha {
+
+    color: #94A3B8;
+
+  }
+
+  body:not(.light-mode) .btn-mostrar-senha:hover {
+
+    background: #1E293B;
+
+    color: #5EEAD4;
+
+  }
+
+  body:not(.light-mode) .password-hint {
+
+    background: #1E293B;
+
+    color: #CBD5E1;
+
+  }
+
+  body:not(.light-mode) .security-info {
+
+    background: #102B2A;
+
+    border-color: #245A57;
+
+  }
+
+  body:not(.light-mode) .security-info h3 {
+
+    color: #F8FAFC;
+
+  }
+
+  body:not(.light-mode) .security-info p {
+
+    color: #CBD5E1;
+
+  }
+
+  body:not(.light-mode) .security-info-icon {
+
+    background: #163D3A;
+
+    color: #5EEAD4;
+
+  }
+
+  body:not(.light-mode) .loading-screen {
+
+    background:
+      rgba(15, 23, 42, .96);
+
+  }
+
+  body:not(.light-mode) .loading-box {
+
+    background: #111827;
+
+  }
+
+  body:not(.light-mode) .loading-box p {
+
+    color: #F8FAFC;
+
+  }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   TAMANHO DO TEXTO
+========================================================= */
+
+body.text-small {
+
+  font-size: 90%;
+
+}
+
+body.text-normal {
+
+  font-size: 100%;
+
+}
+
+body.text-large {
+
+  font-size: 112%;
+
+}
+
+body.text-large .logo h1 {
+
+  font-size: 1.08em;
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   FONTE AMIGÁVEL
+========================================================= */
+
+body.friendly-font,
+body.friendly-font input,
+body.friendly-font button,
+body.friendly-font label {
+
+  font-family:
+    Arial,
+    Verdana,
+    sans-serif;
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ESPAÇAMENTO DE TEXTO
+========================================================= */
+
+body.spacing-medium {
+
+  letter-spacing: .03em;
+
+  line-height: 1.6;
+
+}
+
+body.spacing-large {
+
+  letter-spacing: .06em;
+
+  line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   BOTÕES MAIORES
+========================================================= */
+
+body.large-buttons .btn-voltar {
+
+  min-height: 48px;
+
+  padding:
+    12px
+    20px;
+
+}
+
+body.large-buttons .btn-salvar {
+
+  min-height: 58px;
+
+}
+
+body.large-buttons .btn-mostrar-senha {
+
+  width: 40px;
+  height: 40px;
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   DESTAQUE DE FOCO
+========================================================= */
+
+body.focus-highlight button:focus-visible,
+body.focus-highlight input:focus-visible,
+body.focus-highlight select:focus-visible,
+body.focus-highlight textarea:focus-visible,
+body.focus-highlight a:focus-visible {
+
+  outline:
+    3px solid #F59E0B;
+
+  outline-offset: 3px;
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ALTO CONTRASTE
+========================================================= */
+
+body.high-contrast {
+
+  background: #000000;
+
+  color: #FFFFFF;
+
+}
+
+body.high-contrast .topo,
+body.high-contrast .security-card,
+body.high-contrast .loading-box {
+
+  background: #000000;
+
+  border-color: #FFFFFF;
+
+  color: #FFFFFF;
+
+}
+
+body.high-contrast .logo h1,
+body.high-contrast .security-header h2,
+body.high-contrast .security-header p,
+body.high-contrast .card-title h3,
+body.high-contrast .card-title p,
+body.high-contrast .input-group label,
+body.high-contrast .security-info h3,
+body.high-contrast .security-info p,
+body.high-contrast .loading-box p {
+
+  color: #FFFFFF;
+
+}
+
+body.high-contrast .security-header,
+body.high-contrast .security-info,
+body.high-contrast .password-hint {
+
+  background: #000000;
+
+  border-color: #FFFFFF;
+
+}
+
+body.high-contrast .input-box input {
+
+  background: #000000;
+
+  border-color: #FFFFFF;
+
+  color: #FFFFFF;
+
+}
+
+body.high-contrast .input-box input::placeholder {
+
+  color: #FFFFFF;
+
+}
+
+body.high-contrast .btn-voltar,
+body.high-contrast .btn-salvar {
+
+  background: #000000;
+
+  border: 2px solid #FFFFFF;
+
+  color: #FFFFFF;
+
+}
+
+body.high-contrast .card-title-icon,
+body.high-contrast .security-info-icon {
+
+  background: #000000;
+
+  border: 1px solid #FFFFFF;
+
+  color: #FFFFFF;
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ESCALA DE CINZA
+========================================================= */
+
+body.grayscale {
+
+  filter: grayscale(100%);
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   REDUZIR ANIMAÇÕES
+========================================================= */
+
+body.reduced-motion *,
+body.reduced-motion *::before,
+body.reduced-motion *::after {
+
+  animation-duration: .01ms !important;
+
+  animation-iteration-count: 1 !important;
+
+  transition-duration: .01ms !important;
+
+  scroll-behavior: auto !important;
+
+}
+
+
+/* =========================================================
+   TEMA CLARO MANUAL
+========================================================= */
+
+body.light-mode {
+
+  --background: #F4F7FA;
+
+  --surface: #FFFFFF;
+
+  --surface-soft: #F8FAFC;
+
+  --text: #1F2937;
+
+  --text-soft: #64748B;
+
+  --text-muted: #94A3B8;
+
+  --border: #E2E8F0;
+
+  --primary-light: #E8F8F6;
+
+  background: var(--background);
+
+  color: var(--text);
+
+}
+
+body.light-mode .topo {
+
+  background: #FFFFFF;
+
+  border-color: #E2E8F0;
+
+}
+
+body.light-mode .logo h1 {
+
+  color: #0F766E;
+
+}
+
+body.light-mode .btn-voltar {
+
+  background:
+    linear-gradient(
+      135deg,
+      #00A89E,
+      #0F766E
+    );
+
+  border-color: #00A89E;
+
+  color: #FFFFFF;
+
+}
+
+body.light-mode .security-header {
+
+  background:
+    linear-gradient(
+      135deg,
+      #E8F8F6,
+      #F8FAFC
+    );
+
+  border-color: #D5F1EE;
+
+}
+
+body.light-mode .security-header h2 {
+
+  color: #1F2937;
+
+}
+
+body.light-mode .security-header p {
+
+  color: #64748B;
+
+}
+
+body.light-mode .security-card {
+
+  background: #FFFFFF;
+
+  border-color: #E2E8F0;
+
+}
+
+body.light-mode .card-title h3 {
+
+  color: #1F2937;
+
+}
+
+body.light-mode .card-title p {
+
+  color: #64748B;
+
+}
+
+body.light-mode .card-title-icon {
+
+  background: #E8F8F6;
+
+  color: #0F766E;
+
+}
+
+body.light-mode .input-group label {
+
+  color: #1F2937;
+
+}
+
+body.light-mode .input-box input {
+
+  background: #FFFFFF;
+
+  border-color: #E2E8F0;
+
+  color: #1F2937;
+
+}
+
+body.light-mode .input-icon {
+
+  color: #94A3B8;
+
+}
+
+body.light-mode .password-hint {
+
+  background: #F8FAFC;
+
+  color: #64748B;
+
+}
+
+body.light-mode .security-info {
+
+  background: #F0FDFA;
+
+  border-color: #D5F1EE;
+
+}
+
+body.light-mode .security-info h3 {
+
+  color: #1F2937;
+
+}
+
+body.light-mode .security-info p {
+
+  color: #64748B;
+
+}
+
+body.light-mode .security-info-icon {
+
+  background: #D9F7F3;
+
+  color: #0F766E;
+
+}
+
+body.light-mode .loading-screen {
+
+  background:
+    rgba(244, 247, 250, .96);
+
+}
+
+body.light-mode .loading-box {
+
+  background: #FFFFFF;
+
+}
+
+body.light-mode .loading-box p {
+
+  color: #1F2937;
+
+}
+
+
+/* =========================================================
+   TEMA ESCURO MANUAL
+========================================================= */
+
+body.dark-mode {
+
+  --background: #0F172A;
+
+  --surface: #111827;
+
+  --surface-soft: #1E293B;
+
+  --text: #F8FAFC;
+
+  --text-soft: #CBD5E1;
+
+  --text-muted: #94A3B8;
+
+  --border: #334155;
+
+  --primary-light: #123C3A;
+
+  background: var(--background);
+
+  color: var(--text);
+
+}
+
+body.dark-mode .topo {
+
+  background: #111827;
+
+  border-color: #334155;
+
+}
+
+body.dark-mode .logo h1 {
+
+  color: #00A89E;
+
+}
+
+body.dark-mode .btn-voltar {
+
+  background: #1E293B;
+
+  border-color: #1E293B;
+
+  color: #FFFFFF;
+
+}
+
+body.dark-mode .security-header {
+
+  background:
+    linear-gradient(
+      135deg,
+      #123C3A,
+      #111827
+    );
+
+  border-color: #245A57;
+
+}
+
+body.dark-mode .security-header h2 {
+
+  color: #F8FAFC;
+
+}
+
+body.dark-mode .security-header p {
+
+  color: #CBD5E1;
+
+}
+
+body.dark-mode .security-card {
+
+  background: #111827;
+
+  border-color: #334155;
+
+}
+
+body.dark-mode .card-title h3 {
+
+  color: #F8FAFC;
+
+}
+
+body.dark-mode .card-title p {
+
+  color: #CBD5E1;
+
+}
+
+body.dark-mode .card-title-icon {
+
+  background: #123C3A;
+
+  color: #5EEAD4;
+
+}
+
+body.dark-mode .input-group label {
+
+  color: #F8FAFC;
+
+}
+
+body.dark-mode .input-box input {
+
+  background: #0F172A;
+
+  border-color: #334155;
+
+  color: #F8FAFC;
+
+}
+
+body.dark-mode .input-icon {
+
+  color: #64748B;
+
+}
+
+body.dark-mode .btn-mostrar-senha {
+
+  color: #94A3B8;
+
+}
+
+body.dark-mode .btn-mostrar-senha:hover {
+
+  background: #1E293B;
+
+  color: #5EEAD4;
+
+}
+
+body.dark-mode .password-hint {
+
+  background: #1E293B;
+
+  color: #CBD5E1;
+
+}
+
+body.dark-mode .security-info {
+
+  background: #102B2A;
+
+  border-color: #245A57;
+
+}
+
+body.dark-mode .security-info h3 {
+
+  color: #F8FAFC;
+
+}
+
+body.dark-mode .security-info p {
+
+  color: #CBD5E1;
+
+}
+
+body.dark-mode .security-info-icon {
+
+  background: #163D3A;
+
+  color: #5EEAD4;
+
+}
+
+body.dark-mode .loading-screen {
+
+  background:
+    rgba(15, 23, 42, .96);
+
+}
+
+body.dark-mode .loading-box {
+
+  background: #111827;
+
+}
+
+body.dark-mode .loading-box p {
+
+  color: #F8FAFC;
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .topo {
+
+    padding:
+      18px
+      24px;
+
+  }
+
+  .privacidade-page {
+
+    padding:
+      32px
+      20px
+      55px;
+
+  }
+
+  .password-fields {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .topo {
+
+    padding:
+      16px
+      18px;
+
+  }
+
+  .logo-icon {
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+
+  }
+
+  .logo h1 {
+
+    font-size: 19px;
+
+  }
+
+  .btn-voltar {
+
+    padding:
+      9px
+      12px;
+
+    font-size: 13px;
+
+  }
+
+  .privacidade-page {
+
+    padding:
+      24px
+      14px
+      45px;
+
+  }
+
+  .security-header {
+
+    padding: 20px;
+
+  }
+
+  .security-icon {
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 13px;
+
+    font-size: 20px;
+
+  }
+
+  .security-header h2 {
+
+    font-size: 18px;
+
+  }
+
+  .security-card {
+
+    padding: 21px;
+
+  }
+
+  .card-title {
+
+    gap: 11px;
+
+  }
+
+  .card-title-icon {
+
+    width: 38px;
+    height: 38px;
+
+  }
+
+  .security-info {
+
+    padding: 17px;
+
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — MOBILE PEQUENO
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .topo {
+
+    padding:
+      14px;
+
+  }
+
+  .logo {
+
+    gap: 8px;
+
+  }
+
+  .logo-icon {
+
+    width: 35px;
+    height: 35px;
+
+    font-size: 15px;
+
+  }
+
+  .logo h1 {
+
+    font-size: 17px;
+
+  }
+
+  .btn-voltar span {
+
+    display: none;
+
+  }
+
+  .btn-voltar {
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+
+  }
+
+  .privacidade-page {
+
+    padding:
+      20px
+      11px
+      40px;
+
+  }
+
+  .security-header {
+
+    align-items: flex-start;
+
+    padding: 18px;
+
+  }
+
+  .security-header h2 {
+
+    font-size: 16px;
+
+  }
+
+  .security-header p {
+
+    font-size: 12px;
+
+  }
+
+  .security-card {
+
+    padding: 18px;
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO DO SISTEMA
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    animation-duration: .01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: .01ms !important;
+
+    scroll-behavior: auto !important;
+
+  }
+
+}
